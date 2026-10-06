@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切版練習01</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+
+    <style>
+        .box01 {
+            height: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col d-md-none d-xl-block mt-3">
+                <div class="box01 bg-primary"></div>
+            </div>
+        </div>
+        <!-- 參考模板編寫的時候，可以先觀察第一次的變化點，就能直接寫出.row>.col-sm-6.mt-3>.box01.bg-success，
+        後續再補其他節點的變化語法 -->
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 mt-3">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col-sm-6 col-lg-4 mt-3">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col-sm-6 col-lg-4 mt-3">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col-sm-6 col-lg-4 mt-3">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col-sm-6 col-lg-4 mt-3">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col-sm-6 col-lg-4 mt-3">
+                <div class="box01 bg-success"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xl-2 mt-3">
+                <div class="box01 bg-danger"></div>
+            </div>
+            <div class="col-md-3 col-xl-2 mt-3">
+                <div class="box01 bg-danger"></div>
+            </div>
+            <div class="col-md-3 col-xl-2 mt-3">
+                <div class="box01 bg-danger"></div>
+            </div>
+            <div class="col-md-3 col-xl-2 mt-3">
+                <div class="box01 bg-danger"></div>
+            </div>
+            <div class="col-md-3 col-xl-2 mt-3">
+                <div class="box01 bg-danger"></div>
+            </div>
+            <div class="col-md-3 col-xl-2 mt-3">
+                <div class="box01 bg-danger"></div>
+            </div>
+            <div class="col-md-3 col-xl-2 d-xl-none mt-3">
+                <div class="box01 bg-danger"></div>
+            </div>
+            <div class="col-md-3 col-xl-2 d-xl-none mt-3">
+                <div class="box01 bg-danger"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xl-4 mt-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+            <div class="col-md-3 col-xl-4 mt-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+            <div class="col-md-3 col-xl-4 mt-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+            <div class="col-md-3 col-xl-4 d-xl-none mt-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+            <div class="col-md-3 col-xl-4 d-xl-none mt-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+            <div class="col-md-3 col-xl-4 d-xl-none mt-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+            <div class="col-md-3 col-xl-4 d-xl-none mt-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+            <div class="col-md-3 col-xl-4 d-xl-none mt-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-lg-none d-xxl-block mt-3">
+                <div class="box01 bg-info"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

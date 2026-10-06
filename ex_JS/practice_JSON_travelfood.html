@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opendata-地方美食資料練習</title>
+    <link rel="stylesheet" href="../css/allcss.css">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper {
+            width: 1024px;
+            margin-top: 50px;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 2px 2px 2px 2px var(--shadow);
+            padding: 30px;
+            /* 跟float: left並用（只寫float: left會跑版） */
+            overflow: hidden;
+        }
+
+        .demo {
+            /* 寬度32%是因為一排三個，如果33%會只剩1%不太夠用 */
+            width: 30%;
+            box-shadow: 2px 2px 2px 2px var(--shadow);
+            margin-top: 15px;
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 3%;
+        }
+
+        /* 指定demo裡的logo樣式，此例直接寫.logo也可以 */
+        .demo .logo {
+            width: 100%;
+            height: 220px;
+            /* background-image: url(image/tea.avif); */
+            background-color: bisque;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .wrapper {
+                width: 94%;
+                padding: 15px;
+            }
+
+            .demo {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display-1 mytitle-01">地方美食餐廳列表</div>
+    <div class="wrapper" id="foodlist">
+        <!-- <div class="demo">
+            <div class="logo bg-img" style="background-image: url();"></div>
+            <p class="font-02">店家:xxx</p>
+            <p class="font-02">電話:xxx</p>
+        </div> -->
+    </div>
+
+    <script src="../js/jquery-4.0.0.js"></script>
+    <script src="../js/TravelFood.js"></script>
+
+    <script>
+        // 如果要把上面結構塞進append，不能換行，要用一行來寫
+        // 用style來引入css
+        Food.forEach(function (item) {
+            $("#foodlist").append('<div class="demo"><div class="logo bg-img" style="background-image: url('+item.PicURL+');"></div><p class="font-02 zom fw700">店家:'+item.Name+'</p><p class="font-02 zom fw400">電話:'+item.Tel+'</p></div>');
+        });
+    </script>
+
+    <!--  <div class="mytitle-03">列出所有餐廳名稱</div>
+    <div id="001"></div> -->
+
+    <script>
+        //         Food.forEach(function (item) {
+        //             console.log(item.Name);
+        //             console.log(item.City);
+        //             console.log(item.Email);
+        //         });
+
+        //         Food.forEach(function (item, index) {
+        //             $("#001").append(
+        //                 '<p class="font-01">' + item.Name + '</p>'
+        //             );
+        //         });
+        // </script>
+</body>
+
+</html>

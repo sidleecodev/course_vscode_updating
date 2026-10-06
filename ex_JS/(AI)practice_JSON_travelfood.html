@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opendata-地方美食資料練習</title>
+    <link rel="stylesheet" href="../css/allcss.css">
+
+    <style>
+        :root {
+            --bg-main: #f3eee6;
+            --bg-card: #fffaf3;
+            --bg-image: #eadcc8;
+
+            --brown-dark: #4b382d;
+            --brown: #755846;
+            --brown-light: #b89a82;
+
+            --accent: #9aa27a;
+            --accent-soft: #d8ddc7;
+
+            --text-main: #4a4039;
+            --text-sub: #75685f;
+
+            --border: #d8cbbb;
+            --shadow: rgba(79, 59, 45, 0.18);
+
+            --radius: 14px;
+            --space: 16px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: "Zen Old Mincho", serif;
+        }
+
+        .display-1 {
+            width: 1024px;
+            margin: 45px auto 0;
+            padding-bottom: 14px;
+            font-size: 34px;
+            font-weight: 600;
+            color: var(--brown-dark);
+            border-bottom: 2px solid var(--accent);
+            letter-spacing: 3px;
+        }
+
+        .wrapper {
+            width: 1024px;
+            margin: 24px auto 40px;
+            padding: var(--space);
+
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: 0 6px 18px var(--shadow);
+
+            overflow: hidden;
+        }
+
+        .demo {
+            width: 32%;
+            min-height: 330px;
+
+            float: left;
+
+            margin-top: 15px;
+            margin-right: 1%;
+            margin-bottom: 15px;
+
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: 0 3px 10px var(--shadow);
+
+            overflow: hidden;
+        }
+
+        .demo .logo {
+            width: 100%;
+            height: 220px;
+
+            background-color: var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .font-02 {
+            padding-left: 16px;
+            padding-right: 16px;
+
+            font-size: 18px;
+            line-height: 1.6;
+
+            color: var(--text-sub);
+            text-align: left;
+        }
+
+        .demo .font-02:first-of-type {
+            padding-top: 16px;
+            color: var(--brown-dark);
+            font-weight: 600;
+        }
+
+        .demo .font-02:last-of-type {
+            padding-top: 8px;
+            padding-bottom: 18px;
+        }
+
+        .demo:hover {
+            box-shadow: 0 7px 20px var(--shadow);
+            transform: translateY(-3px);
+            transition: 0.25s;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .display-1 {
+                width: 94%;
+                font-size: 28px;
+            }
+
+            .wrapper {
+                width: 94%;
+                padding: 15px;
+            }
+
+            .demo {
+                width: 100%;
+                min-height: 0;
+
+                float: none;
+
+                margin-right: 0;
+            }
+
+            .demo .logo {
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display-1 mytitle-01">地方美食餐廳列表</div>
+    <div class="wrapper" id="foodlist">
+        <!-- <div class="demo">
+            <div class="logo bg-img" style="background-image: url();"></div>
+            <p class="font-02">店家:xxx</p>
+            <p class="font-02">電話:xxx</p>
+        </div> -->
+    </div>
+
+    <script src="../js/jquery-4.0.0.js"></script>
+    <script src="../js/TravelFood.js"></script>
+
+    <script>
+        // 如果要把上面結構塞進append，不能換行，要用一行來寫
+        Food.forEach(function (item) {
+            $("#foodlist").append('<div class="demo"><div class="logo bg-img" style="background-image: url(' + item.PicURL + ');"></div><p class="font-02">店家:' + item.Name + '</p><p class="font-02">電話:' + item.Tel + '</p></div>');
+        });
+    </script>
+
+    <!--  <div class="mytitle-03">列出所有餐廳名稱</div>
+    <div id="001"></div> -->
+
+    <script>
+        //         Food.forEach(function (item) {
+        //             console.log(item.Name);
+        //             console.log(item.City);
+        //             console.log(item.Email);
+        //         });
+
+        //         Food.forEach(function (item, index) {
+        //             $("#001").append(
+        //                 '<p class="font-01">' + item.Name + '</p>'
+        //             );
+        //         });
+        // </script>
+</body>
+
+</html>

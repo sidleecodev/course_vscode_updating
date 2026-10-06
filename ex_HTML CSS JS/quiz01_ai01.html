@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習01</title>
+    <!-- 代入自訂的css語法 -->
+    <link rel="stylesheet" href="../css/allcss.css">
+
+    <style>
+
+        /* 讓所有邊框距離的預設設置為0，通常都會有這一段 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 要設定背景色，就在style裡設定 */
+        body {
+            background-color: var(--bgcolor);
+        }
+
+        .wrapper {
+            width: 1024px;
+            /* 左右置中：上下0，左右auto */
+            /* margin(元素外面)：調區塊的上下左右(與邊界)的距離 */
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo {
+            /* 設定背景圖大小，顏色僅容易辨識 */
+            /* 不需要再設定寬度，wrapper那邊就有設定了 */
+            /* 只需要設定載入圖片的高度，讓圖片塞進來 */
+            /* width: 1024px; */
+            height: 240px;
+            background-color: var(--brown-light);
+
+            /* 底下為帶入背景圖，使用image,position,size */
+            /* 注意使用url */
+            background-image: url(image/tea.avif);
+
+            /* 設定x、y軸位置 */
+            /* background-position: center center; (拉去allcss) */
+
+            /* cover：等比例放大，覆蓋背景圖 */
+            /* background-size: cover; (拉去allcss)*/
+            background-repeat: no-repeat;
+        }
+
+        .nav {
+            background-color: var(--brown-dark);
+            /* 字的水平位置 */
+            text-align: center;
+            /* 控制nav這區塊，文字到上下左右的距離 */
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        /* inline-block：把清單塞到一行，形成區塊 */
+        .nav ul {
+            display: inline-block;
+        }
+
+        /* float：left 往左浮動，會自動形成一排 */
+        /* list-style-type：清單前面點點的樣式 */
+        .nav ul li {
+            float: left;
+            list-style-type: none;
+        }
+
+        .nav ul li a {
+            /* 文字裝飾線的屬性 */
+            text-decoration: none;
+
+            background-color: var(--brown);
+
+            /* 字體顏色 */
+            color: var(--text-light);
+
+            /* padding(元素裡面)單一個超連結(清單)的上下左右的間距 */
+            /* 控制5個文字方塊到上下左右的距離 */
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            /* margin(元素外面)各個超連結區塊的間隔 */
+            margin-left: 10px;
+
+            /* 讓框框有圓角 */
+            border-radius: 5px;
+
+            /* 陰影(x軸的陰影,y軸的陰影,模糊度,厚度,顏色) */
+            box-shadow: 2px 2px 2px 2px var(--shadow);
+
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* :hover 滑鼠移到超連結上，超連結會有什麼反應 */
+        .nav ul li a:hover {
+            box-shadow: 2px 2px 2px 2px var(--hover);
+            color: var(--cream);
+        }
+
+        /* padding進階技巧：後面兩變數分別為 上下30，左右80 */
+        .content {
+            padding: 30px 80px;
+            background-color: var(--conbgcolor01);
+        }
+
+        .content h1 {
+            text-align: center;
+            color: var(--brown-dark);
+            font-size: 48px;
+        }
+
+        .content p {
+            font-size: 18px;
+
+            /* 行距 */
+            margin-top: 20px;
+
+            color: var(--text-dark);
+        }
+
+        .content a {
+            /* 要將文字置中，可以先變成block，再用margin調整 */
+            display: block;
+            background-color: var(--matcha);
+            width: 130px;
+            height: 40px;
+
+            margin-top: 20px;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+
+            text-decoration: none;
+            color: var(--text-light);
+
+            /* 水平置中 */
+            /* 預設上應該都是center，可不寫這行 */
+            text-align: center;
+
+            /* <純文字版>line-height 文字垂直置中，跟height數值一樣；padding多半使用於方塊對齊 */
+            /* 如果使用padding，是將"文字方塊"只會調整成跟某一邊的距離，不會置中於文字方塊 */
+            line-height: 40px;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            box-shadow: 2px 2px 2px 2px var(--shadow);
+            border-radius: 5px;
+        }
+
+        .content a:hover {
+            color: var(--cream);
+            box-shadow: 2px 2px 2px 2px var(--hover);
+        }
+
+        .footer {
+            background-color: var(--brown-dark);
+            color: var(--cream);
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* 響應式RWD */
+        /* 1024px是根據上面wrapper的值 */
+        /* @media 讓CSS知道符合後面條件才執行 */
+        /* screen and (max-width: 1024px)
+        符合螢幕裝置，而且最大寬度是1024px */
+        @media screen and (max-width: 1024px) {
+            .wrapper {
+                width: 90%;
+            }
+
+            .logo {
+                width: 100%;
+                height: 120px;
+                background-color: var(--brown);
+                /* 如果有在allcss.css設定圖片置中，
+                且下面body有寫<div class="logo bg-img"> </div>
+                即可不寫底下這兩行 */
+                /* background-position: center center;
+                background-size: cover; */
+            }
+
+            /* 選單的寬度可以塞滿整個1024px的寬度 */
+            .nav ul {
+                display: block;
+                padding-left: 25%;
+                padding-right: 25%;
+            }
+
+            /* 讓螢幕縮小時，選單可以排成直的 */
+            .nav ul li {
+                float: none;
+            }
+
+            /* 預設上排成直的，會因為前面設定的padding而有所重疊，所以要改為block */
+            .nav ul li a {
+                display: block;
+                margin-left: 0;
+                margin-bottom: 20px;
+            }
+
+            .nav ul li:last-child a {
+                margin-bottom: 0;
+            }
+
+            /* .nav ul li:nth-child(3){
+                background-color: #e65b0a;
+            } */
+
+            .content {
+                padding: 10px 20px;
+            }
+
+            .content h1 {
+                font-size: 30px;
+            }
+
+            .content p {
+                line-height: 2;
+            }
+
+            .footer {
+                padding: 5px;
+            }
+        }
+
+        /* =========================
+   手機版 Web App
+   ========================= */
+        @media screen and (max-width: 600px) {
+
+            /* 整體直接填滿手機畫面 */
+            .wrapper {
+                width: 100%;
+                margin: 0;
+            }
+
+
+            /* ===== Banner ===== */
+
+            .logo {
+                width: 100%;
+                height: 160px;
+
+                background-position: center center;
+                background-size: cover;
+            }
+
+
+            /* ===== 導覽列 ===== */
+
+            .nav {
+                /* 固定在手機畫面最下面 */
+                position: fixed;
+
+                left: 0;
+                bottom: 0;
+
+                width: 100%;
+
+                padding: 0;
+
+                background-color: var(--brown-dark);
+
+                /* 確保不會被其他內容蓋住 */
+                z-index: 1000;
+            }
+
+
+            .nav ul {
+                display: flex;
+
+                width: 100%;
+
+                padding: 0;
+                margin: 0;
+            }
+
+
+            .nav ul li {
+                /* 5個選單平均分配寬度 */
+                flex: 1;
+
+                float: none;
+
+                list-style-type: none;
+            }
+
+
+            .nav ul li a {
+                display: block;
+
+                margin: 0;
+                padding: 14px 2px;
+
+                background-color: transparent;
+
+                color: var(--text-light);
+
+                font-size: 14px;
+                font-weight: normal;
+
+                text-align: center;
+
+                border-radius: 0;
+
+                /* 手機版取消桌機按鈕陰影 */
+                box-shadow: none;
+            }
+
+
+            .nav ul li a:hover {
+                background-color: var(--brown);
+                box-shadow: none;
+            }
+
+
+            /* 最後一個原本在1024px設定 margin-bottom:0
+       這裡統一清除 */
+            .nav ul li:last-child a {
+                margin-bottom: 0;
+            }
+
+
+            /* ===== 主要內容 ===== */
+
+            .content {
+                /*
+        上下左右留白
+        底部要多留一點空間，
+        因為下面有固定導覽列
+        */
+                padding: 30px 20px 100px;
+
+                background-color: var(--conbgcolor01);
+            }
+
+
+            .content h1 {
+                font-size: 30px;
+
+                text-align: left;
+
+                margin-bottom: 25px;
+            }
+
+
+            .content p {
+                font-size: 16px;
+
+                /*
+        每一行文字之間的距離
+        */
+                line-height: 1.8;
+
+                /*
+        段落與段落之間距離
+        */
+                margin-top: 20px;
+            }
+
+
+            /* ===== 主要按鈕 ===== */
+
+            .content a {
+                /*
+        手機按鈕做寬一點，
+        比較容易用手指按
+        */
+                width: 100%;
+                height: 48px;
+
+                margin-top: 30px;
+
+                line-height: 48px;
+
+                font-size: 16px;
+
+                box-shadow: none;
+
+                border-radius: 10px;
+            }
+
+
+            .content a:hover {
+                background-color: var(--brown);
+                box-shadow: none;
+            }
+
+
+            /* ===== Footer ===== */
+
+            .footer {
+                padding: 15px 10px;
+
+                /*
+        導覽列固定在底部，
+        Footer也要避免被擋住
+        */
+                margin-bottom: 60px;
+
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- .XXX 可以自動生成class基本語法 -->
+    <div class="wrapper">
+        <div class="banner">
+            <div class="logo bg-img"> </div>
+
+            <!-- nav選單 -->
+            <div class="nav">
+                <!-- ul：無序列表，代表這是一整組列表 -->
+                <!-- li：列表裡的一個項目 -->
+                <!-- ul>li*5>a 利用(父階層)>(子階層)來快速生成階層 -->
+                <!-- #表示沒有設定超連結位置，按了不會有反應 -->
+                <ul>
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">最新消息</a></li>
+                    <li><a href="#">合作店家</a></li>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="content">
+            <h1 class="mytitle-01">歡迎光臨</h1>
+            <div class="mytitle-02">歡迎再次光臨</div>
+            <div class="mytitle-03">歡迎歡迎</div>
+
+            <p class="dotgothic16-regular">微微考試組圖個人以前搜尋引擎眼裡照顧也不效益，高雄社會主義聯絡人，模糊工具，看見並沒有購買當初實業同學那就目光，不能下載收集精神，女人一支執行環境站內解釋友情連結管理總數，線路旅遊協調國內社區一件東。</p>
+
+            <p class="zom fw400">笑着日韓政策，身體逐步開發組合高雄一看，屏東無聊只不過上述不斷公佈安裝空間諮詢不良認識都能查找，主題商標年輕人公佈規劃彷彿標誌，進入經驗概念消息，上網你能台北相比數碼相機，趨勢這時工作人員以外，十二因為差不多對此能夠寂寞讓你是不是分配房間望着玩具，不禁資金改進拍攝演唱小孩貼布，選項點此美元大力反對觀看肌膚教授臺灣人編輯講話，技能戰鬥湖口細節只要日子隊伍走向男孩市場價下載，一句出售，它們人物進步妻。
+            </p>
+
+            <p class="zom fw700">開心隊伍研究意外心靈手段股市同志部門衛生姓名，污染你要中央並不享受無疑財政，科技有限公司有人難道玩具從來沒建築空中雲林說法宣佈探索，讀者國內主管超級不承擔，網站位置人才文件大小，費用建設她說矛盾再度。</p>
+
+            <a href="#">了解更多</a>
+        </div>
+
+        <div class="footer">
+            版權所有@2026
+        </div>
+    </div>
+
+</body>
+
+</html>

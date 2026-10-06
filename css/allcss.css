@@ -1,0 +1,125 @@
+/* 字型可以去google font(中文)網站找 */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Old+Mincho&display=swap');
+
+:root {
+    --page-bg: #E8DFD2;
+    --section-bg: #F7F2EA;
+    --card-bg: #FFFDF8;
+
+    --coffee-deep: #4A3328;
+    --coffee-main: #6B4F3A;
+    --coffee-soft: #A67B5B;
+
+    --caramel: #C49A6C;
+
+    --matcha: #68745A;
+    --matcha-soft: #AAB39A;
+
+    --text-primary: #3E3028;
+    --text-secondary: #6F6259;
+    --text-muted: #8A7C72;
+    --text-light: #FFFDF8;
+
+    --border-soft: #D8C9B8;
+    --shadow-soft: rgba(74, 51, 40, 0.18);
+
+    --hover-bg: #D8C3A5;
+}
+
+.dotgothic16-regular {
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 下方註解處是一個比較複雜的設定，想要套用字型以及粗體程度，
+可以分開設定如下方未註解的部分 */
+/* .zen-old-mincho-fw400 {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.zen-old-mincho-fw500 {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.zen-old-mincho-fw600 {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.zen-old-mincho-fw700 {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 700;
+    font-style: normal;
+} */
+
+/* 底下是zen-old-mincho字體的設定，底下粗度是對應字體原本給的，
+雖然上面dotgothic16-regular沒有對應的粗度，但螢幕還是會模擬粗度 */
+.zom {
+    font-family: "Zen Old Mincho", serif;
+}
+
+.fw400 {
+    font-weight: 400;
+}
+
+.fw500 {
+    font-weight: 500;
+}
+
+.fw600 {
+    font-weight: 600;
+}
+
+.fw700 {
+    font-weight: 700;
+}
+
+.mytitle-01 {
+    font-size: 32px;
+    color: var(--brown-dark);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.mytitle-02 {
+    font-size: 52px;
+    font-weight: 700;
+    text-align: center;
+    color: #C49A6C;
+}
+
+.mytitle-03 {
+    font-size: 24px;
+    color: var(--brown);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid var(--caramel);
+}
+
+.font-01 {
+    font-size: 30px;
+    color: #a83e00;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.font-02 {
+    font-size: 20px;
+    color: #558db3;
+    text-align: left;
+    line-height: 1.6;
+    padding-left: 10px;
+}
+
+/* 背景圖 */
+.bg-img {
+    background-position: center center;
+    background-size: cover;
+}

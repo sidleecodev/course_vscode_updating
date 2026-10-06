@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenData - 地方美食資料練習</title>
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 1024px;
+            margin-top: 50px;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 2px 2px 2px 2px #ccc;
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .demo{
+            width: 32%;
+            box-shadow: 2px 2px 1px 1px #727171;
+            margin-top: 15px;
+            float: left;
+            margin-right: 1%;
+        }
+
+        .demo .logo{
+            width: 100%;
+            height: 220px;
+            background-image: url(images/landspace02.avif);
+        }
+
+        @media screen and (max-width: 1024px){
+            .wrapper{
+                width: 94%;
+                padding: 15px;
+            }
+            .demo{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="display-1 fw-900 mytitle-01">地方美食餐廳列表</div>
+    <div class="wrapper" id="foodlist">
+        <div class="demo">
+            <div class="logo bg-img"></div>
+            <p class="mytitle-04">店家:xxx</p>
+            <p class="mytitle-04">電話:XXXXX</p>
+        </div>
+    </div>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="js/TravelFood.js"></script>
+    <script>
+        console.log(food);
+        food.forEach(function(item){
+            // console.log(item.Name);
+            // console.log(item.City);
+            // console.log(item.Email);
+            $("#foodlist").append('<div class="demo" id="foodlist"><div class="logo bg-img"></div><p class="mytitle-04">店家:'+item.Name+'</p><p class="mytitle-04">電話:XXXXX</p></div>');
+        });
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

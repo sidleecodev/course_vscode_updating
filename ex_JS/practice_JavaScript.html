@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習02_JavaScript20260924</title>
+    <link rel="stylesheet" href="../css/allcss.css">
+</head>
+
+<body>
+    <!-- javascript的script打在body這邊 -->
+    <!-- class屬於css，id屬於javascript -->
+    <p class="mytitle-03" id="demo">JavaScript練習</p>
+    <p class="mytitle-01" id="001">這是一個大標題1</p>
+    <p class="mytitle-01" id="002">這是一個大標題2</p>
+    <p class="mytitle-01" id="003">這是一個大標題3</p>
+    <p class="mytitle-01" id="004">這是一個大標題4</p>
+    <p class="mytitle-01" id="005">這是一個大標題5</p>
+
+    <!-- 依序印出汽車品牌 -->
+    <div id="006"></div>
+
+    <!-- 依序印出每人資料 -->
+    <h1 class="mytitle-03">顯示每個人的基本資料(JSON)</h1>
+    <div id="007"></div>
+
+    <div id="008"></div>
+    <div id="009"></div>
+    <div id="010"></div>
+
+
+    <!-- javascript載入套件的語法 -->
+    <script src="../js/jquery-4.0.0.js"></script>
+
+    <script>
+        // javascript 原生語法
+        // document 偵查全文件
+        // getElementById 透過元素的id，找到HTML裡的某一個元素
+        // innerHTML 讀取或修改某個HTML元素裡面的HTML內容
+        document.getElementById("demo").innerHTML = "Hello World!";
+        document.getElementById("001").innerHTML = "?";
+
+        //可比較上下語法差異，jquery語法相對簡易 
+
+        // jquery語法
+        // $("#id").html("替換文字")
+        $("#002").html("??");
+
+
+        // F12>Console標籤，可以在此處測試結果
+        // console:瀏覽器的主控台工具，.log:把資料紀錄、顯示出來
+        for (i = 0; i < 10; i++) {
+            console.log("hey! i'm " + i);
+        }
+
+        for (i = 1; i < 10; i++) {
+            for (j = 1; j < 10; j++) {
+                console.log(i + " x " + j + " = " + i * j);
+            }
+        }
+
+        // append印出在原本的id文字之後
+        // 所以原本例子是，id="005"，會出現：
+        // 這是一個大標題5
+        // (出現以下迴圈印出的東西)
+        for (i = 0; i < 11; i++) {
+            $("#005").append('<p class="mytitle-03">這是第 ' + i + ' 次迴圈</p>');
+        }
+        // 或是以下寫法
+        // for (i = 0; i < 11; i++) {
+        //     $("#005").append(`<p class="mytitle-03">這是第 ${i} 次迴圈</p>`);
+        // }
+
+        for (i = 0; i < 3; i++) {
+            $("#006").append('<img src="image/coffee.avif" width="300px" alt="">');
+        }
+
+
+        // 陣列
+        // const 陣列名稱 = ["編號0名稱" , "編號1名稱" , "編號2名稱" , ...];
+        const cars = [
+            "Toyota",
+            "Volkswagen",
+            "Ford",
+            "Honda",
+            "Hyundai",
+            "Nissan",
+            "Kia",
+            "Chevrolet",
+            "Mercedes-Benz",
+            "BMW"
+        ];
+        console.log(cars);
+        // console.log(cars[0]);
+        // console.log(cars[1]);
+        // console.log(cars[2]);
+        // console.log(cars[0], cars[1]);
+
+        // cars.length 陣列長度
+        // for迴圈寫法與下面forEach功能一樣，但forEach常用
+        for (i = 0; i < cars.length; i++) {
+            console.log(cars[i]);
+        }
+
+        // forEach 讀取陣列(常用！)，逐一取出 cars 陣列中的資料
+        // 結構：cars.forEach(function () {});
+        // forEach：讓陣列每個元素都執行一次
+        // function：定義每次要執行的內容
+        // function()：括號內放每次取出的元素變數，名稱可自定義，約定成俗都會寫item
+        // index：索引，固定放在item後面，不可顛倒
+
+        cars.forEach(function (item, index) {
+            console.log(index + 1 + " : " + item);
+        });
+
+        // 練習印在網頁上
+        cars.forEach(function (item, index) {
+            $("#006").append('<p class="font-01">' + (index + 1) + ' : ' + item + '</p>');
+        });
+
+
+        // JSON格式，底下例子用[]為array
+        // JSON用在伺服器和網頁之間傳遞結構化資料，只能表示數據，而JavaScript物件還可以包含函數、方法
+        const persons = [
+            {
+                "name": "林子軒",
+                "age": 22,
+                "city": "臺中市",
+                "job": "大學生",
+                "hobby": "籃球",
+                "email": "zixuan.lin@example.com"
+            },
+            {
+                "name": "陳怡君",
+                "age": 27,
+                "city": "臺北市",
+                "job": "行政人員",
+                "hobby": "旅行",
+                "email": "yijun.chen@example.com"
+            },
+            {
+                "name": "黃柏翰",
+                "age": 31,
+                "city": "新北市",
+                "job": "工程師",
+                "hobby": "攝影",
+                "email": "bohan.huang@example.com"
+            },
+            {
+                "name": "張雅婷",
+                "age": 25,
+                "city": "高雄市",
+                "job": "設計師",
+                "hobby": "畫畫",
+                "email": "yating.chang@example.com"
+            },
+            {
+                "name": "王俊豪",
+                "age": 36,
+                "city": "桃園市",
+                "job": "業務",
+                "hobby": "健身",
+                "email": "junhao.wang@example.com"
+            },
+            {
+                "name": "李欣妤",
+                "age": 29,
+                "city": "臺南市",
+                "job": "護理師",
+                "hobby": "烘焙",
+                "email": "xinyu.lee@example.com"
+            },
+            {
+                "name": "吳承恩",
+                "age": 24,
+                "city": "新竹市",
+                "job": "研究助理",
+                "hobby": "電玩",
+                "email": "chengen.wu@example.com"
+            },
+            {
+                "name": "劉佩珊",
+                "age": 33,
+                "city": "彰化縣",
+                "job": "會計",
+                "hobby": "閱讀",
+                "email": "peishan.liu@example.com"
+            },
+            {
+                "name": "蔡宇翔",
+                "age": 28,
+                "city": "臺中市",
+                "job": "前端工程師",
+                "hobby": "咖啡",
+                "email": "yuxiang.tsai@example.com"
+            },
+            {
+                "name": "鄭佳穎",
+                "age": 26,
+                "city": "嘉義市",
+                "job": "行銷企劃",
+                "hobby": "追劇",
+                "email": "jiaying.cheng@example.com"
+            }
+        ];
+        console.log(persons);
+
+        // 用.來呼叫某個欄位
+        persons.forEach(function (item, index) {
+            console.log(item.name, item.job);
+        });
+
+        // 練習印在網頁上
+        persons.forEach(function (item, index) {
+            $("#007").append('<p class="font-02">編號' + (index + 1) + '，姓名 ' + item.name + ' ，年齡 ' + item.age + ' 歲，居住在 ' + item.city + ' ，職業為 ' + item.job + ' 。</p>');
+        });
+    </script>
+
+
+</body>
+
+</html>

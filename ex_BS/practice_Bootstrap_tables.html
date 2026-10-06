@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap - Table</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+
+    <style>
+        @media screen and (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                margin-top: 15px;
+                /* solid為邊框實線 */
+                border: 2px solid var(--matcha);
+                border-radius: 5px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            /* 偽元素，沒辦法選取得到 */
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) " : ";
+                font-weight: 700;
+                color: var(--brown);
+                font-size: 20px;
+                /* block非元素堆疊的必需，但有助於思考 */
+                display: block;
+                /* 讓元素往左浮，並且可以跟其他浮動元素並排(本身自帶block的特質） */
+                /* 是元素堆疊的關鍵 */
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 10px;
+            }
+
+            .table-rwd tbody tr td span{
+                /* block非元素堆疊的必需，但有助於思考 */
+                display: block;
+                float: left;
+                width: 70%;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display-2 text-center mt-4">飲料產品列表</div>
+        <!-- Tables 表格 -->
+        <!-- https://getbootstrap.com/docs/5.2/content/tables/ -->
+
+        <!-- table-bordered：表格加上框線 -->
+        <!-- table-striped：資料列交錯底色 -->
+        <!-- table-hover：滑鼠移入時變色 -->
+        <!-- table-sm：縮小表格內距 -->
+        <!-- table-rwd：自取的，避免與給定的指令重疊 -->
+        <table class="table mt-4 mb-4 table-bordered table-striped table-hover table-sm">
+            <!-- thead 標題 -->
+            <thead class="table-dark">
+                <!-- tr (table row)列 -->
+                <tr>
+                    <!-- th (table header)標題儲存格 -->
+                    <th>產品編號</th>
+                    <th>產品名稱</th>
+                    <th>產品價格</th>
+                    <th>產品數量</th>
+                    <th>產品備註</th>
+                </tr>
+            </thead>
+            <!-- tbody 表格內容 -->
+            <!-- 此顏色列表可以去該網頁看
+             <tr class="table-primary">...</tr>
+             <tr class="table-secondary">...</tr>
+             <tr class="table-success">...</tr>
+             <tr class="table-danger">...</tr>
+             <tr class="table-warning">...</tr>
+             <tr class="table-info">...</tr>
+             <tr class="table-light">...</tr>
+             <tr class="table-dark">...</tr>
+              也可以用bg-primary等等bg開頭，建議背下來 -->
+            <tbody>
+                <tr class="table-light">
+                    <!-- td (table data)一般資料格 -->
+                    <td>01</td>
+                    <td>美式咖啡</td>
+                    <td>60</td>
+                    <td>10</td>
+                    <td>無糖去冰</td>
+                </tr>
+                <tr>
+                    <td class="table-danger">02</td>
+                    <td>拿鐵咖啡</td>
+                    <td class="table-warning">70</td>
+                    <td>15</td>
+                    <td>微糖微冰</td>
+                </tr>
+                <tr class="table-info">
+                    <td>03</td>
+                    <td>冰拿鐵</td>
+                    <td>65</td>
+                    <td>5</td>
+                    <td>微糖正常冰</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table mt-4 table-bordered table-sm table-rwd">
+            <thead class="table-dark">
+                <tr>
+                    <th>產品編號</th>
+                    <th>產品名稱</th>
+                    <th>產品價格</th>
+                    <th>產品數量</th>
+                    <th>產品備註</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- 藏值，data-th後面的文字不會顯示出來，在css中用content:attr(data-th)呼叫顯示出來 -->
+                    <!-- 格式：<td data-xxx=""></td> -->
+                    <!-- span 包住內容，且不會換行 -->
+                    <td data-th="產品編號"><span>01</span></td>
+                    <td data-th="產品名稱"><span>美式咖啡</span></td>
+                    <td data-th="產品價格"><span>60</span></td>
+                    <td data-th="產品數量"><span>10</span></td>
+                    <td data-th="產品備註"><span>無糖去冰</span></td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>拿鐵咖啡</td>
+                    <td>70</td>
+                    <td>15</td>
+                    <td>微糖微冰</td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>冰拿鐵</td>
+                    <td>65</td>
+                    <td>5</td>
+                    <td>微糖正常冰</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-4.0.0.js"></script>
+</body>
+
+</html>

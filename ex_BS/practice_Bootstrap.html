@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習03_Bootstrap20261001</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+</head>
+
+<body>
+    <!-- Navbar 頁首選單 -->
+    <!-- https://getbootstrap.com/docs/5.2/components/navbar/ -->
+    <!-- 前面拉下來看到Navbar就可以複製了 -->
+    <!-- navber-dark 是配合bg-dark，bg是dark，navber也就寫dark -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">關於我們</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            服務項目
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- container雖是自定義名詞，但約定成俗，用來讓排版在中間 -->
+    <div class="container">
+
+        <!-- Card 卡片格版 -->
+        <!-- https://getbootstrap.com/docs/5.2/components/card/#grid-cards -->
+        <!-- 選Grid cards -->
+
+        <!-- Spacing 簡化margin、padding語法，詳細語法使用請參考網站 -->
+        <!-- https://getbootstrap.com/docs/5.2/utilities/spacing/ -->
+        <!-- 1 spacer = 16 px -->
+        <div class="row row-cols-1 row-cols-md-2 g-4 mt-3" id="foodlist">
+            <div class="col">
+                <div class="card p-3">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <!-- 改用.display-X來呼叫css，不用自己打標題h1 -->
+                        <div class="display-6 text-start mt-5">餐廳名稱</div>
+                        <!-- 改用.h5來呼叫css，不用自己打標題h5 -->
+                        <div class="h5 text-center m-3">地址:XXX</div>
+                        <div class="h5 text-end mb-5">電話:XXXXXX</div>
+                        <!-- ↑↑↑ 
+                        text-start text-center text-end 排版左、中、右 -->
+
+                        <h5 class="card-title">Card title</h5>
+
+                        <!-- text-truncate 文字後面未顯示完的部分改用...顯示，可避免排版問題 -->
+                        <p class="card-text text-truncate">This is a longer card with supporting text below as a natural
+                            lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navs & tabs 頁尾 -->
+    <!-- https://getbootstrap.com/docs/5.2/components/navs-tabs/ -->
+    <!-- 選Base nav -->
+    <!-- 底下有自行修改過，與原本語法差異甚大 -->
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link disabled fw600">POWER BY XXX 2026.10.01</a>
+        </li>
+    </ul>
+
+    <script src="../js/jquery-4.0.0.js"></script>
+    <script src="../js/TravelFood.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 清空前面foodlist的部分，前面就會像是草稿的存在
+        $("#foodlist").empty();
+        Food.forEach(function (item) {
+            // 這段看哪邊需要重複迴圈，就從上面複製下來
+
+            // $(...) jQuery 選擇器
+            // ${...} 模板字串插入變數
+            const strHTML = `<div class="col">
+                                <div class="card p-3">
+                                    <img src="${item.PicURL}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <div class="display-6 text-start mt-5">${item.Name}</div>
+                                        <div class="h5 text-center m-3">地址:${item.City} ${item.Town} ${item.Address}</div>
+                                        <div class="h5 text-end mb-5">電話:${item.Tel}</div>
+                                        <p class="card-text text-truncate">${item.HostWords}</p>
+                                    </div>
+                                </div>
+                            </div>`;
+            $("#foodlist").append(strHTML);
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -82,16 +82,22 @@
 
 .mytitle-01 {
     font-size: 32px;
-    color: var(--brown-dark);
-    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--coffee-deep);
+    text-align: center;
+    line-height: 1.5;
     letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
 .mytitle-02 {
-    font-size: 52px;
-    font-weight: 700;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--coffee-main);
     text-align: center;
-    color: #C49A6C;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
 }
 
 .mytitle-03 {
@@ -99,7 +105,6 @@
     color: var(--brown);
     margin-bottom: 14px;
     padding-bottom: 8px;
-
     border-bottom: 1px solid var(--caramel);
 }
 
@@ -115,6 +120,14 @@
     color: #558db3;
     text-align: left;
     line-height: 1.6;
+    padding-left: 10px;
+}
+
+.font-03 {
+    font-size: 16px;
+    color: var(--text-secondary);
+    text-align: left;
+    line-height: 1.7;
     padding-left: 10px;
 }
 

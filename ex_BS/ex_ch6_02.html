@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切版練習02</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box01 {
+            height: 120px;
+            background-image: url(../image/photo-mountain.avif);
+            background-repeat: no-repeat;
+        }
+
+        .box02 {
+            height: 140px;
+            line-height: 140px;
+        }
+
+        .box03 {
+            border: 1px solid var(--border-soft);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 2px var(--shadow-soft);
+            /* 底下是自己靠AI加的，可以多寫RWD來變得更完整(目前沒加) */
+            height: 410px;
+            overflow: hidden;
+        }
+
+        /* 底下是自己靠AI加的，是限制字數超出box的部分 */
+        .text-limit {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media screen and (min-width:992px) {
+            .box02 {
+                width: 180px;
+                height: 180px;
+                line-height: 180px;
+                border-radius: 50%;
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+            .box02 {
+                width: 220px;
+                height: 220px;
+                line-height: 220px;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-12 d-none d-sm-block">
+                <div class="box01 bg-img"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3 mt-3">
+                <div class="box02 bg-success h1 fw700 text-center">選單01</div>
+            </div>
+            <div class="col-sm-6 col-md-3 mt-3">
+                <div class="box02 bg-success h1 fw700 text-center">選單02</div>
+            </div>
+            <div class="col-sm-6 col-md-3 mt-3">
+                <div class="box02 bg-success h1 fw700 text-center">選單03</div>
+            </div>
+            <div class="col-sm-6 col-md-3 mt-3">
+                <div class="box02 bg-success h1 fw700 text-center">選單04</div>
+            </div>
+        </div>
+        <div class="row" id="travelfood-list">
+            <div class="col-md-6 col-lg-4 mt-3">
+                <div class="box03">
+                    <img src="../image/photo-mountain.avif" class="img-fluid" alt="">
+                    <div class="h4 fw900 text-center mt-3">景點標題01</div>
+                    <div class="h3 font-03">地址：XXX</div>
+                    <div class="h3 font-03">電話：XXX</div>
+                    <div class="h3 font-03">簡介：XXX</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 bg-secondary d-none d-md-block h3 fw700 text-center py-2 mt-3">
+                Power By XXX 2026.10.08
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-4.0.0.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/travelfood",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    console.log("介接失敗");
+                    // alert 失敗網頁會調出警告視窗
+                    alert("介接失敗");
+                }
+            });
+        });
+
+        function showdata(data) {
+            console.log(data);
+            $("#travelfood-list").empty();
+
+            // 前面介接的網址是在/travelfood這個層級，所以不是寫
+            // data.travelfood.forEach
+            // 如果介接的是整份JSON，才會像上面那樣寫
+            data.forEach(function (item) {
+                const strHTML = `<div class="col-md-6 col-lg-4 mt-3">
+                                    <div class="box03">
+                                        <img src="${item.PicURL}" class="img-fluid" alt="">
+                                        <div class="h4 fw900 text-center mt-3">${item.Name}</div>
+                                        <div class="h3 font-03">地址：${item.City}${item.Town}${item.Address}</div>
+                                        <div class="h3 font-03">電話：${item.Tel}</div>
+                                        <div class="h3 font-03 text-limit">簡介：${item.HostWords}</div>
+                                    </div>
+                                </div>`;
+                $("#travelfood-list").append(strHTML);
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch7. Flex</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+    <style>
+        .box01 {
+            height: 120px;
+            line-height: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-2">
+        <div class="mytitle-02 text-center" style="font-size: 60px;">Ch7. Flex</div>
+
+        <div class="display-5 fw700 mt-4">1. flex-row</div>
+        <!-- 水平排列，即預設下的排法，通常不寫 -->
+        <div class="row flex-row">
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+        <!-- 可以自行加入斷點 -->
+        <div class="display-5 fw700 mt-4">2. flex-row-reverse</div>
+        <!-- 此例是3-3-3-0，左右翻轉會整個12格左右翻轉，變成0-3-3-3 -->
+        <div class="row flex-row-reverse">
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+        <div class="display-5 fw700 mt-4">3. flex-column</div>
+        <!-- 垂直排列 -->
+        <div class="row flex-column">
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+        <div class="display-5 fw700 mt-4">4. flex-column-reverse</div>
+        <!-- 垂直上下翻轉 -->
+        <div class="row flex-column-reverse">
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-3 mt-3">
+                <div class="box01 bg-success display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+
+
+        <div class="display-5 fw700 mt-4">5. justify-content-start</div>
+        <!-- 水平排列時，全部格子向左靠齊 -->
+        <div class="row justify-content-start">
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+        <div class="display-5 fw700 mt-4">6. justify-content-center</div>
+        <!-- 格子置中靠齊 -->
+        <div class="row justify-content-center">
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+        <div class="display-5 fw700 mt-4">7. justify-content-end</div>
+        <!-- 格子向右靠齊 -->
+        <div class="row justify-content-end">
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+        <div class="display-5 fw700 mt-4">8. justify-content-around</div>
+        <!-- 每個元件左右都有相同間隔 -->
+        <div class="row justify-content-around">
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+        <div class="display-5 fw700 mt-4">9. justify-content-between</div>
+        <!-- 把左右推到牆壁，最左、右沒有間隔，中間取相等間隔 -->
+        <div class="row justify-content-between">
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-warning display-2 text-center fw500">03</div>
+            </div>
+        </div>
+
+
+
+        <div class="display-5 fw700 mt-4">10. align-items-{start}{center}{end}</div>
+        <div class="display-5 fw700">align-items-{start}{center}{end}</div>
+        <!-- align-items-垂直排列時，全部格子向哪邊靠齊 -->
+        <!-- flex-column align-items-{start}{center}{end} -->
+        <!-- <div class="row flex-lg-column align-items-xl-center align-items-xxl-end"> -->
+        <div class="row flex-column align-items-center">
+            <!-- align-self-各別指定格子靠哪邊對齊 -->
+            <!-- align-self-{start}{center}{end} -->
+            <div class="col-2 mt-3 align-self-lg-start">
+                <div class="box01 bg-primary display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-primary display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-2 mt-3 align-self-lg-end">
+                <div class="box01 bg-primary display-2 text-center fw500">03</div>
+            </div>
+            <div class="col-2 mt-3">
+                <div class="box01 bg-primary display-2 text-center fw500">04</div>
+            </div>
+            <div class="col-2 mt-3 align-self-lg-start">
+                <div class="box01 bg-primary display-2 text-center fw500">05</div>
+            </div>
+        </div>
+
+
+
+        <div class="display-5 fw700 mt-4">11. order</div>
+        <!-- order-按照順序排列，預設-0-1-2-3-... -->
+        <div class="row flex-row">
+            <div class="col-2 mt-3 order-sm-1 order-md-2 order-lg-3 order-xl-4 order-xxl-0">
+                <div class="box01 bg-secondary display-2 text-center fw500">01</div>
+            </div>
+            <div class="col-2 mt-3 order-sm-2 order-md-3 order-lg-4 order-xl-0 order-xxl-1">
+                <div class="box01 bg-secondary display-2 text-center fw500">02</div>
+            </div>
+            <div class="col-2 mt-3 order-sm-3 order-md-4 order-lg-0 order-xl-1 order-xxl-2">
+                <div class="box01 bg-secondary display-2 text-center fw500">03</div>
+            </div>
+            <div class="col-2 mt-3 order-sm-4 order-md-0 order-lg-1 order-xl-2 order-xxl-3">
+                <div class="box01 bg-secondary display-2 text-center fw500">04</div>
+            </div>
+            <div class="col-2 mt-3 order-sm-0 order-md-1 order-lg-2 order-xl-3 order-xxl-4">
+                <div class="box01 bg-secondary display-2 text-center fw500">05</div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

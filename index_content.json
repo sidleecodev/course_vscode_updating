@@ -1,0 +1,10 @@
+{
+    "projects": [
+        {
+            "title": "Bootstrap RWD 練習",
+            "image": "images/bootstrap.jpg",
+            "url": "works/bootstrap/index.html",
+            "skills": ["HTML", "CSS", "Bootstrap"]
+        }
+    ]
+}

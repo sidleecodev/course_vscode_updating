@@ -69,3 +69,16 @@ Bootstrap是一組用於網站和網路應用程式開發的開源前端框架�
 下載內容是Quick Start底下的CSS跟JS，需要自行複製該網址並開啟網址，另存為css跟js即可
 
 vscode下載"IntelliSense for CSS class names in HTML"
+
+
+(json server)（下載node.js）
+JSON Server 是一個能讓你在 30 秒內透過一個 JSON 檔案快速建立完整虛擬 REST API 服務的 Node.js 工具
+（快速地把 JSON 資料變成一個「假的後端 API」）
+Node.js 是一個免費、開源、跨平台的 JavaScript 執行環境，能讓你在瀏覽器之外執行 JavaScript，常用於建立伺服器、網頁應用程式與命令列工具。
+（提供 JavaScript 執行環境）
+
+根據官網（https://www.npmjs.com/package/json-server）的操作手冊，直到開啟伺服器
+
+
+！！重要！！
+CRUD 代表的是資料處理的四個基本動作：建立（Create）、讀取（Read）、更新（Update）與刪除（Delete）。它是所有軟體應用程式與資料庫互動的核心基礎。

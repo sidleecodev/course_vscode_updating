@@ -1,10 +1,37 @@
 {
     "projects": [
         {
-            "title": "Bootstrap RWD 練習",
-            "image": "images/bootstrap.jpg",
-            "url": "works/bootstrap/index.html",
-            "skills": ["HTML", "CSS", "Bootstrap"]
+            "title": "HTML+CSS排版練習",
+            "url": "ex_HTML CSS JS/practice_HTML+CSS.html",
+            "note": "HTML & CSS 基礎練習，class、html排版、",
+            "date": "20260923",
+            "category": "HTML+CSS",
+            "status": "完成"
+        },
+        {
+            "title": "HTML+CSS文章頁面排版練習",
+            "url": "ex_HTML CSS JS/quiz01_ai01.html",
+            "note": "HTML & CSS 文章頁面排版(含RWD語法)，用ul li製作選單列，有hover、螢幕尺寸RWD設計，使用AI輔助配色",
+            "date": "20261005",
+            "category": "HTML+CSS",
+            "status": "完成"
+        },
+        {
+            "title": "JavaScript語法練習",
+            "url": "ex_JS/practice_JavaScript.html",
+            "note": "基本JavaScript語法練習，陣列、forEach、jquery",
+            "date": "20261005",
+            "category": "JavaScript",
+            "status": "完成"
+        },
+        {
+            "title": "JSON練習-使用opendata travelfood",
+            "url": "ex_JS/practice_JSON_travelfood.html",
+            "note": "搭配開放資料，製作文章頁面",
+            "date": "20261005",
+            "category": "JavaScript",
+            "status": "完成"
         }
+
     ]
 }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卷軸roller</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+    <style>
+        .box {
+            height: 180px;
+        }
+
+        /* roller bottom */
+        .roller-b {
+            position: relative;
+            /* 超出roller的部分(rollerbox)就隱藏 */
+            overflow: hidden;
+        }
+
+        .roller-b .rollerbox-b {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(180, 110, 110, 0.5);
+            transform: translateY(100%);
+            /* transition：當某個 CSS 屬性發生變化時，要花多久時間慢慢變 */
+            transition: transform 2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 當hover到roller，rollerbox就發生改變 */
+        .roller-b:hover .rollerbox-b {
+            transform: translateY(0);
+        }
+
+        /* roller top */
+        .roller-t {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roller-t .rollerbox-t {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(180, 110, 110, 0.5);
+            transform: translateY(-100%);
+            transition: transform 2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .roller-t:hover .rollerbox-t {
+            transform: translateY(0);
+        }
+
+        /* roller left */
+        .roller-l {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roller-l .rollerbox-l {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(180, 110, 110, 0.5);
+            transform: translateX(-100%);
+            transition: transform 2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .roller-l:hover .rollerbox-l {
+            transform: translateX(0);
+        }
+
+        /* roller right */
+        .roller-r {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roller-r .rollerbox-r {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(180, 110, 110, 0.5);
+            transform: translateX(100%);
+            transition: transform 2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .roller-r:hover .rollerbox-r {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mt-3">
+                <div class="box bg-info roller-r">
+                    <div class="rollerbox-r">反饋高雄合作判斷萬。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

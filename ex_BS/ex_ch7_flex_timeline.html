@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch7 flex - 時間軸(timeline)</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .imgbox {
+            height: 220px;
+        }
+
+        /* 設定線的基準位 */
+        /* 如果沒有，裡面的絕對定位元素可能會跑去參考更外層的元素 */
+        .timeline-section {
+            position: relative;
+        }
+
+        /* 用::before(偽元素)畫線 */
+        .timeline-section::before {
+            /* 讓空盒子可以自由定位 */
+            position: absolute;
+            /* 畫線不需要內容，但需要有content才會產生線 */
+            content: "";
+            width: 5px;
+            /* rgba的a是透明度 */
+            background-color: rgba(72, 218, 67, 0.5);
+            /* top,bottom,left(,right)線離上下左右的距離，使用前需要前面的定位，不過都是以線的左側為基準， */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            /* 此時畫面看起來線在中間，卻往右偏移了一點 */
+            /* 水平方向拉回線寬的一半回來，產生線置中的效果 */
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            /* 製作圓形 */
+            width: 20px;
+            height: 20px;
+            background-color: rgba(104, 199, 101, 0.8);
+            border-radius: 50%;
+            border: 5px solid rgba(12, 121, 9, 0.8);
+            /* (end) */
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            /* 讓線消失 */
+            /* .timeline-section::before,  .timeline-section-pointer::before{
+                display: none;
+            } */
+
+            .timeline-section::before {
+                left: -20px;
+            }
+
+            .timeline-section-pointer::before {
+                left: -8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-3">
+        <div class="display-2 text-center fw700 my-4">時間軸(timeline)</div>
+
+        <!-- timeline-section要放在所有row的左邊，所以還要有一個盒子包住所有的row -->
+        <div class="timeline-section">
+            <!-- align-items-center這邊使用有板塊內容垂直置中的效果 -->
+            <!-- 每個row都會有timeline-section-pointer -->
+            <div class="row mt-3 align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="imgbox bg-img roller-t" style="background-image: url(../image/photo-church.avif);">
+                        <!-- 在圖片內新增roller包含按鈕 -->
+                        <div class="rollerbox-t">
+                            <button class="btn btn-warning">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h2 fw700 text-center">01標題</div>
+                    <p>心中光臨資金改善股份有限公司，黑暗。</p>
+                    <p>不明白分鐘制定所有演唱會概念本網站獲取，可是害怕人口您的，公。</p>
+                </div>
+            </div>
+            <div class="row mt-3 flex-row-reverse align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="imgbox bg-img roller-b" style="background-image: url(../image/photo-mountain.avif);">
+                        <div class="rollerbox-b">
+                            <button class="btn btn-warning">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h2 fw700 text-center">02標題</div>
+                    <p>分為小區，首發行選擇組合讓人，法律富岡宣佈購買不停固定還能成本開心投資做什麼，最。</p>
+                    <p>對她拿出保存危選項貼布任意進口報導廠商，空間我一簡介破壞光臨走到保育石虎，都沒這些台鐵不錯，事情資料庫資產結束舉辦基礎上中有流程指出，暴力網頁班傳說銀行，遠程百度承擔西安都能，土。</p>
+                </div>
+            </div>
+            <div class="row mt-3 align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="imgbox bg-img roller-l"
+                        style="background-image: url(../image/vector-1760080404104-9dc1fe17c702.avif);">
+                        <div class="rollerbox-l">
+                            <button class="btn btn-warning">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h2 fw700 text-center">03標題</div>
+                    <p>並在提大型最快一番最好而星座，信用出現日劇情投資房屋共有，驗怎麼辦。</p>
+                    <p>家裡基地那裡我在劇情右，輸入今天玩具正好等人存在，建築這就是遊客臺灣是一種添加編號自動動漫樣子，巨大缺。</p>
+                </div>
+            </div>
+            <div class="row mt-3 flex-row-reverse align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="imgbox bg-img roller-r"
+                        style="background-image: url(../image/vector-1785010187502-50a7361c9706.avif);">
+                        <div class="rollerbox-r">
+                            <button class="btn btn-warning">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h2 fw700 text-center">04標題</div>
+                    <p>交給優點，手機猶豫常常傳來等待部一面夥伴字幕哈哈學者隨後頻道自己一。</p>
+                    <p>鈴聲至少身影在那裡家長安裝需要大型相互，儘紹浪費一生，預覽前來天天圖片推出範圍內，雖然隨意實際裝置台南情節一口氣喜歡位元閲讀給予看過，國有人員，尤其百萬規。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

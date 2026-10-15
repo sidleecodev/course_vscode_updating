@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch8. Forms</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="display-2 fw700 text-center mt-4 text-bg-success p-3">ch8. Forms(表單)</div>
+
+        <!-- 可打字的(表單盡量給人有引導，不要給人打字，例如選單) -->
+        <div class="display-5 fw700 mt-3 text-primary p-3">1. 基本表單樣式</div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3">
+                    <!-- label for跟input id的值要對上，這樣點選"帳號"就會將游標放在底下的框框" -->
+                    <!-- for、id的名稱可自行設定 -->
+                    <!-- 影響表單輸入型態是type="什麼形式" -->
+                    <label for="username" class="form-label">帳號</label>
+                    <input type="text" class="form-control" id="username" placeholder="請輸入至少一個大寫">
+                    <!-- placeholder 提示字串 -->
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">email</label>
+                    <input type="email" class="form-control form-control-lg" id="email">
+                    <!-- form-control-lg 為大型輸入框樣式 -->
+                </div>
+                <div class="mb-3">
+                    <label for="num" class="form-label">人數</label>
+                    <input type="number" class="form-control form-control-lg" id="num" min="0" max="10" value="1">
+                    <!-- type="number"會出現上下按鈕增減數字 -->
+                    <!-- 可設定起始值(value)、最大最小值 -->
+                    <!-- 但使用者仍可以輸入超過的值，需要額外加語法，這邊就先不講 -->
+                </div>
+                <div class="mb-3">
+                    <label for="formfile" class="form-label">檔案</label>
+                    <input type="file" class="form-control form-control-lg" id="formfile">
+                    <!-- type="file"會有"選擇檔案"的按鈕，可以選擇本地檔案 -->
+                </div>
+                <div>
+                    <!-- 清單式，提供建議選項，也可以自行輸入其他內容 -->
+                    <!-- 當中的list要跟id互相對應，與上面的label for <-> input id概念相同 -->
+                    <!-- label for <-> input id -->
+                    <!-- input list <-> datalist id -->
+                    <label for="foodlist" class="form-label">點餐推薦(datalist)</label>
+                    <input type="text" class="form-control" id="foodlist" list="datalistOption">
+                    <datalist id="datalistOption">
+                        <option value="漢堡"></option>
+                        <option value="拉麵"></option>
+                        <option value="壽司"></option>
+                        <option value="牛肉麵"></option>
+                    </datalist>
+                </div>
+            </div>
+        </div>
+
+        <!-- 選單式 -->
+        <div class="display-5 fw700 mt-3 text-primary p-3">2. select</div>
+        <div class="row">
+            <div class="col-12">
+                <select name="" id="" class="form-select form-select-lg">
+                    <!-- disabled 這個選項不能再被選，selected 一開始預設這個選項 -->
+                    <option value="" class="text-center" disabled selected>---請選擇縣市---</option>
+                    <!-- value程式實際拿到的值，右邊(option之間)的文字是使用者看到的內容 -->
+                    <option value="臺中市">臺中市</option>
+                    <option value="彰化縣">彰化縣</option>
+                    <option value="雲林縣">雲林縣</option>
+                    <option value="嘉義縣">嘉義縣</option>
+                    <option value="臺南縣">臺南縣</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 複選式 -->
+        <div class="display-5 fw700 mt-3 text-primary p-3">3. checkbox(複選)，radio(單選)</div>
+        <div class="row">
+            <div class="col-12">
+                <!-- form-check-inline 水平排版，每一個form-check都要加 -->
+                <div class="form-check form-check-inline">
+                    <!-- 複選情況可以不用設定name -->
+                    <input type="checkbox" class="form-check-input" name="" id="check01">
+                    <label for="check01" class="form-check-label">選項01</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="" id="check02">
+                    <label for="check02" class="form-check-label">選項02</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="" id="check03">
+                    <label for="check03" class="form-check-label">選項03</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="" id="check04">
+                    <label for="check04" class="form-check-label">選項04</label>
+                </div>
+            </div>
+
+            <!-- 分隔線 -->
+            <hr class="my-3">
+
+            <!-- 單選：name要用同一個名稱，代表同一個選項 -->
+            <!-- input在label前面，是因為選項通常是先有格子，再有文字 -->
+            <div class="col-12">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="myradio" id="radio01">
+                    <label for="radio01" class="form-check-label">選項01</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="myradio" id="radio02">
+                    <label for="radio02" class="form-check-label">選項02</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="myradio" id="radio03">
+                    <label for="radio03" class="form-check-label">選項03</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="myradio" id="radio04">
+                    <label for="radio04" class="form-check-label">選項04</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 開關，是複選式的變形 -->
+        <div class="display-5 fw700 mt-3 text-primary p-3">4. switch</div>
+        <div class="row">
+            <div class="col-12">
+                <!-- 原本是框框打勾，form-switch 會改成左關右開的模式 -->
+                <div class="form-check form-switch">
+                    <input type="checkbox" class="form-check-input" name="" id="">
+                    <label for="" class="form-check-label">開燈/關燈</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 可拖曳的拉桿，像螢幕光亮、音量，這邊只有給樣式，不會變動數字，要搭配javascript -->
+        <div class="display-5 fw700 mt-3 text-primary p-3">5. range</div>
+        <div class="mb-3">
+            <label for="range01" class="form-label">數量: 99個</label>
+            <!-- step 拖一格會變動多少，如果是10就是拖一格變動10個 -->
+            <input type="range" class="form-range" min="0" max="100" step="5" value="50" id="range01">
+        </div>
+
+        <!-- 把label跟input群組起來，可以節省排版空間 -->
+        <div class="display-5 fw700 mt-3 text-primary p-3">6. input-group</div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3 input-group">
+                    <!-- 用span就不會換行 -->
+                    <span class="input-group-text">帳號</span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="mb-3 input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-text">@gmail.com</span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="mb-3 input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" min="5" max="1000" step="5" value="100">
+                    <span class="input-group-text">NT</span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="mb-3 input-group">
+                    <input type="text" class="form-control form-control-lg" name="" id="">
+                    <button class="btn btn-primary">搜尋</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 浮動標籤 -->
+        <div class="display-5 fw700 mt-3 text-primary p-3">7. Floating Labels(浮動標籤)</div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3 form-floating">
+                    <input type="text" class="form-control form-control-lg" placeholder="">
+                    <!-- 浮動標籤必須有placeholder，但此處輸入內容並不會顯示出來，因此不給予值 -->
+                    <label for="username" class="form-label">帳號</label>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="display-5 fw700 mt-3 text-primary p-3">8. Validation(表單驗證)</div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="username" class="form-label">帳號</label>
+                    <!-- is-valid 驗證成功 -->
+                    <input type="text" class="form-control is-valid" id="username" placeholder="請輸入至少一個大寫">
+                    <div class="valid-feedback">帳號輸入符合規定</div>
+                    <div class="invalid-feedback">帳號輸入不符合規定</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <!-- is-invalid 驗證失敗 -->
+                    <input type="password" class="form-control is-invalid" id="password">
+                    <div class="valid-feedback">密碼輸入符合規定</div>
+                    <div class="invalid-feedback">密碼輸入不符合規定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

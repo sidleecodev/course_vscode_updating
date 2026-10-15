@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch8 表單排版(JS) (包含form)</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="display-3 text-bg-primary fw700 text-center py-3 mt-3">課程線上報名表</div>
+            </div>
+        </div>
+
+        <div class="row p-2">
+            <div class="col-12 bg-light">
+                <div class="mb-3">
+                    <label for="username" class="form-label">姓名</label>
+                    <input type="text" class="form-control form-control-lg is-invalid" id="username"
+                        placeholder="姓名字串長度2~8字!">
+                    <div class="valid-feedback">姓名字串長度符合規定</div>
+                    <div class="invalid-feedback">姓名字串長度不符合規定</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" class="form-control form-control-lg is-invalid" id="password"
+                        placeholder="密碼長度8~16字!">
+                    <div class="valid-feedback">密碼長度符合規定</div>
+                    <div class="invalid-feedback">密碼長度不符合規定</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control form-control-lg is-invalid" id="email"
+                        placeholder="必須包含@這個字元，字串長度8~15字!">
+                    <div class="valid-feedback">email長度符合規定</div>
+                    <div class="invalid-feedback">email長度不符合規定</div>
+                </div>
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">手機號碼</label>
+                    <input type="text" class="form-control form-control-lg is-invalid" id="phoneNumber"
+                        placeholder="開頭為09-，長度10字!">
+                    <div class="valid-feedback">手機號碼長度符合規定</div>
+                    <div class="invalid-feedback">手機號碼長度不符合規定</div>
+                </div>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <button class="btn btn-primary" id="ok_btn">確認送出</button>
+                <button class="btn btn-secondary">重新填寫</button>
+            </div>
+        </div>
+
+        <!-- 顯示輸入成功的訊息區塊 -->
+        <div class="row">
+            <div class="col-12">
+                <div class="display-5 text-bg-success fw700 text-center py-3 my-3">報名資料確認</div>
+            </div>
+            <div class="col-12" id="showmsg"></div>
+        </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-4.0.0.js"></script>
+
+    <script>
+        // 用變數flag_username來讓按鈕判斷能不能通過
+        let flag_username = false,
+            flag_password = false,
+            flag_email = false,
+            flag_phoneNumber = false;
+
+        $(function () {
+            // 及時監聽 #username
+            // .on("事件名稱",觸發函數)
+            $("#username").on("input", function () {
+                // console.log($("#username").val());
+                // .val() 是取username的值出來，然後console.log
+                /*
+                    $("#username")
+                    = 找到這個 input，拿到的是這個HTML元素本身
+
+                    $("#username").val()
+                    = 取得這個 input 裡面的值
+                */
+                // 但通常不會像上面那樣寫，會用this，這邊是觀念
+
+                console.log("input: " + $(this).val().length);
+                // 當字串大於1，小於9
+                if ($(this).val().length > 1 && $(this).val().length < 9) {
+                    console.log("符合規定!");
+                    /* 
+                       if(判斷式){符合就做什麼}else{不符合就做什麼}
+                       這邊用到的概念，是透過if else切換input中的class，也就是移除新增is-valid、is-invalid
+                       如果符合，移除id="username"那邊的is-invalid的class
+                       (所以就不會出現class="invalid-feedback"那邊的字串)
+                       並新增is-valid的class，出現class="valid-feedback"那邊的字串
+                    */
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_username = true;
+                } else {
+                    console.log("不符合規定!");
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_username = false;
+                }
+                // this是觸發事件的HTML元素，這裡是對應到外層的username
+            });
+
+            // 輸入完成後離開欄位才觸發(常用)
+            // $("#username").on("change", function(){
+            //     console.log("change: " + $(this).val());
+            // });
+
+            $("#password").on("input", function () {
+                if ($(this).val().length > 7 && $(this).val().length < 17) {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_password = true;
+                } else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_password = false;
+                }
+            });
+
+            $("#email").on("input", function () {
+                if ($(this).val().includes("@") == true && $(this).val().length > 7 && $(this).val().length < 16) {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_email = true;
+                } else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_email = false;
+                }
+            });
+
+            $("#phoneNumber").on("input", function () {
+                if ($(this).val().startsWith("09") == true && $(this).val().length == 10) {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_phoneNumber = true;
+                } else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_phoneNumber = false;
+                }
+            });
+
+            // 監聽 #ok_btn 確認送出
+            $("#ok_btn").on("click", function () {
+                // 如果是布林值，判斷式可以省略 == true
+                // 可以的話，把$("#username").val()另外儲存成變數，就不用寫得那麼長
+                if (flag_username && flag_password && flag_email && flag_phoneNumber) {
+                    console.log("符合規定!");
+                    const strHTML = `
+                        <div class="h2">姓名：${$("#username").val()}</div>
+                        <div class="h2">密碼：${$("#password").val()}</div>
+                        <div class="h2">email：${$("#email").val()}</div>
+                        <div class="h2">手機號碼：${$("#phoneNumber").val()}</div>
+                    `;
+                    $("#showmsg").html(strHTML);
+                } else {
+                    console.log("不符合規定!");
+                    alert("不符合規定!");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

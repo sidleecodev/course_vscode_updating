@@ -309,7 +309,7 @@
                 console.log(classMode);
 
                 if (classMode) {
-                    flag_classMode = "true";
+                    flag_classMode = true;
                     $("#radio_msg")
                         .removeClass("text-secondary")
                         .addClass("text-success")
@@ -365,7 +365,7 @@
             }
 
             let savedPhoneNumber = localStorage.getItem("phoneNumber");
-            if (savedEmail != null) {
+            if (savedPhoneNumber != null) {
                 $("#phoneNumber").val(savedPhoneNumber);
                 $("#phoneNumber").trigger("change");
             }

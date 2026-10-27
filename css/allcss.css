@@ -24,6 +24,16 @@
     --shadow-soft: rgba(74, 51, 40, 0.18);
 
     --hover-bg: #D8C3A5;
+
+    /* 舊版共用樣式沿用的變數別名，避免未定義 */
+    --brown: #6B4F3A;
+    --brown-dark: #4A3328;
+    --brown-light: #A67B5B;
+    --cream: #F7F2EA;
+    --bgcolor: #E8DFD2;
+    --conbgcolor01: #FFFDF8;
+    --shadow: rgba(74, 51, 40, 0.18);
+    --hover: #D8C3A5;
 }
 
 .dotgothic16-regular {
@@ -135,4 +145,169 @@
 .bg-img {
     background-position: center center;
     background-size: cover;
+}
+
+
+
+/* roller系列，roller-t -b -l -r */
+/* roller bottom */
+.roller-b {
+    position: relative;
+    /* 超出roller的部分(rollerbox)就隱藏 */
+    overflow: hidden;
+}
+
+.roller-b .rollerbox-b {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(180, 110, 110, 0.5);
+    transform: translateY(100%);
+    /* transition：當某個 CSS 屬性發生變化時，要花多久時間慢慢變 */
+    transition: transform 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 當hover到roller，rollerbox就發生改變 */
+.roller-b:hover .rollerbox-b {
+    transform: translateY(0);
+}
+
+/* roller top */
+.roller-t {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-t .rollerbox-t {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(180, 110, 110, 0.5);
+    transform: translateY(-100%);
+    transition: transform 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roller-t:hover .rollerbox-t {
+    transform: translateY(0);
+}
+
+/* roller left */
+.roller-l {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-l .rollerbox-l {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(180, 110, 110, 0.5);
+    transform: translateX(-100%);
+    transition: transform 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roller-l:hover .rollerbox-l {
+    transform: translateX(0);
+}
+
+/* roller right */
+.roller-r {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-r .rollerbox-r {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(180, 110, 110, 0.5);
+    transform: translateX(100%);
+    transition: transform 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roller-r:hover .rollerbox-r {
+    transform: translateX(0);
+}
+
+
+
+
+/* ======================================================
+   作品展示首頁專用樣式（index.html）
+   保留原本共用樣式，額外增加帶有 coffee- 前綴的元件。
+   ====================================================== */
+html { scroll-behavior: smooth; }
+body.coffee-home {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--text-primary);
+    font-family: "Zen Old Mincho", "Noto Serif TC", serif;
+    line-height: 1.7;
+}
+.coffee-home *, .coffee-home *::before, .coffee-home *::after { box-sizing: border-box; }
+.coffee-home a { color: inherit; }
+.coffee-container { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
+.coffee-header { background: var(--card-bg); border-bottom: 1px solid var(--border-soft); }
+.coffee-header-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; min-height: 76px; }
+.coffee-brand { text-decoration: none; font-size: 1.25rem; font-weight: 700; color: var(--coffee-deep) !important; letter-spacing: .04em; }
+.coffee-nav { display: flex; gap: 22px; font-family: "DotGothic16", sans-serif; }
+.coffee-nav a { text-decoration: none; color: var(--coffee-main); padding: 6px; }
+.coffee-nav a:hover, .coffee-nav a:focus-visible { color: var(--matcha); text-decoration: underline; text-underline-offset: 5px; }
+.coffee-hero { padding: 76px 0 62px; text-align: center; }
+.coffee-eyebrow { color: var(--matcha); font-family: "DotGothic16", sans-serif; letter-spacing: .18em; font-size: .85rem; margin: 0 0 12px; }
+.coffee-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); color: var(--coffee-deep); margin: 0 0 14px; letter-spacing: .05em; }
+.coffee-hero p:last-child { color: var(--text-secondary); margin: 0 auto; max-width: 660px; }
+.coffee-main { padding-bottom: 65px; }
+.coffee-section { scroll-margin-top: 25px; margin-bottom: 65px; }
+.coffee-section-heading { display: flex; gap: 16px; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border-soft); padding-bottom: 13px; margin-bottom: 22px; }
+.coffee-section-heading h2 { margin: 0; font-size: 1.75rem; color: var(--coffee-deep); }
+.coffee-section-heading p { margin: 0; color: var(--matcha); font-family: "DotGothic16", sans-serif; font-size: .82rem; }
+.coffee-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.coffee-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 15px; box-shadow: 0 4px 13px var(--shadow-soft); transition: transform .22s ease, box-shadow .22s ease; }
+.coffee-card:hover, .coffee-card:focus-within { transform: translateY(-5px); box-shadow: 0 10px 25px var(--shadow-soft); }
+.coffee-card-art { display: flex; justify-content: center; align-items: center; min-height: 108px; background: var(--section-bg); border-bottom: 1px solid var(--border-soft); }
+.coffee-card-art span { font-size: 2.5rem; line-height: 1; }
+.coffee-card-art[data-topic="JavaScript"] { background: #EBEEDC; }
+.coffee-card-art[data-topic="Bootstrap"] { background: #EEE9F0; }
+.coffee-card-art[data-topic="HTML+CSS"] { background: #F5E8DA; }
+.coffee-card-content { display: flex; flex-direction: column; flex: 1; gap: 10px; padding: 20px; }
+.coffee-card-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.coffee-tag { display: inline-block; border-radius: 999px; background: var(--matcha-soft); color: var(--coffee-deep); padding: 2px 10px; font-family: "DotGothic16", sans-serif; font-size: .75rem; }
+.coffee-tag[data-topic="HTML+CSS"] { background: #EBD1B8; }
+.coffee-tag[data-topic="Bootstrap"] { background: #DFD5E4; }
+.coffee-status { color: var(--matcha); font-size: .75rem; }
+.coffee-card h3 { font-size: 1.16rem; line-height: 1.5; color: var(--coffee-deep); margin: 0; }
+.coffee-card-description { color: var(--text-secondary); font-size: .91rem; margin: 0; overflow-wrap: anywhere; flex: 1; }
+.coffee-card-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 9px; }
+.coffee-date { color: var(--text-muted); font-family: "DotGothic16", sans-serif; font-size: .75rem; }
+.coffee-card-link { color: var(--coffee-main) !important; font-weight: 700; text-decoration: none; font-size: .9rem; }
+.coffee-card-link:hover, .coffee-card-link:focus-visible { color: var(--matcha) !important; text-decoration: underline; }
+.coffee-message { padding: 24px; background: var(--section-bg); border-radius: 12px; color: var(--text-secondary); }
+.coffee-footer { background: var(--coffee-deep); color: var(--text-light); padding: 25px 0; text-align: center; font-size: .85rem; }
+.coffee-footer p { margin: 0; }
+@media (max-width: 900px) { .coffee-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+    .coffee-header-inner { flex-wrap: wrap; justify-content: center; padding-block: 14px; gap: 6px 16px; }
+    .coffee-nav { gap: 12px; }
+    .coffee-hero { padding: 52px 0 42px; }
+    .coffee-grid { grid-template-columns: 1fr; gap: 16px; }
+    .coffee-section-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
+    .coffee-section { margin-bottom: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .coffee-card { transition: none; }
+    .coffee-card:hover, .coffee-card:focus-within { transform: none; }
 }

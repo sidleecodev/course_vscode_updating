@@ -1,165 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學習筆記</title>
+    <meta name="description" content="程式學習紀錄與作品展示，包含 HTML、CSS、JavaScript、Bootstrap 等練習與實作。">
+    <title>程式學習與作品集｜Code & Coffee</title>
+    <!-- 保留原始 CSS 路徑；請將 allcss_updated.css 更名為 css/allcss.css 並覆蓋原檔 -->
     <link rel="stylesheet" href="css/allcss.css">
-
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bgcolor);
-            color: var(--text-dark);
-            font-family: "DotGothic16", sans-serif;
-        }
-
-        .wrapper {
-            width: 1024px;
-            margin-top: 20px;
-            margin-left: 30px;
-            margin-right: 30px;
-            padding: 15px;
-
-            background-color: var(--conbgcolor01);
-            border: 1px solid var(--brown-light);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-
-        .banner {
-            margin-bottom: 24px;
-            padding: 18px;
-
-            background-color: var(--cream);
-            border-left: 6px solid var(--matcha);
-            border-radius: 10px;
-        }
-
-        .banner ul {
-            list-style-position: inside;
-        }
-
-        .banner li {
-            margin-bottom: 10px;
-            color: var(--brown-light);
-        }
-
-        .banner li:last-child {
-            margin-bottom: 0;
-        }
-
-        .banner a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-size: 18px;
-            line-height: 1.6;
-
-            padding: 6px 10px;
-            border-radius: 6px;
-
-            transition: 0.2s;
-        }
-
-        .banner a:hover {
-            background-color: var(--hover);
-            color: var(--brown-dark);
-        }
-
-        @media screen and (max-width: 1024px) {
-            .wrapper {
-                width: calc(100% - 30px);
-                margin-left: 15px;
-                margin-right: 15px;
-            }
-
-            .mytitle-01 {
-                font-size: 28px;
-            }
-
-            .mytitle-03 {
-                font-size: 22px;
-            }
-
-            .banner a {
-                font-size: 17px;
-            }
-        }
-    </style>
 </head>
+<body class="coffee-home">
+    <header class="coffee-header">
+        <div class="coffee-container coffee-header-inner">
+            <a class="coffee-brand" href="index.html">☕ Code & Coffee</a>
+            <nav class="coffee-nav" aria-label="主要導覽">
+                <a href="#learning">學習紀錄</a>
+                <a href="#works">作品展示</a>
+            </nav>
+        </div>
+    </header>
 
-<body>
-    <div class="mytitle-01">學習筆記列表</div>
-    <div class="banner">
-        <ul>
-            <div class="mytitle-03">9月份</div>
-
-            <li><a href="ex_HTML CSS JS/practice_HTML+CSS.html" target="_blank">HTML+CSS排版練習</a></li>
-            <li><a href="ex_HTML CSS JS/quiz01_ai01.html" target="_blank">排版練習01</a></li>
-            <li><a href="ex_JS/practice_JavaScript.html" target="_blank">JavaScript語法練習</a></li>
-            <li><a href="ex_JS/practice_JSON_travelfood.html" target="_blank">JSON練習-使用opendata travelfood</a></li>
-        </ul>
+    <div class="coffee-hero coffee-container">
+        <p class="coffee-eyebrow">MY CODING JOURNEY</p>
+        <h1>程式學習與作品集</h1>
+        <p>一點一滴累積技術，記錄每一次練習與創作。從前端排版、JavaScript 到實際網頁作品，都收藏在這裡。</p>
     </div>
 
+    <main class="coffee-container coffee-main">
+        <section class="coffee-section" id="learning" aria-labelledby="learning-title">
+            <div class="coffee-section-heading">
+                <h2 id="learning-title">01. 學習</h2>
+                <p>LEARNING NOTES <span id="learning-count"></span></p>
+            </div>
+            <div class="coffee-grid" id="learning-list" aria-live="polite"></div>
+        </section>
+
+        <section class="coffee-section" id="works" aria-labelledby="works-title">
+            <div class="coffee-section-heading">
+                <h2 id="works-title">02. 作品</h2>
+                <p>PROJECTS <span id="works-count"></span></p>
+            </div>
+            <div class="coffee-grid" id="works-list" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer class="coffee-footer">
+        <div class="coffee-container"><p>© 2026 · Code & Coffee · 持續學習、持續創作</p></div>
+    </footer>
+
+    <!-- 保留原始 JS 路徑與引用順序 -->
     <script src="js/jquery-4.0.0.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-
-    <div class="wrapper"></div>
     <script>
-        // $(".banner").empty();
-        const ListDisplay = [
-            {
-                "month": "9月份",
-                "AllLink": [
-                    {
-                        "title": "HTML+CSS排版練習",
-                        "url": "practice_HTML+CSS.html"
-                    },
-                    {
-                        "title": "排版練習01",
-                        "url": "quiz01_ai01.html"
-                    },
-                    {
-                        "title": "JavaScript語法練習",
-                        "url": "practice_JavaScript.html"
-                    },
-                    {
-                        "title": "JSON練習-使用opendata travelfood",
-                        "url": "practice_JSON_travelfood.html"
-                    }
-                ]
-            },
-            {
-                "month": "10月份",
-                "AllLink": [
-                    {
-                        "title": "Bootstrap練習",
-                        "url": "practice_Bootstrap.html"
-                    },
-                    {
-                        "title": "Bootstrap-table練習",
-                        "url": "ractice_Bootstrap_tables.html"
-                    }
-                ]
+        $(function () {
+            // 技術分類對應的簡單封面圖示，沒有縮圖檔案也能呈現一致的排版。
+            const topicIcons = {
+                "HTML+CSS": "✦",
+                "JavaScript": "⌘",
+                "Bootstrap": "▦"
+            };
+
+            // YYYYMMDD 顯示成 YYYY.MM.DD；資料不合法時顯示原字串。
+            function formatDate(value) {
+                const raw = String(value || "");
+                if (/^\d{8}$/.test(raw)) {
+                    return raw.slice(0, 4) + "." + raw.slice(4, 6) + "." + raw.slice(6, 8);
+                }
+                return raw;
             }
-        ];
 
+            // 避免使用者資料或 JSON 字串被當作 HTML 執行，文字一律透過 .text() 填入。
+            function makeCard(item) {
+                const title = String(item.title || "未命名項目");
+                const topic = String(item.category || "其他");
+                const description = String(item.note || "這項紀錄尚未提供簡介。");
+                const status = String(item.status || "");
+                const url = String(item.url || "");
 
-        ListDisplay.forEach(function (item) {
-            $(".wrapper").append(`<div class="mytitle-01">${item.month}</div>`);
-            item.AllLink.forEach(function(link){
-                $(".wrapper").append(`<div class="mytitle-03">${link.title}</div>`);
+                const $card = $("<article>").addClass("coffee-card");
+                const $art = $("<div>").addClass("coffee-card-art").attr("data-topic", topic);
+                $art.append($("<span>").attr("aria-hidden", "true").text(topicIcons[topic] || "✎"));
+
+                const $content = $("<div>").addClass("coffee-card-content");
+                const $top = $("<div>").addClass("coffee-card-top");
+                $top.append($("<span>").addClass("coffee-tag").attr("data-topic", topic).text(topic));
+                if (status) {
+                    $top.append($("<span>").addClass("coffee-status").text("・" + status));
+                }
+
+                $content.append($top);
+                $content.append($("<h3>").text(title));
+                $content.append($("<p>").addClass("coffee-card-description").text(description));
+
+                const $bottom = $("<div>").addClass("coffee-card-bottom");
+                $bottom.append($("<span>").addClass("coffee-date").text(formatDate(item.date)));
+
+                // 連結來自自己的 JSON；限制為站內相對路徑，不接受外站與 javascript: URL。
+                if (url && !/^(?:[a-z][a-z0-9+.-]*:|\/\/|\/|#)/i.test(url) && !url.includes("\\")) {
+                    $bottom.append(
+                        $("<a>")
+                            .addClass("coffee-card-link")
+                            .attr({ href: url, target: "_blank", rel: "noopener noreferrer" })
+                            .text("查看成品 ↗")
+                    );
+                }
+                $content.append($bottom);
+                return $card.append($art, $content);
+            }
+
+            function renderItems(items, container, countId) {
+                const $container = $(container).empty();
+                $(countId).text("· " + items.length + " 項");
+                if (items.length === 0) {
+                    $container.append($("<p>").addClass("coffee-message").text("這個分類目前還沒有紀錄。"));
+                    return;
+                }
+                items.forEach(function (item) {
+                    $container.append(makeCard(item));
+                });
+            }
+
+            // 從 JSON 取得資料，依 class 分成「學習」與「作品」，每組日期由新到舊。
+            $.ajax({
+                type: "GET",
+                url: "index_content.json",
+                dataType: "json",
+                cache: false,
+                success: function (data) {
+                    if (!data || !Array.isArray(data.projects)) {
+                        showLoadError();
+                        return;
+                    }
+                    const projects = data.projects.slice();
+                    const newestFirst = function (a, b) {
+                        return String(b.date || "").localeCompare(String(a.date || ""));
+                    };
+                    const learning = projects.filter(item => item.class === "學習").sort(newestFirst);
+                    const works = projects.filter(item => item.class === "作品").sort(newestFirst);
+                    renderItems(learning, "#learning-list", "#learning-count");
+                    renderItems(works, "#works-list", "#works-count");
+                },
+                error: showLoadError
             });
+
+            function showLoadError() {
+                const message = "資料載入失敗。請確認 index_content.json 與 index.html 放在同一層，並透過 Live Server 或 GitHub Pages 開啟。";
+                $("#learning-list, #works-list").empty().append(
+                    $("<p>").addClass("coffee-message").text(message)
+                );
+                $("#learning-count, #works-count").empty();
+            }
         });
     </script>
-
-
 </body>
-
 </html>

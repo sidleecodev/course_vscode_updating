@@ -6,7 +6,10 @@
             "note": "HTML & CSS 基礎練習，class、html排版、",
             "date": "20260923",
             "category": "HTML+CSS",
-            "status": "完成"
+            "class": "學習",
+            "status": "完成",
+            "related": "",
+            "image": ""
         },
         {
             "title": "HTML+CSS文章頁面排版練習",
@@ -14,6 +17,7 @@
             "note": "HTML & CSS 文章頁面排版(含RWD語法)，用ul li製作選單列，有hover、螢幕尺寸RWD設計，使用AI輔助配色",
             "date": "20261005",
             "category": "HTML+CSS",
+            "class": "作品",
             "status": "完成"
         },
         {
@@ -22,6 +26,7 @@
             "note": "基本JavaScript語法練習，陣列、forEach、jquery",
             "date": "20261005",
             "category": "JavaScript",
+            "class": "學習",
             "status": "完成"
         },
         {
@@ -30,8 +35,80 @@
             "note": "搭配開放資料，製作文章頁面",
             "date": "20261005",
             "category": "JavaScript",
+            "class": "作品",
+            "status": "完成"
+        },
+        {
+            "title": "Bootstrap練習",
+            "url": "ex_BS/practice_Bootstrap.html",
+            "note": "一些Bootstrap語法練習",
+            "date": "20261005",
+            "category": "Bootstrap",
+            "class": "學習",
+            "status": "完成"
+        },
+        {
+            "title": "Bootstrap_row練習",
+            "url": "ex_BS/practice_Bootstrap_row(ch6).html",
+            "note": "row & col的練習",
+            "date": "20261008",
+            "category": "Bootstrap",
+            "class": "學習",
+            "status": "完成"
+        },
+        {
+            "title": "製作網頁-使用row-外接opendata",
+            "url": "ex_BS/ex_ch6_02.html",
+            "note": "使用row排版，並使用jquery外接opendata travelfood",
+            "date": "20261008",
+            "category": "Bootstrap",
+            "class": "作品",
+            "status": "完成"
+        },
+        {
+            "title": "使用flex排版",
+            "url": "ex_BS/practice_Bootstrap_flex(ch7).html",
+            "note": "",
+            "date": "20261013",
+            "category": "Bootstrap",
+            "class": "學習",
+            "status": "完成"
+        },
+        {
+            "title": "製作時間線",
+            "url": "ex_BS/ex_ch7_flex_timeline.html",
+            "note": "",
+            "date": "20261013",
+            "category": "Bootstrap",
+            "class": "作品",
+            "status": "完成"
+        },
+        {
+            "title": "製作roller",
+            "url": "ex_BS/ex_ch7_roller.html",
+            "note": "hover時，物件會有滑動進入的效果",
+            "date": "20261013",
+            "category": "Bootstrap",
+            "class": "作品",
+            "status": "完成"
+        },
+        {
+            "title": "form的練習（含js）",
+            "url": "ex_BS/ex_ch8(JS).html",
+            "note": "用js控制class要加入什麼，此處是控制is-valid跟is-invalid",
+            "date": "20261027",
+            "category": "Bootstrap",
+            "class": "學習",
+            "status": "完成"
+        },
+        {
+            "title": "form的練習（含js）－使用AI",
+            "url": "ex_BS/ex_ch8(JS)_AI.html",
+            "note": "使用AI製作類成品",
+            "date": "20261027",
+            "category": "Bootstrap",
+            "class": "作品",
             "status": "完成"
         }
-
     ]
 }

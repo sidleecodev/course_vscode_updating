@@ -164,6 +164,7 @@
         let interest = [];
         let classMode = "";
         let switchStatus = false;
+        let score = 5;
 
         $(function () {
             // 及時監聽 #username，用.on("事件名稱",觸發函數)
@@ -300,6 +301,8 @@
 
             // switch change監聽
             $("#switch01").on("change", function () {
+                // prop() 是 jQuery 用來取得或設定 HTML 元素「屬性狀態」的方法，
+                // 與val()取值不同，這是取布林值
                 console.log($(this).prop("checked"));
                 switchStatus = $(this).prop("checked");
 
@@ -319,8 +322,8 @@
             // range input監聽
             $("#range01").on("input", function(){
                 // 這裡已經可以針對拉桿的位置抓取值了
-                console.log($(this).val());
-                $("#range_value").val() = $(this).val();
+                score = $(this).val();
+                $("#range_value").text(score);
 
             });
 
@@ -347,7 +350,7 @@
                         <div class="h2">感興趣的課程：${interest.join(" 、 ")}</div>
                         <div class="h2">偏好的上課方式：${classMode}</div>
                         <div class="h2">${switch_msg}</div>
-                        <div class="h2">程式能力自我評估：${$("#range_value").val()}</div>
+                        <div class="h2">程式能力自我評估：${score} 分</div>
                     `;
                     // ↑join：將陣列的每個元素用字串顯示出來，括號內是區隔每個元素用的
                     $("#showmsg").html(strHTML);

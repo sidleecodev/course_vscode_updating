@@ -135,7 +135,7 @@
 
             <div class="col-12 text-center mt-3">
                 <button class="btn btn-primary" id="ok_btn">確認送出</button>
-                <button class="btn btn-secondary">重新填寫</button>
+                <button class="btn btn-secondary" id="reset_btn">重新填寫</button>
             </div>
         </div>
 
@@ -150,6 +150,8 @@
 
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/jquery-4.0.0.js"></script>
+    <!-- 引用sweeetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         // 用變數flag_username來讓按鈕判斷能不能通過
@@ -166,11 +168,13 @@
         let switchStatus = false;
         let score = 5;
 
+        // 暫存：網頁F12 → Application → 左邊找Local storage，暫存內容都會寫在這邊
+
         $(function () {
             // 及時監聽 #username，用.on("事件名稱",觸發函數)
             // input是及時回饋，change是點旁邊空白才反應
             // $("選擇器").val()
-            $("#username").on("change", function () {
+            $("#username").on("input", function () {
                 // console.log($("#username").val());
                 // .val() 是取username的值出來，然後console.log
                 /*
@@ -181,6 +185,14 @@
                     = 取得這個 input 裡面的值
                 */
                 // 但通常不會像上面那樣寫，會用this，這邊是觀念
+
+                // LocalStorage 即時儲存，當網頁重整時可以利用儲存資料代入值，避免重新輸入資料
+                // （這段寫法跟"確認送出"前的引用即時儲存有關連）
+                let username = $(this).val();
+                // localStorage.setItem(Key, Value);
+                // Key：資料名稱，用來之後找到這筆資料；Value：要儲存的資料
+                // 
+                localStorage.setItem("username", username);
 
                 console.log("input: " + $(this).val().length);
                 // 當字串大於1，小於9
@@ -234,6 +246,9 @@
                     $(this).addClass("is-invalid");
                     flag_email = false;
                 }
+
+                let email = $(this).val();
+                localStorage.setItem("email", email);
             });
 
             $("#phoneNumber").on("change", function () {
@@ -246,6 +261,9 @@
                     $(this).addClass("is-invalid");
                     flag_phoneNumber = false;
                 }
+
+                let phoneNumber = $(this).val();
+                localStorage.setItem("phoneNumber", phoneNumber);
             });
 
             // 縣市選單，使用外部資料../js/json/CityCountyData.json 產生select選單
@@ -320,13 +338,37 @@
             });
 
             // range input監聽
-            $("#range01").on("input", function(){
+            $("#range01").on("input", function () {
                 // 這裡已經可以針對拉桿的位置抓取值了
                 score = $(this).val();
                 $("#range_value").text(score);
 
             });
 
+            // 引用即時儲存資料
+            // 網頁載入時，透過 Key "username" 取得先前儲存在 LocalStorage 的資料
+            let savedUsername = localStorage.getItem("username");
+            if (savedUsername != null) {
+                // 將先前儲存的 username 放回輸入框
+                $("#username").val(savedUsername);
+                // 執行驗證
+                // （因重整頁面，代入username之後，不會觸發到上面的驗證，因此這裡還要再手動觸發一次上面的驗證）
+                // LocalStorage 就算重新整理、甚至關掉瀏覽器再開，資料通常仍會保留
+                // 注意括號內要對應即時監聽的input或者change
+                $("#username").trigger("input");
+            }
+
+            let savedEmail = localStorage.getItem("email");
+            if (savedEmail != null) {
+                $("#email").val(savedEmail);
+                $("#email").trigger("change");
+            }
+
+            let savedPhoneNumber = localStorage.getItem("phoneNumber");
+            if (savedEmail != null) {
+                $("#phoneNumber").val(savedPhoneNumber);
+                $("#phoneNumber").trigger("change");
+            }
 
             // 監聽 #ok_btn 確認送出
             $("#ok_btn").on("click", function () {
@@ -354,10 +396,36 @@
                     `;
                     // ↑join：將陣列的每個元素用字串顯示出來，括號內是區隔每個元素用的
                     $("#showmsg").html(strHTML);
+
+                    // 清除暫存，這裡自定義一個函數，後面有此函數內容
+                    clearLocalStorage();
                 } else {
                     console.log("不符合規定!");
-                    alert("不符合規定!");
+                    // alert("不符合規定!");
+                    // sweetalert2（google搜尋，去官網(https://sweetalert2.github.io/)抓喜歡的樣式，但要先下載／引用sweetalert2）
+                    // 這裡用的彈跳視窗是"A dialog with three buttons"
+                    Swal.fire({
+                        title: "表單內容錯誤，請修正",
+                        showDenyButton: false,
+                        showCancelButton: false,
+                        confirmButtonText: "確認",
+                        denyButtonText: ``,
+                        icon: "error"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // 重整畫面，這裡利用導向目前表單頁面來做出這個效果
+                            // 這裡也可以用 location.reload();
+                            location.href = "ex_ch8(JS).html"
+                        }
+                    });
                 }
+            });
+
+            // 重新填寫
+            $("#reset_btn").on("click", function(){
+                clearLocalStorage();
+                // 重整畫面，可以重整目前的頁面
+                location.reload();
             });
         });
 
@@ -375,6 +443,13 @@
                 $(this).addClass("is-valid");
                 flag_city = true;
             });
+        }
+
+        // 清除暫存
+        function clearLocalStorage(){
+            localStorage.removeItem("username");
+            localStorage.removeItem("email");
+            localStorage.removeItem("phoneNumber");
         }
     </script>
 </body>

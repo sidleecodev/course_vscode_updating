@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA - 個人履歷排版練習</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+    <style>
+        #s03 .carousel-item {
+            background-size: cover;
+            background-position: center;
+        }
+
+        #s03 .carousel-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(12, 25, 31, .69), rgba(12, 25, 31, .12) 85%);
+        }
+
+        #s03 .carousel-item.caption-right::before {
+            background: linear-gradient(270deg, rgba(12, 25, 31, .72), rgba(12, 25, 31, .10) 85%);
+        }
+
+        #s03 .carousel-caption {
+            position: absolute;
+            top: 50%;
+            bottom: auto;
+            left: 10%;
+            right: auto;
+            transform: translateY(-50%);
+            width: min(490px, 75%);
+            padding: 2rem 2.25rem;
+            text-align: left;
+            color: #f4eee0;
+            background: rgba(23, 43, 46, .88);
+            border: 1px solid rgba(218, 183, 123, .65);
+            border-left: 5px solid #c7a36a;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .24);
+        }
+
+        #s03 .caption-right .carousel-caption {
+            left: auto;
+            right: 10%;
+            border-left: 1px solid rgba(218, 183, 123, .65);
+            border-right: 5px solid #c7a36a;
+        }
+
+        #s03 .caption-eyebrow {
+            color: #d9bb85;
+            letter-spacing: .24em;
+            font-size: .82rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        #s03 .carousel-caption h3 {
+            font-family: Georgia, 'Noto Serif TC', 'PMingLiU', serif;
+            font-size: clamp(2rem, 3vw, 3.2rem);
+            font-weight: 600;
+            letter-spacing: .12em;
+            margin-bottom: 1.2rem;
+        }
+
+        #s03 .caption-rule {
+            height: 1px;
+            width: 72px;
+            background: #d9bb85;
+            margin-bottom: 1.3rem;
+        }
+
+        #s03 .carousel-caption p {
+            line-height: 1.95;
+            letter-spacing: .055em;
+            margin-bottom: 1.2rem;
+        }
+
+        #s03 .caption-foot {
+            color: #d9bb85;
+            font-family: Georgia, serif;
+            font-size: .78rem;
+            letter-spacing: .15em;
+        }
+
+        #s03 .carousel-indicators [data-bs-target] {
+            width: 28px;
+            height: 3px;
+            background-color: #e4c790;
+        }
+
+        @media (max-width: 767.98px) {
+            #s03 .carousel-item {
+                height: 70vh !important;
+                min-height: 470px;
+            }
+
+            #s03 .carousel-caption,
+            #s03 .caption-right .carousel-caption {
+                display: block !important;
+                left: 7%;
+                right: 7%;
+                width: auto;
+                padding: 1.4rem 1.5rem;
+            }
+
+            #s03 .carousel-caption h3 {
+                font-size: 2rem;
+            }
+
+            #s03 .carousel-caption p {
+                font-size: .9rem;
+                line-height: 1.75;
+            }
+        }
+
+
+        /* Section 04 英倫建築風格 */
+        .british-achievements {
+            --british-green: #203d35;
+            --british-gold: #b79760;
+            --british-cream: #f5f0e6;
+        }
+
+        /* 左側圖片 */
+        .british-achievements .achievements-image {
+            min-height: 520px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 右側內容 */
+        .british-achievements .achievements-content {
+            background-color: var(--british-cream);
+            color: var(--british-green);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 520px;
+        }
+
+        /* 英文裝飾標籤 */
+        .british-achievements .achievements-label {
+            color: var(--british-gold);
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* 主標題 */
+        .british-achievements .achievements-title {
+            font-family: Georgia, "Noto Serif TC", serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        /* 金色裝飾線 */
+        .british-achievements .achievements-line {
+            width: 65px;
+            height: 2px;
+            background-color: var(--british-gold);
+            margin: 24px auto;
+        }
+
+        /* 說明文字 */
+        .british-achievements .achievements-description {
+            color: #606960;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        /* 統計數字 */
+        .british-achievements .stat-number {
+            color: var(--british-gold);
+            font-family: Georgia, serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .british-achievements .stat-number span {
+            font-size: 1rem;
+        }
+
+        /* 統計標題 */
+        .british-achievements .stat-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--british-green);
+        }
+
+        /* 手機版 */
+        @media (max-width: 767.98px) {
+            .british-achievements .achievements-image {
+                min-height: 260px;
+            }
+
+            .british-achievements .achievements-content {
+                min-height: auto;
+            }
+        }
+
+
+        /* Section 05 工作信念 */
+        .work-beliefs {
+            --british-green: #203d35;
+            --british-gold: #b79760;
+            --british-cream: #f5f0e6;
+
+            background-color: var(--british-green);
+            color: var(--british-cream);
+        }
+
+        /* 英文小標 */
+        .work-beliefs .beliefs-label {
+            color: var(--british-gold);
+            letter-spacing: 4px;
+            font-size: 0.85rem;
+        }
+
+        /* 主標題 */
+        .work-beliefs .beliefs-heading {
+            font-family: Georgia, "Noto Serif TC", serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+
+        /* 主標題下方說明 */
+        .work-beliefs .beliefs-subtitle {
+            color: #d5ded5;
+            line-height: 1.9;
+            margin-top: 20px;
+        }
+
+        /* 三欄卡片 */
+        .work-beliefs .belief-card {
+            height: 100%;
+            padding: 40px 25px;
+            border: 1px solid rgba(183, 151, 96, 0.4);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        /* 卡片圖示 */
+        .work-beliefs .belief-card i {
+            color: var(--british-gold);
+        }
+
+        /* 卡片標題 */
+        .work-beliefs .belief-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* 金色副標題 */
+        .work-beliefs .belief-keyword {
+            color: var(--british-gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* 卡片內文 */
+        .work-beliefs .belief-card p {
+            line-height: 1.9;
+        }
+
+        /* 滑鼠移入動畫 */
+        .work-beliefs .belief-card:hover {
+            transform: translateY(-8px);
+            background-color: rgba(255, 255, 255, 0.06);
+            border-color: var(--british-gold);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* Section 06 關於我 */
+        #s06 {
+            --british-green: #203d35;
+            --british-gold: #b79760;
+            --british-cream: #f5f0e6;
+
+            background-color: var(--british-cream);
+            color: var(--british-green);
+        }
+
+        /* 文字內容 */
+        #s06 .about-content {
+            padding: 45px 50px;
+        }
+
+        /* 英文小標 */
+        #s06 .about-label {
+            color: var(--british-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        /* 主標題 */
+        #s06 .about-title {
+            font-family: Georgia, "Noto Serif TC", serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* 主標題部分變色 */
+        #s06 .about-title span {
+            color: var(--british-gold);
+        }
+
+        /* 金色裝飾線 */
+        #s06 .about-line {
+            width: 65px;
+            height: 2px;
+            background-color: var(--british-gold);
+            margin: 25px 0;
+        }
+
+        /* 副標題 */
+        #s06 .about-lead {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--british-green);
+        }
+
+        /* 一般段落 */
+        #s06 .about-content p {
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        /* 強調段落 */
+        #s06 .about-highlight {
+            color: var(--british-green);
+            font-weight: 600;
+            border-left: 3px solid var(--british-gold);
+            padding-left: 15px;
+        }
+
+        /* 按鈕 */
+        #s06 .about-btn {
+            background-color: var(--british-green);
+            color: var(--british-cream);
+            border: 1px solid var(--british-green);
+            border-radius: 4px;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+        }
+
+        #s06 .about-btn:hover {
+            background-color: var(--british-gold);
+            border-color: var(--british-gold);
+            color: #fff;
+        }
+
+        /* 手機版避免絕對定位圖片與文字重疊 */
+        @media (max-width: 767.98px) {
+            #s06 .bg-img {
+                position: relative !important;
+                height: 260px !important;
+            }
+
+            #s06 .about-content {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- font awesome 第三方出的小圖案套件，自行上網搜尋，下載套件
+    只需要複製其中的all.min.css以及webfonts資料夾，貼到自己的css資料夾底下
+    使用小圖案時，可以在該網頁搜尋，並複製專門給HTML使用的語法過來貼上 -->
+
+
+    <!-- section 01 社群連結 -->
+    <section id="s01" class="bg-secondary">
+        <div class="container py-1">
+            <div class="row">
+                <div class="text-end py-2">
+                    <!-- class="link-dark"連結字體變黑（超連結預設都會變為藍色） -->
+                    <a href="#"><i class="fa-brands fa-threads fa-2x"></i></a>
+                    <a href="#" class="link-danger"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                    <a href="#" class="link-dark"><i class="fa-brands fa-x-twitter fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 02 選單 -->
+    <section id="s02" class="bg-dark">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <i class="fa-brands fa-connectdevelop fa-canvas-roomy fa-2x text-warning"></i>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa-solid fa-house fa-canvas-roomy text-danger"></i>首頁
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa-solid fa-house fa-canvas-roomy text-danger"></i>工作經驗
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa-solid fa-house fa-canvas-roomy text-danger"></i>專長項目
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">專長1</a></li>
+                                    <li><a class="dropdown-item" href="#">專長2</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled">Disabled</a>
+                            </li>
+                        </ul>
+                        <!-- 使用modal（https://getbootstrap.com/docs/5.2/components/modal/）可以彈跳視窗讓使用者填入資訊，不會跳轉網頁 -->
+                        <div>
+                            <button class="btn btn-outline-warning" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">註冊</button>
+                            <button class="btn btn-outline-success" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">登入</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 底下去bootstrap的modal複製原始碼就好，不用自己打，可以根據自己的需求修改部分語法 -->
+    <!-- 這裡用Live demo底下的語法 -->
+    <!-- 註冊 registerModal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header text-bg-warning">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <h1>會員條款與使用守則</h1>
+                            <p>1. 會員註冊
+                                使用者應提供真實且正確的註冊資料，並妥善保管帳號及密碼，不得轉讓或提供他人使用。</p>
+                            <p>2. 使用規範
+                                會員不得利用本平台從事詐騙、散布不實資訊、侵害他人權益或其他違反法律之行為。</p>
+                            <p>3. 個人資料保護
+                                本平台將依相關法規妥善保護會員個人資料，未經同意不會任意提供予第三方。</p>
+                            <p>4. 會員權利與義務
+                                會員應遵守平台規範，若有違規行為，本平台有權暫停或終止其會員資格。</p>
+                            <p>5. 條款修改與公告
+                                本平台保留修改服務條款之權利，相關異動將於網站公告，會員繼續使用即視為同意更新內容。</p>
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" checked class="form-check-input" id="switch01">
+                                    <label for="switch01" class="form-check-label">遵守</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">帳號</label>
+                                <input type="text" class="form-control form-control-lg" id="username"
+                                    placeholder="姓名字串長度2~8字!">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">密碼</label>
+                                <input type="password" class="form-control form-control-lg" id="password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">確認密碼</label>
+                                <input type="password" class="form-control form-control-lg" id="re-password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control form-control-lg" id="email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="me-auto text-decoration-none" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">已經有帳號，直接登入。</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 登入 loginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">帳號</label>
+                        <input type="text" class="form-control" id="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">密碼</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="me-auto text-decoration-none" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">還沒有帳號，去註冊一個帳號。</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認登入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- section 03 幻燈片效果 carousel -->
+    <!-- https://getbootstrap.com/docs/5.2/components/carousel/
+     來這邊找 With captions 使用 -->
+
+    <!-- 這段是AI輔助生成 -->
+    <section id="s03">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- 第一張：文字靠左 -->
+                <div class="carousel-item bg-img active"
+                    style="background-image: url(../image/photo-1788963799172-5d5a5e06912f.avif); height: 85vh;">
+                    <div class="carousel-caption rounded-1">
+                        <div class="caption-eyebrow">01 / ABOUT ME</div>
+                        <h3>個人介紹</h3>
+                        <div class="caption-rule"></div>
+                        <p>喜歡老建築，也喜歡新點子。平常在咖啡館寫程式、在城市裡找靈感，相信好的設計不只要好看，更要讓人自在使用。</p>
+                        <div class="caption-foot">A LITTLE STORY ABOUT ME</div>
+                    </div>
+                </div>
+                <!-- 第二張：文字靠右 -->
+                <div class="carousel-item bg-img caption-right"
+                    style="background-image: url(../image/photo-church.avif); height: 85vh;">
+                    <div class="carousel-caption rounded-1">
+                        <div class="caption-eyebrow">02 / MY JOURNEY</div>
+                        <h3>工作經驗</h3>
+                        <div class="caption-rule"></div>
+                        <p>曾參與內容企劃、團隊溝通與專案製作。從發想、修改到交付，每段經歷都教會我如何把抽象的想法，一步步落實成具體成果。</p>
+                        <div class="caption-foot">EXPERIENCE SHAPES PERSPECTIVE</div>
+                    </div>
+                </div>
+                <!-- 第三張：文字靠左 -->
+                <div class="carousel-item bg-img"
+                    style="background-image: url(../image/photo-mountain.avif); height: 85vh;">
+                    <div class="carousel-caption rounded-1">
+                        <div class="caption-eyebrow">03 / WHAT I DO</div>
+                        <h3>專長技術</h3>
+                        <div class="caption-rule"></div>
+                        <p>從 HTML、CSS、JavaScript 到 Bootstrap，喜歡研究互動細節與響應式排版；也持續探索 PHP、資料庫和 AI 工具，讓想法不只停留在紙上。</p>
+                        <div class="caption-foot">CRAFT · CODE · CURIOSITY</div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- section 04 可量化的數據 counterup -->
+    <!-- 計畫：左邊為圖，右邊為文字，左邊的圖會根據右邊的文字調整大小 -->
+
+    <section id="s04" class="british-achievements">
+        <div class="container-fluid">
+            <div class="row g-0">
+
+                <!-- 左側建築圖片 -->
+                <div class="col-md-5 bg-img achievements-image"
+                    style="background-image: url(../image/photo-church.avif);">
+                </div>
+
+                <!-- 右側介紹內容 -->
+                <div class="col-md-7 py-5 px-4 text-center achievements-content">
+
+                    <p class="achievements-label">
+                        THE ART OF EXPERIENCE
+                    </p>
+
+                    <h1 class="achievements-title">
+                        以經驗奠定基礎，<br>
+                        以創意成就不凡。
+                    </h1>
+
+                    <div class="achievements-line"></div>
+
+                    <p class="achievements-description">
+                        從靈感萌芽到作品誕生，<br>
+                        每一次挑戰，都是專業與熱情的累積。
+                    </p>
+
+                    <p class="achievements-description">
+                        我們相信，真正的價值不只來自成果，<br>
+                        更源於對每個細節的堅持。
+                    </p>
+
+                    <!-- 四項量化數據 -->
+                    <div class="row mt-5 g-4">
+
+                        <div class="col-6 col-lg-3">
+                            <h4 class="stat-number counter01">
+                                8 <span>年</span>
+                            </h4>
+                            <p class="stat-title">專業經歷</p>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <h4 class="stat-number counter02">
+                                120<span>+</span>
+                            </h4>
+                            <p class="stat-title">累積作品</p>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <h4 class="stat-number counter03">
+                                35<span>+</span>
+                            </h4>
+                            <p class="stat-title">合作專案</p>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <h4 class="stat-number counter04">
+                                98<span>%</span>
+                            </h4>
+                            <p class="stat-title">客戶滿意度</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 05 個人特質／工作信念 -->
+    <section id="s05" class="work-beliefs py-5">
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <p class="beliefs-label">MY WORK PHILOSOPHY</p>
+                <h2 class="beliefs-heading">工作信念</h2>
+                <p class="beliefs-subtitle">
+                    以理解為起點，以行動實踐想法，
+                    在每一次挑戰中累積成長。
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- 信念 01 -->
+                <div class="col-md-4 text-center">
+                    <div class="belief-card">
+                        <i class="fa-solid fa-users-viewfinder fa-4x"></i>
+                        <h3 class="my-4">換位思考</h3>
+                        <p class="belief-keyword">從理解需求開始</p>
+                        <p>
+                            站在使用者的角度思考，
+                            將複雜的資訊化繁為簡，
+                            打造直覺且友善的體驗。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 信念 02 -->
+                <div class="col-md-4 text-center">
+                    <div class="belief-card">
+                        <i class="fa-solid fa-puzzle-piece fa-4x"></i>
+                        <h3 class="my-4">拆解問題</h3>
+                        <p class="belief-keyword">不只解決，更要理解</p>
+                        <p>
+                            面對挑戰先釐清問題，
+                            透過分析、嘗試與驗證，
+                            找出合理且有效的解決方案。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 信念 03 -->
+                <div class="col-md-4 text-center">
+                    <div class="belief-card">
+                        <i class="fa-solid fa-seedling fa-4x"></i>
+                        <h3 class="my-4">持續成長</h3>
+                        <p class="belief-keyword">讓好奇心成為前進動力</p>
+                        <p>
+                            保持開放與學習的態度，
+                            勇於探索不同領域，
+                            將新知轉化為實際能力。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 06 關於我 -->
+    <section id="s06" style="position: relative;">
+        <div class="row my-3">
+            <div class="col-md-5 bg-img"
+                style="background-image: url(../image/premium_photo-1792118353041-9ad95cc3f9c9.avif); height: 730px; position: absolute; top: 0; bottom: 0;">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7 about-content">
+
+                    <!-- 英文小標 -->
+                    <p class="about-label">ABOUT ME · MY JOURNEY</p>
+
+                    <!-- 主標題 -->
+                    <h2 class="about-title">
+                        從創意出發，<br>
+                        <span>用技術實現想法。</span>
+                    </h2>
+
+                    <!-- 金色裝飾線 -->
+                    <div class="about-line"></div>
+
+                    <!-- 副標題 -->
+                    <p class="about-lead">
+                        跨越不同領域，始終保持對創作與
+                        解決問題的熱情。
+                    </p>
+
+                    <!-- 介紹內容 -->
+                    <p>
+                        曾從事教學與動畫腳本相關工作，
+                        累積了內容規劃、邏輯組織與溝通表達的經驗。
+                        這些經歷讓我學會從不同角度理解需求，
+                        也培養了將複雜概念轉化為清晰內容的能力。
+                    </p>
+
+                    <p>
+                        如今，我將這份熱情延伸至程式設計領域，
+                        從前端介面到後端邏輯，
+                        持續探索如何透過技術打造兼具實用性
+                        與良好體驗的作品。
+                    </p>
+
+                    <p class="about-highlight">
+                        我相信，技術是實現創意的工具，
+                        而持續學習與主動思考，
+                        則是讓作品不斷進步的關鍵。
+                    </p>
+
+                    <a href="#" class="btn about-btn w-100">
+                        探索更多作品
+                        <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <!-- 此處搭配section04 -->
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script>
+    <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 2500,
+                        delay: 16,
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+    </script>
+</body>
+
+</html>

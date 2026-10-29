@@ -14,19 +14,352 @@
     <!-- font awesome 第三方出的小圖案套件，自行上網搜尋，下載套件
     只需要複製其中的all.min.css以及webfonts資料夾，貼到自己的css資料夾底下
     使用小圖案時，可以在該網頁搜尋，並複製專門給HTML使用的語法過來貼上 -->
+
+
     <!-- section 01 社群連結 -->
     <section id="s01" class="bg-secondary">
-        <div class="container py-2">
+        <div class="container py-1">
             <div class="row">
-                <div class="text-end">
-                    <a href="#"><i class="fa-brands fa-threads"></i></a>
-                    <i class="fa-brands fa-instagram text-danger"></i>
-                    <i class="fa-brands fa-x-twitter"></i>
+                <div class="text-end py-2">
+                    <!-- class="link-dark"連結字體變黑（超連結預設都會變為藍色） -->
+                    <a href="#"><i class="fa-brands fa-threads fa-2x"></i></a>
+                    <a href="#" class="link-danger"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                    <a href="#" class="link-dark"><i class="fa-brands fa-x-twitter fa-2x"></i></a>
                 </div>
             </div>
         </div>
     </section>
+
+
+    <!-- section 02 選單 -->
+    <section id="s02" class="bg-dark">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <i class="fa-brands fa-connectdevelop fa-canvas-roomy fa-2x text-warning"></i>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa-solid fa-house fa-canvas-roomy text-danger"></i>首頁
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa-solid fa-house fa-canvas-roomy text-danger"></i>工作經驗
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa-solid fa-house fa-canvas-roomy text-danger"></i>專長項目
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">專長1</a></li>
+                                    <li><a class="dropdown-item" href="#">專長2</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled">Disabled</a>
+                            </li>
+                        </ul>
+                        <!-- 使用modal（https://getbootstrap.com/docs/5.2/components/modal/）可以彈跳視窗讓使用者填入資訊，不會跳轉網頁 -->
+                        <div>
+                            <button class="btn btn-outline-warning" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">註冊</button>
+                            <button class="btn btn-outline-success" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">登入</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 底下去bootstrap的modal複製原始碼就好，不用自己打，可以根據自己的需求修改部分語法 -->
+    <!-- 這裡用Live demo底下的語法 -->
+    <!-- 註冊 registerModal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header text-bg-warning">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <h1>會員條款與使用守則</h1>
+                            <p>1. 會員註冊
+                                使用者應提供真實且正確的註冊資料，並妥善保管帳號及密碼，不得轉讓或提供他人使用。</p>
+                            <p>2. 使用規範
+                                會員不得利用本平台從事詐騙、散布不實資訊、侵害他人權益或其他違反法律之行為。</p>
+                            <p>3. 個人資料保護
+                                本平台將依相關法規妥善保護會員個人資料，未經同意不會任意提供予第三方。</p>
+                            <p>4. 會員權利與義務
+                                會員應遵守平台規範，若有違規行為，本平台有權暫停或終止其會員資格。</p>
+                            <p>5. 條款修改與公告
+                                本平台保留修改服務條款之權利，相關異動將於網站公告，會員繼續使用即視為同意更新內容。</p>
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" checked class="form-check-input" id="switch01">
+                                    <label for="switch01" class="form-check-label">遵守</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">帳號</label>
+                                <input type="text" class="form-control form-control-lg" id="username"
+                                    placeholder="姓名字串長度2~8字!">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">密碼</label>
+                                <input type="password" class="form-control form-control-lg" id="password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">確認密碼</label>
+                                <input type="password" class="form-control form-control-lg" id="re-password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control form-control-lg" id="email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="me-auto text-decoration-none" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">已經有帳號，直接登入。</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 登入 loginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">帳號</label>
+                        <input type="text" class="form-control" id="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">密碼</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="me-auto text-decoration-none" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">還沒有帳號，去註冊一個帳號。</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認登入</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- section 03 幻燈片效果 carousel -->
+    <!-- https://getbootstrap.com/docs/5.2/components/carousel/
+     來這邊找 With captions 使用 -->
+
+    <section id="s03">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+
+            <!-- 用多張img會有大小不一的問題，這裡改用bg鎖死 -->
+            <div class="carousel-inner">
+                <!-- active預設圖片 -->
+                <div class="carousel-item bg-img active"
+                    style="background-image: url(../image/photo-1788963799172-5d5a5e06912f.avif); height: 85vh;">
+                    <!-- ↑目前瀏覽器畫面高度的 85% -->
+                    <!-- ↓ rounded-3 黑色背景框有導圓角 -->
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3"
+                        style="background-color: rgba(0,0,0,0.4);">
+                        <h3>標題01</h3>
+                        <p>美國回覆熱線電子包裝另一將其基地業績促銷閲讀會員熱門好看，兩種保密開放數碼相機完善，爆炸氣息命運模擬合適青春同意律師於是平台寵物，指揮你的演唱成本對方一生始終我一總算住宅不滿社會主義，臺東詳細內容來的代理順利體驗天地整理選擇貫徹，治理最佳手裡，也要道理無。
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-img"
+                    style="background-image: url(../image/photo-church.avif); height: 85vh;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3"
+                        style="background-color: rgba(0,0,0,0.4);">
+                        <h3>標題02</h3>
+                        <p>充分流行自我包裝寵物組合政策特點這位用途時代基金桌面熱門，說話全身歷史功能下一頁演出透明律師證實單位職工女朋友帶著，尺寸打擊清除，承諾不用更大首頁除了素質成長食物傷害機場，你們的始終之家，一下子時代設置出版社第二章品質學習，變成條件登陸，定義女友，武器職。
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-img"
+                    style="background-image: url(../image/photo-mountain.avif); height: 85vh;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3"
+                        style="background-color: rgba(0,0,0,0.4);">
+                        <h3>標題03</h3>
+                        <p>十年目錄想像規模那樣產生妹妹裝修三年獨特把握你在，大幅一把青草湖成本有可能幻想一流打擊老師，產生才會通知專用夫妻許可他是，文檔社會認證遇到準確承諾，電池增強條例這麼多，先進性對不起男女能夠順利風格戀愛導演一起模式我又現有傢俱幾年，面對給我們眾多，尺寸推坑。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- section 04 可量化的數據（數據會跑動） counterup -->
+    <!-- 計畫：左邊為圖，右邊為文字，左邊的圖會根據右邊的文字調整大小 -->
+    <!-- 到counterup github抓（https://github.com/bfintal/Counter-Up2），點底下codepen連結，複製html引用javascript部分，跟Javascript -->
+    <section id="s04">
+        <!-- <div class="container-fluid">寬度永遠盡量撐滿整個瀏覽器畫面 -->
+        <div class="container-fluid">
+            <div class="row px-3">
+                <div class="col-md-5 bg-img" style="background-image: url(../image/photo-church.avif);"></div>
+                <div class="col-md-7 py-5 text-center">
+                    <h1>看不到恢復，一套希。</h1>
+                    <h1>大量新手上傳，矛盾。</h1>
+                    <p>公里物品究竟，我去產業壓縮基金飯店，鏡。</p>
+                    <p>特徵舉報對於現象所在重複，外觀真實，職。</p>
+                    <div class="row mt-5">
+                        <div class="col-md-3 text-center">
+                            <h4>工作年資</h4>
+                            <div class="h4"><span class="h2 text-danger fw700 counter01">8 </span>年</div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h4>累計作品</h4>
+                            <div class="h4"><span class="h2 text-danger fw700 counter02">100 </span>件</div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h4>成交經驗</h4>
+                            <div class="h4"><span class="h2 text-danger fw700 counter03">20 </span>次</div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h4>粉絲吸引</h4>
+                            <div class="h4"><span class="h2 text-danger fw700 counter04">1000 </span>人</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 05 個人特質／工作信念 -->
+    <section id="s05">
+        <div class="container">
+            <h2 class="text-center py-3">工作信念</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fa-solid fa-bullseye fa-canvas-roomy fa-4x"></i>
+                    <h3 class="my-4">主動解決問題</h3>
+                    <p>面對問題先釐清拆解</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa-solid fa-bullseye fa-canvas-roomy fa-4x"></i>
+                    <h3 class="my-4">主動解決問題</h3>
+                    <p>面對問題先釐清拆解</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa-solid fa-bullseye fa-canvas-roomy fa-4x"></i>
+                    <h3 class="my-4">主動解決問題</h3>
+                    <p>面對問題先釐清拆解</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 06 關於我 -->
+    <!-- 將圖(row)跟文字(container)疊在一起，用position -->
+    <section id="s06" style="position: relative;">
+        <div class="row my-3">
+            <div class="col-md-5 bg-img"
+                style="background-image: url(../image/premium_photo-1792118353041-9ad95cc3f9c9.avif); height: 400px; position: absolute; top: 0; bottom: 0;">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7">
+                    <div class="h2">關於我</div>
+                    <p>不太前面語言記者持續女友望着比較金額順利，增強第三即將不錯連結讀者，五金出處本站臨時，名字回答，考。</p>
+                    <p>文學有很多商品歡迎我又四周優化對待印度不必旅遊，智慧等等這次部落格結婚附近先生他也歡迎光臨，一步女兒溫柔警方許多醫藥戀愛，花園老人改善密碼中學效率右鍵，名單藍色夢幻，簡歷隨着報價本報那裡對象默認，裡。</p>
+                    <p>普通財富見到語言無限招生奧客之外在此當你什麼是檢查促銷一週。</p>
+                    <a href="#" class="btn btn-warning w-100">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <!-- 此處搭配section04 -->
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script>
+    <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 2500,
+                        delay: 16,
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+    </script>
 </body>
 
 </html>

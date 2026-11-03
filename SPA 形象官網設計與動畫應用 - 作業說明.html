@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA 形象官網設計與動畫應用 - 作業說明</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6fa;
+            color: #334155;
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+
+        .assignment {
+            max-width: 960px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .assignment-title {
+            color: #1e3a5f;
+            font-weight: 900;
+            border-bottom: 3px solid #23a6a6;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .assignment-list {
+            padding-left: 25px;
+        }
+
+        .assignment-list li {
+            padding: 15px 10px;
+            line-height: 1.9;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .assignment-list li::marker {
+            color: #0f8e94;
+            font-weight: 900;
+        }
+
+        .item-title {
+            color: #176b90;
+            font-weight: 800;
+        }
+
+        .highlight {
+            color: #c24150;
+            font-weight: 700;
+        }
+
+        .assignment-note {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #eaf6f7;
+            border-left: 5px solid #23a6a6;
+            border-radius: 6px;
+            line-height: 1.8;
+        }
+
+        @media screen and (max-width: 576px) {
+            .assignment {
+                margin: 15px;
+                padding: 25px 20px;
+            }
+
+            .assignment-title {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="assignment">
+
+            <h1 class="assignment-title">
+                SPA 形象官網設計與動畫應用
+            </h1>
+
+            <h4 class="mb-4">作業要求</h4>
+
+            <ol class="assignment-list">
+
+                <li>
+                    <span class="item-title">網站開發：</span>
+                    以課堂 SPA 網站範本為基礎，自訂主題，
+                    設計完整的形象官網，至少包含
+                    <span class="highlight">15 個 Section</span>，
+                    並須運用時間軸（Timeline）呈現相關內容。
+                </li>
+
+                <li>
+                    <span class="item-title">動畫效果：</span>
+                    依據網站主題、內容情境及瀏覽動線，
+                    適當導入
+                    <span class="highlight">WOW.js 與 Animate.css</span>
+                    動畫效果，並參考實際網站案例。
+                </li>
+
+                <li>
+                    <span class="item-title">文案規劃：</span>
+                    各 Section 須具備明確主題與適當文案，
+                    確保整體內容具有一致性、邏輯性與完整性。
+                </li>
+
+                <li>
+                    <span class="item-title">視覺設計：</span>
+                    自行規劃網站配色與視覺風格，
+                    <span class="highlight">
+                        不得直接使用 Bootstrap 官方預設配色
+                    </span>，
+                    須透過自訂 CSS 呈現整體設計。
+                </li>
+
+                <li>
+                    <span class="item-title">成果繳交：</span>
+                    完成後將網站程式碼上傳至
+                    <span class="highlight">GitHub</span>，
+                    並於個人履歷網站的作品集區塊，
+                    新增作品介紹與連結。
+                </li>
+
+            </ol>
+
+            <div class="assignment-note">
+                <strong>作業提醒：</strong>
+                動畫應配合內容適度使用，
+                重點在於提升網站質感與閱讀體驗，
+                而非單純增加動畫數量。
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

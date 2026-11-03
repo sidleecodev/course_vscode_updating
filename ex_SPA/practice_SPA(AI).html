@@ -370,6 +370,601 @@
                 padding: 35px 25px;
             }
         }
+
+
+        /* Section 07 精選作品集 */
+        .british-portfolio {
+            --british-green: #203d35;
+            --british-gold: #b79760;
+            --british-cream: #f5f0e6;
+
+            background-color: var(--british-cream);
+            color: var(--british-green);
+            padding: 45px 0 65px;
+        }
+
+        /* 英文裝飾標籤 */
+        .british-portfolio .portfolio-label {
+            color: var(--british-gold);
+            letter-spacing: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* 主標題 */
+        .british-portfolio .portfolio-heading {
+            font-family: Georgia, "Noto Serif TC", serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        /* 金色裝飾線 */
+        .british-portfolio .portfolio-line {
+            width: 65px;
+            height: 2px;
+            background-color: var(--british-gold);
+            margin-bottom: 25px;
+        }
+
+        /* 副標題 */
+        .british-portfolio .portfolio-subtitle {
+            color: #606960;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        /* 作品區塊 */
+        .british-portfolio .portfolio-card {
+            width: 100%;
+            height: 100%;
+            padding: 32px 25px;
+            background-color: #fffdf9;
+            border: 1px solid rgba(183, 151, 96, 0.45);
+            border-radius: 6px;
+            box-shadow: 0 6px 20px rgba(20, 40, 32, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        /* 作品圖示 */
+        .british-portfolio .portfolio-card>i {
+            color: var(--british-gold);
+            flex-shrink: 0;
+            width: 75px;
+            text-align: center;
+        }
+
+        /* 作品標題 */
+        .british-portfolio .portfolio-title {
+            font-family: Georgia, "Noto Serif TC", serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--british-green);
+            margin-bottom: 15px;
+        }
+
+        /* 使用技術 */
+        .british-portfolio .portfolio-tech {
+            color: var(--british-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        /* 作品簡介 */
+        .british-portfolio .portfolio-description {
+            color: #606960;
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        /* 作品連結按鈕 */
+        .british-portfolio .portfolio-btn {
+            background-color: var(--british-green);
+            color: var(--british-cream);
+            border: 1px solid var(--british-green);
+            border-radius: 4px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .british-portfolio .portfolio-btn:hover {
+            background-color: var(--british-gold);
+            border-color: var(--british-gold);
+            color: #fff;
+        }
+
+        /* 卡片 Hover 效果 */
+        .british-portfolio .portfolio-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--british-gold);
+            box-shadow: 0 15px 35px rgba(20, 40, 32, 0.12);
+        }
+
+        /* 手機版 */
+        @media (max-width: 767.98px) {
+            .british-portfolio {
+                padding: 35px 0 45px;
+            }
+
+            .british-portfolio .portfolio-card {
+                padding: 25px 20px;
+            }
+
+            .british-portfolio .portfolio-card>i {
+                font-size: 2.5rem;
+                width: 45px;
+                margin-right: 15px !important;
+            }
+
+            .british-portfolio .portfolio-title {
+                font-size: 1.2rem;
+            }
+
+            .british-portfolio .portfolio-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .british-portfolio .portfolio-card,
+            .british-portfolio .portfolio-btn {
+                transition: none;
+            }
+        }
+
+
+        /* Section 08 學經歷介紹 */
+        #s08 {
+            --british-green: #203d35;
+            --british-gold: #b79760;
+            --british-cream: #f5f0e6;
+
+            background-color: var(--british-cream);
+            color: var(--british-green);
+            padding: 60px 0;
+        }
+
+        /* 英文小標 */
+        #s08 .s08-label {
+            color: var(--british-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        /* 主標題 */
+        #s08 .s08-title {
+            font-family: Georgia, "Noto Serif TC", serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        /* 金色裝飾線 */
+        #s08 .s08-line {
+            width: 65px;
+            height: 2px;
+            background-color: var(--british-gold);
+            margin: 25px 0 35px;
+        }
+
+        /* 左側項目標題 */
+        #s08 dt {
+            color: var(--british-green);
+            font-weight: 700;
+            line-height: 1.8;
+        }
+
+        /* 圖示 */
+        #s08 dt i {
+            color: var(--british-gold);
+            margin-right: 6px;
+        }
+
+        /* 右側說明文字 */
+        #s08 dd {
+            color: #56665b;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        /* 每個主要項目之間加入分隔線 */
+        #s08>.container>.row dl.row>dt.col-sm-3 {
+            border-top: 1px solid rgba(183, 151, 96, 0.35);
+            padding-top: 15px;
+        }
+
+        #s08>.container>.row dl.row>dd.col-sm-9 {
+            border-top: 1px solid rgba(183, 151, 96, 0.35);
+            padding-top: 15px;
+        }
+
+        /* 學歷段落 */
+        #s08 dd p {
+            margin-bottom: 12px;
+        }
+
+        /* 數字強調 */
+        #s08 .s08-highlight {
+            color: var(--british-gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* 工作職稱 */
+        #s08 .s08-job {
+            color: var(--british-green);
+            font-weight: 700;
+        }
+
+        /* 工作年資 */
+        #s08 .s08-job span {
+            color: var(--british-gold);
+            font-weight: 400;
+        }
+
+        /* 手機版 */
+        @media (max-width: 767.98px) {
+            #s08 {
+                padding: 40px 0;
+            }
+
+            #s08 .s08-title {
+                font-size: 2rem;
+            }
+
+            #s08 dd {
+                margin-bottom: 20px;
+            }
+        }
+
+
+        /* ==============================
+   Section 09 聯絡我
+============================== */
+
+        #s09 {
+            --british-green: #203d35;
+            --british-gold: #b79760;
+            --british-cream: #f5f0e6;
+
+            background-color: var(--british-cream);
+            color: var(--british-green);
+            padding: 50px 0;
+        }
+
+        /* 主標題 */
+        #s09 .h1 {
+            font-family: Georgia, "Noto Serif TC", serif;
+            color: var(--british-green) !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        /* 標題下方金色裝飾線 */
+        #s09 .h1::after {
+            content: "";
+            display: block;
+            width: 65px;
+            height: 2px;
+            background-color: var(--british-gold);
+            margin: 20px auto 35px;
+        }
+
+        /* 表單輸入框與下拉選單 */
+        #s09 .form-control,
+        #s09 .form-select {
+            background-color: #fffdf9;
+            color: var(--british-green);
+            border: 1px solid #d7c9ad;
+            border-radius: 5px;
+            padding-left: 18px;
+            transition: all 0.3s ease;
+        }
+
+        /* 輸入框取得焦點 */
+        #s09 .form-control:focus,
+        #s09 .form-select:focus {
+            border-color: var(--british-gold);
+            box-shadow: 0 0 0 0.2rem rgba(183, 151, 96, 0.18);
+            background-color: #ffffff;
+        }
+
+        /* 浮動標籤 */
+        #s09 .form-floating label {
+            color: #788579;
+            padding-left: 18px;
+        }
+
+        /* 浮動標籤啟動後的背景 */
+        #s09 .form-floating>.form-control:focus~label::after,
+        #s09 .form-floating>.form-control:not(:placeholder-shown)~label::after {
+            background-color: transparent;
+        }
+
+        /* 下拉選單 */
+        #s09 .form-select {
+            cursor: pointer;
+        }
+
+        /* 訊息輸入區 */
+        #s09 textarea {
+            resize: vertical;
+            min-height: 180px;
+            line-height: 1.8;
+        }
+
+        /* 共用按鈕樣式 */
+        #s09 .btn {
+            padding: 10px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* 取消按鈕 */
+        #s09 .btn-secondary {
+            background-color: transparent;
+            color: var(--british-gold);
+            border: 1px solid var(--british-gold);
+        }
+
+        #s09 .btn-secondary:hover {
+            background-color: var(--british-gold);
+            color: white;
+        }
+
+        /* 送出按鈕 */
+        #s09 .btn-primary {
+            background-color: var(--british-green);
+            border: 1px solid var(--british-green);
+            color: white;
+        }
+
+        #s09 .btn-primary:hover {
+            background-color: var(--british-gold);
+            border-color: var(--british-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(32, 61, 53, 0.15);
+        }
+
+        /* Google 地圖 */
+        #s09 iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            border: 5px solid #fffdf9 !important;
+            border-radius: 6px;
+            box-shadow: 0 8px 25px rgba(32, 61, 53, 0.12);
+        }
+
+        /* 手機版 */
+        @media (max-width: 767.98px) {
+            #s09 {
+                padding: 30px 0;
+            }
+
+            #s09 .h1 {
+                font-size: 2rem;
+            }
+
+            #s09 iframe {
+                height: 350px;
+                min-height: 350px;
+                margin-top: 25px;
+            }
+
+            #s09 .btn {
+                padding: 10px 24px;
+            }
+        }
+
+
+
+        /* =====================================
+   Section 10 未來展望
+   英倫建築風：森林綠 × 香檳金 × 米白
+===================================== */
+
+        #s10 {
+            --british-green: #203d35;
+            --british-gold: #b79760;
+            --british-cream: #f5f0e6;
+
+            overflow: hidden;
+        }
+
+        /* 左右兩張背景圖片 */
+        #s10 .s10-panel {
+            min-height: 650px;
+
+            /* 讓文字框靠左、垂直置中 */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            /* 背景圖片靠右 */
+            background-size: cover;
+            background-position: right center;
+            background-repeat: no-repeat;
+        }
+
+        /* 半透明文字框 */
+        #s10 .s10-content {
+            background-color: rgba(22, 43, 37, 0.75);
+            border: 1px solid var(--british-gold);
+            border-left: 3px solid var(--british-gold);
+            border-radius: 4px;
+
+            color: var(--british-cream);
+            backdrop-filter: blur(3px);
+
+            /* 避免內容超出文字框 */
+            min-width: 0;
+        }
+
+        /* 中文主標題 */
+        #s10 .s10-title {
+            font-family: Georgia, "Noto Serif TC", serif;
+            font-size: clamp(1.7rem, 2.5vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.5;
+        }
+
+        /* 英文小標題 */
+        #s10 .s10-title small {
+            display: block;
+            color: var(--british-gold);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* 副標題 */
+        #s10 .s10-subtitle {
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin: 25px 0 20px;
+            padding-left: 12px;
+            border-left: 3px solid var(--british-gold);
+        }
+
+        /* 內文 */
+        #s10 .s10-content p {
+            color: var(--british-cream);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        /* 能力清單 */
+        #s10 .s10-list {
+            padding-left: 22px;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        /* 清單符號 */
+        #s10 .s10-list li::marker {
+            color: var(--british-gold);
+        }
+
+        /* 技術標籤容器 */
+        #s10 .s10-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 25px 0;
+        }
+
+        /* 技術標籤 */
+        #s10 .s10-tags span {
+            display: inline-block;
+            color: var(--british-gold);
+            border: 1px solid rgba(183, 151, 96, 0.7);
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* 技術標籤 Hover */
+        #s10 .s10-tags span:hover {
+            background-color: var(--british-gold);
+            color: var(--british-green);
+            transition: all 0.3s ease;
+        }
+
+        /* 按鈕 */
+        #s10 .btn-outline-info {
+            border: 1px solid var(--british-gold);
+            color: var(--british-gold);
+            background-color: transparent;
+            border-radius: 4px;
+
+            padding: 12px 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
+
+            transition: all 0.3s ease;
+        }
+
+        /* 按鈕 Hover */
+        #s10 .btn-outline-info:hover {
+            background-color: var(--british-gold);
+            border-color: var(--british-gold);
+            color: var(--british-green);
+
+            transform: translateY(-2px);
+        }
+
+        /* =====================================
+   平板與較小桌面
+===================================== */
+
+        @media (max-width: 1199.98px) {
+
+            #s10 .s10-panel {
+                padding: 25px !important;
+            }
+
+            /* 文字框改成填滿可用寬度 */
+            #s10 .s10-content {
+                width: 100%;
+            }
+
+            #s10 .s10-title {
+                font-size: 1.9rem;
+            }
+
+            #s10 .s10-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* =====================================
+   手機版
+===================================== */
+
+        @media (max-width: 767.98px) {
+
+            #s10 .s10-panel {
+                min-height: 650px;
+                padding: 30px 20px !important;
+
+                /* 手機版微調圖片顯示位置 */
+                background-position: 70% center;
+            }
+
+            #s10 .s10-content {
+                width: 100%;
+            }
+
+            #s10 .s10-title {
+                font-size: 1.8rem;
+            }
+
+            #s10 .s10-subtitle {
+                font-size: 1.15rem;
+            }
+
+            #s10 .s10-content p {
+                font-size: 0.9rem;
+            }
+
+            #s10 .s10-tags span {
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 
@@ -805,6 +1400,392 @@
         </div>
     </section>
 
+
+
+    <!-- Section 07 精選作品集 -->
+    <section id="s07" class="british-portfolio">
+        <div class="container my-5">
+
+            <div class="text-center mb-5">
+                <div class="portfolio-label mb-3">SELECTED WORKS</div>
+                <div class="h1 portfolio-heading fw700 my-4">精選作品集</div>
+                <div class="portfolio-line mx-auto"></div>
+                <p class="portfolio-subtitle">
+                    從設計構想到程式實作，透過不同類型的專案，
+                    展現前端設計、資料處理與系統開發的能力。
+                </p>
+            </div>
+
+            <div class="row">
+
+                <!-- 作品 01：個人作品集網站 -->
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <div class="portfolio-card d-flex align-items-start">
+                        <i class="fa-solid fa-laptop-code fa-4x me-3"></i>
+                        <div>
+                            <div class="h3 portfolio-title">個人作品集</div>
+                            <p class="portfolio-tech mb-2">
+                                使用技術：HTML／CSS／JavaScript
+                            </p>
+                            <p class="portfolio-description">
+                                從零規劃個人作品展示網站，整合響應式排版與動態卡片功能。
+                                透過實作學習元件設計與資料管理，
+                                逐步建立兼顧視覺美感及操作體驗的前端開發能力。
+                            </p>
+                            <a href="#" class="btn portfolio-btn d-block">
+                                <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>
+                                作品連結
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品 02：AI 教學平台 -->
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <div class="portfolio-card d-flex align-items-start">
+                        <i class="fa-solid fa-graduation-cap fa-4x me-3"></i>
+                        <div>
+                            <div class="h3 portfolio-title">AI 教學平台</div>
+                            <p class="portfolio-tech mb-2">
+                                使用技術：React／TypeScript／AI API
+                            </p>
+                            <p class="portfolio-description">
+                                結合互動式題目、學習進度追蹤與 AI 輔助解題功能，
+                                設計適合自主學習的線上平台。
+                                練習將教育內容轉化為具備互動性與個人化體驗的數位服務。
+                            </p>
+                            <a href="#" class="btn portfolio-btn d-block">
+                                <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>
+                                作品連結
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品 03：電商通知系統 -->
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <div class="portfolio-card d-flex align-items-start">
+                        <i class="fa-solid fa-bell fa-4x me-3"></i>
+                        <div>
+                            <div class="h3 portfolio-title">電商通知系統</div>
+                            <p class="portfolio-tech mb-2">
+                                使用技術：Python／SQLite／REST API
+                            </p>
+                            <p class="portfolio-description">
+                                開發整合電商平台訊息的自動通知工具，
+                                支援訂單狀態追蹤、訊息分類與排程提醒。
+                                透過專案練習資料擷取、自動化流程及例外狀況處理。
+                            </p>
+                            <a href="#" class="btn portfolio-btn d-block">
+                                <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>
+                                作品連結
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品 04：後台管理系統 -->
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <div class="portfolio-card d-flex align-items-start">
+                        <i class="fa-solid fa-database fa-4x me-3"></i>
+                        <div>
+                            <div class="h3 portfolio-title">後台管理系統</div>
+                            <p class="portfolio-tech mb-2">
+                                使用技術：PHP／Laravel／MySQL
+                            </p>
+                            <p class="portfolio-description">
+                                模擬企業後台管理需求，建立帳號權限、資料管理與查詢功能。
+                                透過 MVC 架構整合資料庫與網頁介面，
+                                學習系統開發流程及程式碼的維護與擴充。
+                            </p>
+                            <a href="#" class="btn portfolio-btn d-block">
+                                <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>
+                                作品連結
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 08 學經歷介紹 -->
+    <section id="s08" style="position: relative;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+
+                    <p class="s08-label">
+                        EDUCATION & EXPERIENCE
+                    </p>
+                    <h2 class="s08-title">學經歷介紹</h2>
+                    <div class="s08-line"></div>
+
+                    <dl class="row">
+
+                        <!-- 個人簡介 -->
+                        <dt class="col-sm-3">
+                            <i class="fa-solid fa-user-tie"></i>
+                            個人簡介
+                        </dt>
+                        <dd class="col-sm-9">
+                            擁有教學與動畫腳本企劃背景，
+                            擅長內容規劃、邏輯分析與跨領域溝通。
+                            近年投入全端程式設計，
+                            致力於結合創意思維與技術應用，
+                            打造兼具美感與實用性的數位作品。
+                        </dd>
+
+                        <!-- 學歷 -->
+                        <dt class="col-sm-3">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            學歷
+                        </dt>
+                        <dd class="col-sm-9">
+                            <p>
+                                <strong>國立創意科技大學</strong><br>
+                                數位媒體設計學系｜學士
+                            </p>
+                            <p>
+                                <strong>生成式 AI 與全端程式設計培訓</strong><br>
+                                HTML、CSS、JavaScript、PHP、
+                                MySQL 與 Laravel 實務應用
+                            </p>
+                            <p>
+                                <strong>數位內容與互動設計研習</strong><br>
+                                網頁視覺設計、使用者體驗與專案實作
+                            </p>
+                        </dd>
+
+                        <!-- 工作年資 -->
+                        <dt class="col-sm-3">
+                            <i class="fa-solid fa-briefcase"></i>
+                            工作年資
+                        </dt>
+                        <dd class="col-sm-9">
+                            <span class="s08-highlight">7 年以上</span>
+                            跨領域工作經驗，涵蓋動畫腳本、
+                            教育教學與數位內容企劃。
+                            具備獨立作業、團隊協作及問題解決能力。
+                        </dd>
+
+                        <!-- 工作經歷 01 -->
+                        <dt class="col-sm-3">
+                            <i class="fa-solid fa-film"></i>
+                            星辰數位創意
+                        </dt>
+                        <dd class="col-sm-9">
+                            <p class="s08-job">
+                                動畫腳本企劃師
+                                <span>｜約 5 年</span>
+                            </p>
+                            <p>
+                                負責動畫腳本撰寫、故事架構設計
+                                與分鏡內容規劃，協調製作團隊，
+                                將抽象概念轉化為具體的視覺敘事。
+                            </p>
+                        </dd>
+
+                        <!-- 工作經歷 02 -->
+                        <dt class="col-sm-3">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            晨光教育中心
+                        </dt>
+                        <dd class="col-sm-9">
+
+                            <!-- 保留原本巢狀 dl 結構 -->
+                            <dl class="row">
+                                <dt class="col-sm-4">
+                                    教學與課程規劃
+                                </dt>
+                                <dd class="col-sm-8">
+                                    約 2 年，負責課程設計、
+                                    學習進度安排與教材製作，
+                                    培養清晰表達及換位思考能力。
+                                </dd>
+                            </dl>
+
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右側建築圖片，保留原本定位方式 -->
+        <div class="row justify-content-end">
+            <div class="col-md-5 bg-img d-none d-md-block" style="position: absolute;
+                   background-image: url(../image/photo-1793117069225-2f4cd90fa44a.avif);
+                   top: 0;
+                   bottom: 0;">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 09 聯絡我 -->
+    <section id="s09">
+        <div class="container py-4">
+            <div class="h1 text-center fw700 text-info my-4">聯絡我</div>
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <!-- 姓名 -->
+                    <div class="mb-3 form-floating">
+                        <input type="text" id="contactName" class="form-control form-control-lg" placeholder="姓名"
+                            pattern="[\u4e00-\u9fffA-Za-z]{2,20}" title="請輸入2～20個中文字或英文字母" required>
+                        <label for="contactName" class="form-label">
+                            姓名
+                        </label>
+                    </div>
+
+                    <!-- 電子信箱 -->
+                    <div class="mb-3 form-floating">
+                        <input type="email" id="email" class="form-control form-control-lg" placeholder="電子信箱"
+                            pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="請輸入正確的電子信箱格式" required>
+                        <label for="email" class="form-label">
+                            電子信箱
+                        </label>
+                    </div>
+
+                    <!-- 聯絡主題 -->
+                    <select id="contactSubject" class="form-select form-select-lg" required>
+
+                        <option value="" disabled selected>
+                            ---聯絡主題---
+                        </option>
+                        <option value="面試邀約">面試邀約</option>
+                        <option value="專案討論">專案討論</option>
+                        <option value="接案洽詢">接案洽詢</option>
+                        <option value="其他">其他</option>
+                    </select>
+
+                    <!-- 訊息內容 -->
+                    <textarea id="contactMessage" class="form-control my-3" rows="7" placeholder="請輸入訊息內容（10～500字）"
+                        minlength="10" maxlength="500" required></textarea>
+
+                    <!-- 按鈕 -->
+                    <div class="text-end my-3">
+                        <button type="button" class="btn btn-secondary" id="btnReset">
+                            取消
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btnSubmit">
+                            送出
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24487.18667531514!2d120.61270240926149!3d24.17025704305201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e048d342aa9%3A0x2b6f18a6783fa3b!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5Lit5b2w5oqV5YiG572y77yI6Ie65Lit6IG36KiT5bGA77yJ!5e0!3m2!1szh-TW!2stw!4v1793674276445!5m2!1szh-TW!2stw"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- section 10 未來展望 -->
+    <section id="s10">
+        <div class="row g-0">
+
+            <!-- 左側：未來願景 -->
+            <div class="col-md-6 bg-img p-5 s10-panel"
+                style="background-image: url(../image/photo-left-space.avif);">
+
+                <div class="col-8 p-3 shadow-sm s10-content">
+
+                    <div class="h1 text-light s10-title">
+                        未來願景
+                        <small>Future Vision</small>
+                    </div>
+
+                    <div class="h2 text-white s10-subtitle">
+                        持續精進，累積實力
+                    </div>
+
+                    <p class="text-white">
+                        我期許自己成為兼具技術能力、
+                        設計思維與問題解決能力的前端工程師，
+                        持續精進以下核心能力：
+                    </p>
+
+                    <ul class="s10-list text-white">
+                        <li>扎實的前端開發基礎</li>
+                        <li>響應式設計與使用者體驗</li>
+                        <li>程式邏輯與問題分析</li>
+                        <li>團隊協作與技術溝通</li>
+                        <li>持續學習與自主探索</li>
+                    </ul>
+
+                    <!-- 技術標籤 -->
+                    <div class="s10-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Bootstrap</span>
+                        <span>UI / UX</span>
+                    </div>
+
+                    <a href="#s07" class="btn btn-outline-info w-100">
+                        查看我的作品
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- 右側：職涯發展 -->
+            <div class="col-md-6 bg-img p-5 s10-panel"
+                style="background-image: url(../image/photo-left-space.avif);">
+
+                <div class="col-8 p-3 shadow-sm s10-content">
+
+                    <div class="h1 text-light s10-title">
+                        職涯發展
+                        <small>Career Development</small>
+                    </div>
+
+                    <div class="h2 text-white s10-subtitle">
+                        探索 AI，創造更多可能
+                    </div>
+
+                    <p class="text-white">
+                        人工智慧正逐漸改變軟體開發的工作方式，
+                        我希望學習如何善用 AI 輔助程式設計，
+                        提升開發效率與作品品質。
+                    </p>
+
+                    <p class="text-white">
+                        未來除了持續累積全端開發能力，
+                        也期待探索 AI 自動化、內容生成與
+                        智慧應用，將過去的創意企劃經驗
+                        與新技術結合，開發真正能解決問題的作品。
+                    </p>
+
+                    <!-- 技術標籤 -->
+                    <div class="s10-tags">
+                        <span>AI Tools</span>
+                        <span>Automation</span>
+                        <span>PHP / Laravel</span>
+                        <span>Python</span>
+                        <span>Full Stack</span>
+                    </div>
+
+                    <a href="#s09" class="btn btn-outline-info w-100">
+                        與我聯絡
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 
     <script src="../js/bootstrap.bundle.min.js"></script>

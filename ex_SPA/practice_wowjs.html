@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動畫練習－wowjs</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- 在官網上複製動畫css連結 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/allcss.css">
+    <style>
+        .box01 {
+            height: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- wowjs一頁式的觸發動畫，https://wowjs.uk/docs.html 點how to use，點Animate.css進入https://animate.style/，可以查看各種動畫的呈現方式 -->
+    <div class="container my-5">
+        <div class="row mt-3">
+            <div class="col-4">
+                <div class="box01 bg-success animate__animated animate__slideInDown">animate__slideInDown</div>
+            </div>
+            <div class="col-4">
+                <div class="box01 bg-success animate__animated animate__zoomIn">animate__zoomIn</div>
+            </div>
+            <div class="col-4">
+                <div class="box01 bg-success animate__animated animate__flipInX">animate__flipInX</div>
+            </div>
+        </div>
+        <!-- vh-100占據整個螢幕畫面 -->
+        <div class="row my-3">
+            <div class="col-12 bg-primary vh-100"></div>
+        </div>
+        <!-- 滑到指定的區塊才有動畫： -->
+        <!-- animate__animated替換成wow -->
+        <!-- data-wow-duration：動畫時間
+          data-wow-delay：延遲多久才開始動畫
+          data-wow-iteration：動畫重複次數-->
+        <!-- 其他詳細設定都可以參考官網https://animate.style/ -->
+        <div class="row mt-3">
+            <div class="col-4">
+                <div class="box01 bg-info wow animate__rotateInDownLeft" data-wow-duration="4s" data-wow-delay="0s"
+                    data-wow-iteration="1">animate__rotateInDownLeft</div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-4">
+                <div class="box01 bg-info wow animate__fadeInDown" data-wow-duration="4s" data-wow-delay="0s"
+                    data-wow-iteration="1">animate__fadeInDown</div>
+            </div>
+            <div class="col-4 text-center align-content-center">
+                <i class="fa-solid fa-heart-pulse text-danger wow animate__heartBeat" style="font-size: 100px;"
+                    data-wow-duration="0.33s" data-wow-delay="2s" data-wow-iteration="infinite"></i>
+            </div>
+        </div>
+        <div class="row mt-3 justify-content-between">
+            <div class="col-4">
+                <div class="box01 bg-danger wow animate__jello" data-wow-duration="3s" data-wow-delay="0.5s"
+                    data-wow-iteration="2">animate__jello</div>
+            </div>
+            <div class="col-4">
+                <div class="box01 bg-danger wow animate__rubberBand" data-wow-duration="3s" data-wow-delay="0.5s"
+                    data-wow-iteration="2">animate__rubberBand</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 到github上(https://github.com/graingert/wow)下載專案wow.js(wow.min.js是壓縮檔)，貼到自己的js -->
+    <!-- 需要有這個js才能執行動畫 -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

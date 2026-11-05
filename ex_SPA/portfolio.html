@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/portfolio.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .imgbox {
+            height: 220px;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section::before {
+            position: absolute;
+            content: "";
+            width: 5px;
+            background-color: rgba(72, 218, 67, 0.5);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: rgba(104, 199, 101, 0.8);
+            border-radius: 50%;
+            border: 5px solid rgba(12, 121, 9, 0.8);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline-section::before {
+                left: -20px;
+            }
+
+            .timeline-section-pointer::before {
+                left: -8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="s12" aria-labelledby="timeline-title">
+        <div class="container my-5">
+            <h2 id="timeline-title" class="portfolio-section-title text-center mb-2">學習歷程與作品</h2>
+            <div class="row timeline-head text-center">
+                <div class="col-md-6">
+                    <h3 class="timeline-side-label h5">學習</h3>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="timeline-side-label timeline-side-label--work h5">作品</h3>
+                </div>
+            </div>
+            <!-- AJAX 讀取資料後，依月份動態新增區塊 -->
+            <div id="timeline-list" aria-live="polite"></div>
+        </div>
+    </section>
+
+
+    <!-- Section 13：期望待遇 -->
+    <section id="s13">
+        <div class="container-fluid">
+            <div class="h1 text-center portfolio-section-title">
+                期望待遇／<small>Compensation</small>
+            </div>
+
+            <div class="windmill">
+
+                <!-- 左上：薪資待遇 -->
+                <div class="blade blade-01 bg-img-center">
+                    <div class="box">
+                        <div class="h3">薪資待遇</div>
+                        <ul>
+                            <li>期望薪資依職務內容面議</li>
+                            <li>重視合理的薪資調整制度</li>
+                            <li>期待明確的績效獎勵機制</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 右上：工作環境 -->
+                <div class="blade blade-02 bg-img-center">
+                    <div class="box">
+                        <div class="h3">工作環境</div>
+                        <p>
+                            希望擁有良好的團隊溝通氛圍，
+                            明確的工作分工與協作流程，
+                            能夠互相交流並持續精進專業能力。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 左下：公司福利 -->
+                <div class="blade blade-03 bg-img-center">
+                    <div class="box">
+                        <div class="h3">公司福利</div>
+                        <ul>
+                            <li>完善的基本福利制度</li>
+                            <li>教育訓練及進修資源</li>
+                            <li>重視工作與生活平衡</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 右下：升遷機會 -->
+                <div class="blade blade-04 bg-img-center">
+                    <div class="box">
+                        <div class="h3">升遷機會</div>
+                        <p>
+                            期待透過實際專案累積經驗，
+                            持續提升技術能力，
+                            並在具備明確成長制度的環境中穩定發展。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Section 14：精選作品 -->
+    <section id="s14">
+        <div class="container py-5">
+
+            <!-- 區塊標題 -->
+            <div class="h1 text-center portfolio-section-title mb-4">
+                精選作品
+            </div>
+
+            <!-- 四個分類按鈕 -->
+            <div class="row g-3 mb-4">
+
+                <div class="col-6 col-lg-3">
+                    <button type="button" class="btn work-btn w-100 active" data-category="interactive">
+                        互動與資料串接
+                    </button>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <button type="button" class="btn work-btn w-100" data-category="layout">
+                        網頁設計與排版
+                    </button>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <button type="button" class="btn work-btn w-100" data-category="figma">
+                        UI / UX 規劃
+                    </button>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <button type="button" class="btn work-btn w-100" data-category="backend">
+                        後台系統與資料庫
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- 分類說明：不隨圖片輪播 -->
+            <div class="work-info mb-4">
+
+                <h3 id="work-title">互動與資料串接</h3>
+
+                <p id="work-tech"></p>
+
+                <p id="work-description"></p>
+
+            </div>
+
+            <!-- 共用 Carousel -->
+            <div id="workCarousel" class="carousel slide" data-bs-interval="false">
+
+                <!-- 圖片由 JavaScript 產生 -->
+                <div class="carousel-inner"></div>
+
+                <!-- 上一張 -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#workCarousel" data-bs-slide="prev">
+
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                    <span class="visually-hidden">上一張</span>
+                </button>
+
+                <!-- 下一張 -->
+                <button class="carousel-control-next" type="button" data-bs-target="#workCarousel" data-bs-slide="next">
+
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                    <span class="visually-hidden">下一張</span>
+                </button>
+
+                <!-- 圓點由 JavaScript 產生 -->
+                <div class="carousel-indicators"></div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-4.0.0.js"></script>
+    <script src="../js/carousel.js"></script>
+    <script>
+        $(function () {
+            // 先把外部文字編碼，避免 JSON 的 title/note 被當成 HTML 語法執行。
+            function escapeHTML(value) {
+                return $("<div>").text(String(value == null ? "" : value)).html();
+            }
+
+            // 將網址限制為站內的相對檔案路徑（支援空白、中文、括號）。
+            function safeUrl(value) {
+                let url = String(value == null ? "" : value).trim();
+                if (!url || /^(\/|#|[a-z][a-z0-9+.-]*:)/i.test(url) || /[\\\x00-\x1f]/.test(url)) return "";
+                if (url.split("/").includes("..")) return "";
+                return url;
+            }
+
+            // 將 20261015 取出 202610 作為月份群組識別，畫面只顯示「10月份」。
+            function monthKey(date) {
+                let value = String(date == null ? "" : date).trim();
+                return /^\d{8}$/.test(value) ? value.substring(0, 6) : "";
+            }
+
+            // 產生一筆時間軸內容。
+            function makeTimelineItem(item) {
+                let isWork = item.class === "作品";
+                let direction = isWork ? "flex-md-row-reverse" : "";
+                let typeClass = isWork ? "timeline-item--work" : "timeline-item--learning";
+                let typeName = isWork ? "作品" : "學習";
+                let title = escapeHTML(item.title || "未命名成品");
+                let note = String(item.note == null ? "" : item.note).trim();
+                let noteHTML = note ? escapeHTML(note) : '<span class="timeline-note-empty">（無文字說明）</span>';
+                let url = safeUrl(item.url);
+                let related = safeUrl(item.related);
+                let actions = "";
+
+                // 一般項目：一個按鈕。related 非空且不同於 url：兩個按鈕。
+                // related 指向原始練習時，對照按鈕標成「AI 前 / AI 後」。
+                // 未來若 related 是非 AI 關聯作品，可修改為「目前版本 / 關聯版本」。
+                if (url) {
+                    let label = related && related !== url ? "AI 後" : "查看成果";
+                    actions += `<a class="portfolio-action" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+                }
+                if (related && related !== url) {
+                    actions += `<a class="portfolio-action portfolio-action--outline" href="${escapeHTML(related)}" target="_blank" rel="noopener noreferrer">AI 前</a>`;
+                }
+                if (!actions) actions = '<span class="timeline-note-empty">（尚無連結）</span>';
+
+                return `
+                <div class="row align-items-start timeline-item ${typeClass} ${direction}">
+                    <div class="col-md-6">
+                        <div class="timeline-item-content">
+                            <span class="timeline-type">${typeName}</span>
+                            <h4 class="timeline-item-title">${title}</h4>
+                            <p class="timeline-item-note">${noteHTML}</p>
+                            <div class="timeline-item-actions">${actions}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>`;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: "../index_content.json",  // 路徑以正式首頁所在資料夾為基準
+                dataType: "json",
+                success: function (data) {
+                    if (!data || !Array.isArray(data.projects)) {
+                        $("#timeline-list").text("作品資料格式有誤。");
+                        return;
+                    }
+
+                    // 只接受有效分類與 YYYYMMDD 日期，並由舊到新排序。
+                    let projects = data.projects.filter(function (item) {
+                        return (item.class === "學習" || item.class === "作品") && monthKey(item.date);
+                    });
+                    projects.sort(function (a, b) {
+                        return String(a.date).localeCompare(String(b.date));
+                    });
+
+                    let currentMonth = "";
+                    let html = "";
+                    projects.forEach(function (item) {
+                        let month = monthKey(item.date);
+                        if (month !== currentMonth) {
+                            if (currentMonth !== "") html += '</div></div></div>';
+                            // 月份區塊不按時間比例切割，只用不同淡底色分段。
+                            let monthText = Number(month.substring(4, 6)) + "月份";
+                            html += `<div class="timeline-month"><div class="container">
+                                     <h3 class="timeline-month-name">${monthText}</h3>
+                                     <div class="timeline-month-body">`;
+                            currentMonth = month;
+                        }
+                        html += makeTimelineItem(item);
+                    });
+                    if (currentMonth !== "") html += '</div></div></div>';
+                    $("#timeline-list").html(html || '<p class="timeline-empty">目前沒有學習或作品資料。</p>');
+                },
+                error: function () {
+                    $("#timeline-list").text("讀取 index_content.json 失敗，請確認路徑並透過 Live Server 開啟。");
+                }
+            });
+
+
+            // 點擊分類按鈕
+            $("#s14 .work-btn").on("click", function () {
+
+                // 取得目前按鈕的分類
+                let category = $(this).data("category");
+
+                // 移除所有按鈕的 active
+                $("#s14 .work-btn").removeClass("active");
+
+                // 讓目前點擊的按鈕加上 active
+                $(this).addClass("active");
+
+                // 隱藏所有作品分類
+                $("#s14 .work-group").addClass("d-none");
+
+                // 顯示被選取的分類
+                $('#s14 .work-group[data-category="' + category + '"]')
+                    .removeClass("d-none");
+
+            });
+
+        });
+
+    </script>
+
+
+
+    <script src="../js/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+</body>
+
+</html>

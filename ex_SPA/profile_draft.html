@@ -61,6 +61,77 @@
                 left: -8px;
             }
         }
+
+
+        /* s13 */
+        .windmill {
+            --blade-long: 500px;
+            --blade-short: 300px;
+
+            display: grid;
+
+            grid-template-columns: var(--blade-long) var(--blade-long);
+            grid-template-rows: var(--blade-long) var(--blade-long);
+
+            gap: 10px;
+
+            justify-content: center;
+            margin: 60px auto;
+        }
+
+        .windmill .box {
+            width: 250px;
+            height: 250px;
+        }
+
+        .windmill .blade {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 左上：直 */
+        .windmill .blade-01 {
+            width: var(--blade-short);
+            height: var(--blade-long);
+
+            justify-self: end;
+            align-self: end;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        /* 右上：橫 */
+        .windmill .blade-02 {
+            width: var(--blade-long);
+            height: var(--blade-short);
+
+            justify-self: start;
+            align-self: end;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 左下：橫 */
+        .windmill .blade-03 {
+            width: var(--blade-long);
+            height: var(--blade-short);
+
+            justify-self: end;
+            align-self: start;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        /* 右下：直 */
+        .windmill .blade-04 {
+            width: var(--blade-short);
+            height: var(--blade-long);
+
+            justify-self: start;
+            align-self: start;
+            justify-content: flex-start;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -253,8 +324,8 @@
                     style="background-image: url(../image/photo-1788963799172-5d5a5e06912f.avif); height: 85vh;">
                     <!-- ↑目前瀏覽器畫面高度的 85% -->
                     <!-- ↓ rounded-3 黑色背景框有導圓角 -->
-                    <div class="carousel-caption d-none d-md-block p-3 rounded-3 wow animate__zoomIn" data-wow-duration="1.5s" data-wow-delay="0s"
-                    data-wow-iteration="1"
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3 wow animate__zoomIn"
+                        data-wow-duration="1.5s" data-wow-delay="0s" data-wow-iteration="1"
                         style="background-color: rgba(0,0,0,0.4);">
                         <h3>標題01</h3>
                         <p>美國回覆熱線電子包裝另一將其基地業績促銷閲讀會員熱門好看，兩種保密開放數碼相機完善，爆炸氣息命運模擬合適青春同意律師於是平台寵物，指揮你的演唱成本對方一生始終我一總算住宅不滿社會主義，臺東詳細內容來的代理順利體驗天地整理選擇貫徹，治理最佳手裡，也要道理無。
@@ -359,8 +430,8 @@
     <section id="s06" style="position: relative;">
         <div class="row my-3">
             <div class="col-md-5 bg-img wow animate__fadeInLeft"
-                style="background-image: url(../image/premium_photo-1792118353041-9ad95cc3f9c9.avif); height: 400px; position: absolute; top: 0; bottom: 0;" data-wow-duration="1.5s" data-wow-delay="0s"
-                    data-wow-iteration="1">
+                style="background-image: url(../image/premium_photo-1792118353041-9ad95cc3f9c9.avif); height: 400px; position: absolute; top: 0; bottom: 0;"
+                data-wow-duration="1.5s" data-wow-delay="0s" data-wow-iteration="1">
             </div>
         </div>
         <div class="container">
@@ -563,8 +634,51 @@
     <section id="s12">
         <div class="container my-3">
             <div class="timeline-section">
-                <div class="row">
+                <div class="row align-items-center">
+                    <div class="col-md-1 bg-secondaryr">
+                        <div class="h5 text-end">9月份</div>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="separator">(分隔線使用比較淡的顏色，除了月份，不需要有其他文字)</div>
+                    </div>
+                </div>
+
+                <div class="row mt-3 align-items-center timeline-section-pointer">
+                    <div class="col-md-6">
+                        <div class="h2 text-center">(標題01)</div>
+                        <p>(內文)(學習部分放在時間線左邊)</p>
+                    </div>
                     <div class="col-md-6"></div>
+                </div>
+                <div class="row mt-3 flex-row-reverse align-items-center timeline-section-pointer">
+                    <div class="col-md-6">
+                        <div class="h2 text-center">(標題02)</div>
+                        <p>(內文)(作品部分放在時間線右邊)</p>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-md-1 bg-secondaryr">
+                        <div class="h5 text-end">10月份</div>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="separator">(分隔線使用比較淡的顏色，除了月份，不需要有其他文字)</div>
+                    </div>
+                </div>
+
+                <div class="row my-1 align-items-center timeline-section-pointer">
+                    <div class="col-md-6">
+                        <div class="h2 text-center">(標題03)</div>
+                        <p>(內文)(學習部分放在時間線左邊)</p>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+                <div class="row mt-3 flex-row-reverse align-items-center timeline-section-pointer">
+                    <div class="col-md-6">
+                        <div class="h2 text-center">(標題04)</div>
+                        <p>(內文)(作品部分放在時間線右邊)</p>
+                    </div>
                     <div class="col-md-6"></div>
                 </div>
             </div>
@@ -572,7 +686,173 @@
     </section>
 
 
+    <!-- section 13 風車型排版--期望待遇-->
+    <section id="s13">
+        <div class="container-fluid">
+            <div class="h1 text-dark text-center">期望待遇／<small>Compensation</small></div>
+            <div class="windmill">
+                <div class="blade blade-01 bg-info text-center">
+                    <div class="box bg-secondary my-4">
+                        <div class="h3">薪資待遇</div>
+                        <ul>
+                            <li>底薪......</li>
+                            <li>加給......</li>
+                            <li>年終......</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="blade blade-02 bg-warning text-center">
+                    <div class="box bg-secondary mx-4">
+                        <div class="h3">工作環境</div>
+                        <p>...</p>
+                    </div>
+                </div>
+                <div class="blade blade-03 bg-warning text-center">
+                    <div class="box bg-secondary mx-4">
+                        <div class="h3">公司福利</div>
+                        <ul>
+                            <li>尾牙抽獎......</li>
+                            <li>每個月......</li>
+                            <li>一周一次......</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="blade blade-04 bg-info text-center">
+                    <div class="box bg-secondary my-4">
+                        <div class="h3">升遷機會</div>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 14 作品精選-->
+
+    <!-- Section 14：精選作品 -->
+    <section id="s14">
+        <div class="container py-5">
+
+            <!-- 區塊標題 -->
+            <div class="h1 text-center portfolio-section-title mb-4">
+                精選作品
+            </div>
+
+            <!-- 四個分類按鈕 -->
+            <div class="row g-3 mb-4">
+
+                <div class="col-6 col-lg-3">
+                    <button type="button" class="btn work-btn w-100 active" data-category="interactive">
+                        互動與資料串接
+                    </button>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <button type="button" class="btn work-btn w-100" data-category="layout">
+                        網頁設計與排版
+                    </button>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <button type="button" class="btn work-btn w-100" data-category="figma">
+                        UI / UX 規劃
+                    </button>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <button type="button" class="btn work-btn w-100" data-category="backend">
+                        後台系統與資料庫
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Bootstrap Carousel -->
+            <div id="workCarousel" class="carousel slide" data-bs-interval="false">
+
+                <!-- 底部圓點 -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#workCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="slide 1">
+                    </button>
+
+                    <button type="button" data-bs-target="#workCarousel" data-bs-slide-to="1" aria-label="slide 2">
+                    </button>
+
+                    <button type="button" data-bs-target="#workCarousel" data-bs-slide-to="2" aria-label="slide 3">
+                    </button>
+                </div>
+
+                <!-- 作品內容 -->
+                <div class="carousel-inner">
+
+                    <!-- 作品 1 -->
+                    <div class="carousel-item active">
+                        <div class="work-slide">
+                            <img src="https://picsum.photos/seed/work01/1200/600" class="d-block w-100" alt="作品示意圖 1">
+
+                            <div class="work-info">
+                                <h3>AJAX 資料串接</h3>
+                                <p>使用技術：JavaScript / jQuery / AJAX</p>
+                                <p>練習讀取 JSON 資料，並動態產生網頁內容。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 作品 2 -->
+                    <div class="carousel-item">
+                        <div class="work-slide">
+                            <img src="https://picsum.photos/seed/work02/1200/600" class="d-block w-100" alt="作品示意圖 2">
+
+                            <div class="work-info">
+                                <h3>表單互動驗證</h3>
+                                <p>使用技術：HTML / Bootstrap / jQuery</p>
+                                <p>練習表單驗證、即時回饋與資料暫存。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 作品 3 -->
+                    <div class="carousel-item">
+                        <div class="work-slide">
+                            <img src="https://picsum.photos/seed/work03/1200/600" class="d-block w-100" alt="作品示意圖 3">
+
+                            <div class="work-info">
+                                <h3>動態資料篩選</h3>
+                                <p>使用技術：JavaScript / jQuery / JSON</p>
+                                <p>練習依照條件篩選資料，更新網頁顯示內容。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 上一張 -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#workCarousel" data-bs-slide="prev">
+
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                    <span class="visually-hidden">上一張</span>
+                </button>
+
+                <!-- 下一張 -->
+                <button class="carousel-control-next" type="button" data-bs-target="#workCarousel" data-bs-slide="next">
+
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                    <span class="visually-hidden">下一張</span>
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-4.0.0.js"></script>
     <script src="../js/wow.js"></script>
     <script>
         new WOW().init();

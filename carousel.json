@@ -1,0 +1,46 @@
+
+{
+    "interactive": {
+        "title": "互動與資料串接",
+        "tech": "JavaScript / jQuery / AJAX",
+        "description": "展示動態資料處理、表單驗證與前端資料串接成果。",
+        "images": [
+            "https://picsum.photos/seed/work01/1200/600",
+            "https://picsum.photos/seed/work02/1200/600",
+            "https://picsum.photos/seed/work03/1200/600"
+        ]
+    },
+
+    "layout": {
+        "title": "網頁設計與排版",
+        "tech": "HTML / CSS / Bootstrap",
+        "description": "展示響應式排版、網頁布局及 AI 修改前後對照。",
+        "images": [
+            "https://picsum.photos/seed/layout01/1200/600",
+            "https://picsum.photos/seed/layout02/1200/600"
+        ]
+    },
+
+    "figma": {
+        "title": "UI / UX 規劃",
+        "tech": "Figma / Wireframe / Prototype",
+        "description": "展示介面草圖、互動畫廊與元件設計。",
+        "images": [
+            "https://picsum.photos/seed/figma01/1200/600",
+            "https://picsum.photos/seed/figma02/1200/600",
+            "https://picsum.photos/seed/figma03/1200/600",
+            "https://picsum.photos/seed/figma04/1200/600"
+        ]
+    },
+
+    "backend": {
+        "title": "後台系統與資料庫",
+        "tech": "Laravel / PHP / MySQL",
+        "description": "展示登入驗證、後台管理與資料庫操作成果。",
+        "images": [
+            "https://picsum.photos/seed/backend01/1200/600",
+            "https://picsum.photos/seed/backend02/1200/600",
+            "https://picsum.photos/seed/backend03/1200/600"
+        ]
+    }
+}

@@ -1,0 +1,950 @@
+/* ============================================================
+   個人履歷共用樣式 portfolio.css
+   風格：米白 × 森林綠，作品使用金棕色強調
+   共用顏色集中在 :root，Section 專用樣式以 #s12 限定。
+   ============================================================ */
+:root {
+    --portfolio-page: #f7f5ee;
+    --portfolio-paper: #fffefa;
+    --portfolio-green: #2d5144;
+    --portfolio-green-light: #436d5c;
+    --portfolio-sage: #dfe9e0;
+    --portfolio-gold: #c5a577;
+    --portfolio-work: #9b7540;
+    /* 作品節點、標題與按鈕使用相同金棕色 */
+    --portfolio-text: #303b35;
+    --portfolio-muted: #728078;
+    --portfolio-border: #d8e0d8;
+    --portfolio-content-border: #e2ddd2;
+    --portfolio-month-a: #f1f5ee;
+    --portfolio-month-b: #f9f7f0;
+}
+
+body {
+    background-color: var(--portfolio-page);
+    color: var(--portfolio-text);
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+}
+
+.imgbox {
+    height: 220px;
+}
+
+/* 舊有時間軸類別：保留，顏色改為履歷共用色系 */
+.timeline-section {
+    position: relative;
+}
+
+.timeline-section::before {
+    position: absolute;
+    content: "";
+    width: 3px;
+    background-color: var(--portfolio-border);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-section-pointer {
+    position: relative;
+}
+
+.timeline-section-pointer::before {
+    position: absolute;
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: var(--portfolio-green-light);
+    border-radius: 50%;
+    border: 3px solid var(--portfolio-paper);
+    box-shadow: 0 0 0 2px var(--portfolio-green-light);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+}
+
+@media screen and (max-width: 767.98px) {
+    .timeline-section::before {
+        left: 17px;
+    }
+
+    .timeline-section-pointer::before {
+        left: 17px;
+    }
+}
+
+/* 全站共用：標題、說明、連結按鈕 */
+.portfolio-section-title {
+    color: var(--portfolio-green);
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.portfolio-section-lead {
+    color: var(--portfolio-muted);
+    line-height: 1.85;
+}
+
+.portfolio-action {
+    display: inline-block;
+    padding: .48rem .95rem;
+    border-radius: 6px;
+    border: 1px solid var(--portfolio-green);
+    background: var(--portfolio-green);
+    color: #fff;
+    text-decoration: none;
+    font-size: .88rem;
+    transition: background-color .2s, color .2s, transform .2s;
+}
+
+.portfolio-action:hover,
+.portfolio-action:focus-visible {
+    background: var(--portfolio-green-light);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.portfolio-action--outline {
+    color: var(--portfolio-green);
+    background: transparent;
+}
+
+.portfolio-action--outline:hover,
+.portfolio-action--outline:focus-visible {
+    color: #fff;
+}
+
+
+/* ========================================
+   全站共用：背景圖片定位
+   ======================================== */
+
+/* 1. 背景圖完全置中（水平＋垂直） */
+.bg-img-center {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* 2. 背景圖水平置中（垂直靠上） */
+.bg-img-x-center {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+/* 3. 背景圖垂直置中（水平靠左） */
+.bg-img-y-center {
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+
+/* ============================================================
+   Section 12：雙側學習／作品時間軸
+   學習 = 森林綠；作品 = 金棕色；內容底色一律米白。
+   ============================================================ */
+#s12 .timeline-head {
+    padding: 1.5rem 0 1.25rem;
+}
+
+#s12 .timeline-side-label {
+    color: var(--portfolio-green-light);
+    font-weight: 700;
+    letter-spacing: .12em;
+    margin: 0;
+}
+
+#s12 .timeline-side-label--work {
+    color: var(--portfolio-work);
+}
+
+/* 不同月份以非常淡的底色區分，不顯示單筆日期 */
+#s12 .timeline-month {
+    position: relative;
+    padding: 1.4rem 0 1.8rem;
+}
+
+#s12 .timeline-month:nth-child(odd) {
+    background: var(--portfolio-month-a);
+}
+
+#s12 .timeline-month:nth-child(even) {
+    background: var(--portfolio-month-b);
+}
+
+#s12 .timeline-month-name {
+    color: var(--portfolio-green);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: .5rem 0 1.1rem;
+    margin: 0;
+}
+
+#s12 .timeline-month-body {
+    position: relative;
+}
+
+/* 中央時間線只表示先後，不按日期距離等比例排列 */
+#s12 .timeline-month-body::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: .75rem;
+    bottom: .75rem;
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--portfolio-border);
+}
+
+#s12 .timeline-item {
+    position: relative;
+    min-height: 124px;
+    padding: .8rem 0;
+}
+
+#s12 .timeline-item+.timeline-item {
+    margin-top: .5rem;
+    /* 同一天的多筆資料也各自分開 */
+}
+
+/* 每筆資料的中央節點，預設為學習綠 */
+#s12 .timeline-item::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--portfolio-green-light);
+    border: 3px solid var(--portfolio-paper);
+    box-shadow: 0 0 0 2px var(--portfolio-green-light);
+    border-radius: 50%;
+}
+
+/* 作品節點改為較深金棕色，與文字、按鈕完全相同 */
+#s12 .timeline-item--work::before {
+    background: var(--portfolio-work);
+    box-shadow: 0 0 0 2px var(--portfolio-work);
+}
+
+/* 所有內容使用相同的中性米白色塊，不用分類色當底色 */
+#s12 .timeline-item-content {
+    background-color: var(--portfolio-paper);
+    border: 1px solid var(--portfolio-content-border);
+    border-radius: 8px;
+    padding: 1.3rem 1.5rem;
+    height: 100%;
+    transition: box-shadow .3s ease;
+}
+
+#s12 .timeline-item-content:hover {
+    box-shadow: 0 8px 22px rgba(45, 81, 68, .1);
+}
+
+#s12 .timeline-item--learning .timeline-item-content {
+    text-align: right;
+    margin-right: 1.3rem;
+}
+
+#s12 .timeline-item--work .timeline-item-content {
+    text-align: left;
+    margin-left: 1.3rem;
+}
+
+/* 每一種項目以同一個 accent 控制文字及按鈕配色 */
+#s12 .timeline-item--learning {
+    --timeline-accent: var(--portfolio-green-light);
+}
+
+#s12 .timeline-item--work {
+    --timeline-accent: var(--portfolio-work);
+}
+
+#s12 .timeline-item .timeline-type,
+#s12 .timeline-item .timeline-item-title {
+    color: var(--timeline-accent);
+}
+
+#s12 .timeline-item-title {
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 .5rem;
+}
+
+#s12 .timeline-item-note {
+    color: var(--portfolio-text);
+    line-height: 1.85;
+    margin: 0 0 .9rem;
+    overflow-wrap: anywhere;
+}
+
+#s12 .timeline-note-empty {
+    color: var(--portfolio-muted);
+    font-style: italic;
+}
+
+#s12 .timeline-item-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+#s12 .timeline-item--learning .timeline-item-actions {
+    justify-content: flex-end;
+}
+
+#s12 .timeline-item--work .timeline-item-actions {
+    justify-content: flex-start;
+}
+
+/* 單按鈕與 AI 對照按鈕都套用該類別的強調色 */
+#s12 .timeline-item .portfolio-action {
+    background: var(--timeline-accent);
+    border-color: var(--timeline-accent);
+    color: #fff;
+}
+
+#s12 .timeline-item .portfolio-action--outline {
+    background: transparent;
+    color: var(--timeline-accent);
+}
+
+#s12 .timeline-item .portfolio-action:hover,
+#s12 .timeline-item .portfolio-action:focus-visible {
+    filter: brightness(.88);
+}
+
+#s12 .timeline-item .portfolio-action--outline:hover,
+#s12 .timeline-item .portfolio-action--outline:focus-visible {
+    background: var(--timeline-accent);
+    color: #fff;
+}
+
+#s12 .timeline-empty {
+    color: var(--portfolio-muted);
+    padding: 1rem;
+}
+
+/* 手機版：兩類都改為左側單欄時間軸 */
+@media (max-width: 767.98px) {
+    #s12 .timeline-head {
+        display: none;
+    }
+
+    #s12 .timeline-month {
+        padding: 1rem 0 1.2rem;
+    }
+
+    #s12 .timeline-month-name {
+        padding-bottom: .75rem;
+    }
+
+    #s12 .timeline-month-body::before {
+        left: 17px;
+        transform: none;
+    }
+
+    #s12 .timeline-item {
+        min-height: auto;
+        padding: .85rem 0 .85rem 36px;
+    }
+
+    #s12 .timeline-item::before {
+        left: 17px;
+        top: 1.65rem;
+        transform: translateX(-50%);
+    }
+
+    #s12 .timeline-item-content {
+        padding: 1rem 1.1rem;
+    }
+
+    #s12 .timeline-item--learning .timeline-item-content,
+    #s12 .timeline-item--work .timeline-item-content {
+        text-align: left;
+        margin: 0;
+    }
+
+    #s12 .timeline-item--learning .timeline-item-actions,
+    #s12 .timeline-item--work .timeline-item-actions {
+        justify-content: flex-start;
+    }
+
+    #s12 .timeline-type {
+        display: inline-block;
+        margin-bottom: .3rem;
+        font-size: .82rem;
+        font-weight: 700;
+    }
+}
+
+@media (min-width: 768px) {
+    #s12 .timeline-type {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .portfolio-action,
+    #s12 .timeline-item-content {
+        transition: none;
+    }
+}
+
+
+
+
+/* ============================================================
+   Section 13：期望待遇－風車型排版
+   共用 portfolio.css 的全站色彩
+   ============================================================ */
+
+#s13 {
+    background-color: var(--portfolio-page);
+    color: var(--portfolio-text);
+    padding: 70px 0 90px;
+    overflow: hidden;
+}
+
+/* 主標題 */
+#s13 .portfolio-section-title {
+    color: var(--portfolio-green);
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 55px;
+}
+
+/* 英文副標題 */
+#s13 .portfolio-section-title small {
+    color: var(--portfolio-gold);
+    font-size: 0.5em;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+/* ============================================================
+   風車主容器
+   保留原本 CSS Grid 的排列方式
+   ============================================================ */
+
+#s13 .windmill {
+    /* 根據螢幕寬度調整，長邊最大 590px */
+    --blade-long: min(590px, calc((100vw - 64px) / 2));
+    --blade-short: calc(var(--blade-long) * 0.62);
+
+    display: grid;
+
+    grid-template-columns:
+        var(--blade-long) var(--blade-long);
+
+    grid-template-rows:
+        var(--blade-long) var(--blade-long);
+
+    gap: 12px;
+
+    width: fit-content;
+    max-width: 100%;
+    justify-content: center;
+
+    margin: 50px auto;
+}
+
+/* ============================================================
+   四片葉片共用設定
+   ============================================================ */
+
+#s13 .windmill .blade {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--portfolio-sage);
+
+    border: 1px solid var(--portfolio-border);
+}
+
+/* 背景圖片遮罩 */
+#s13 .windmill .blade::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(30, 55, 45, 0.15);
+    pointer-events: none;
+}
+
+/* ============================================================
+   葉片位置
+   ============================================================ */
+
+/* 左上：直向葉片 */
+#s13 .windmill .blade-01 {
+    width: var(--blade-short);
+    height: var(--blade-long);
+
+    justify-self: end;
+    align-self: end;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-bottom: 28px;
+
+    background-color: #dfe9e0;
+
+    background-image: url("../image/office01.avif");
+}
+
+/* 右上：橫向葉片 */
+#s13 .windmill .blade-02 {
+    width: var(--blade-long);
+    height: var(--blade-short);
+
+    justify-self: start;
+    align-self: end;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-left: 28px;
+
+    background-color: #e8e6db;
+
+    background-image: url("../image/office02.avif");
+}
+
+/* 左下：橫向葉片 */
+#s13 .windmill .blade-03 {
+    width: var(--blade-long);
+    height: var(--blade-short);
+
+    justify-self: end;
+    align-self: start;
+
+    justify-content: center;
+    align-items: flex-end;
+
+    padding-right: 28px;
+
+    background-color: #e8e6db;
+
+    background-image: url("../image/office03.avif");
+}
+
+/* 右下：直向葉片 */
+#s13 .windmill .blade-04 {
+    width: var(--blade-short);
+    height: var(--blade-long);
+
+    justify-self: start;
+    align-self: start;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    padding-top: 28px;
+
+
+    background-image: url("../image/office04.avif");
+}
+
+/* ============================================================
+   內部文字方塊
+   ============================================================ */
+
+#s13 .windmill .box {
+    position: relative;
+    z-index: 1;
+
+    /* 放大文字區塊，並確保不超過葉片寬度 */
+    width: min(320px, calc(100% - 20px));
+    min-height: 270px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 28px;
+    margin: 0;
+
+    background-color: rgba(255, 254, 250, 0.95);
+    border: 1px solid var(--portfolio-border);
+    border-left: 4px solid var(--portfolio-gold);
+    border-radius: 6px;
+
+    color: var(--portfolio-text);
+    text-align: left;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+    transition: transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* 四個標題：放大並置中 */
+#s13 .windmill .box .h3 {
+    color: var(--portfolio-green);
+
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+/* 內文與清單 */
+#s13 .windmill .box p,
+#s13 .windmill .box li {
+    color: var(--portfolio-text);
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+/* 段落 */
+#s13 .windmill .box p {
+    margin-bottom: 0;
+}
+
+/* 清單 */
+#s13 .windmill .box ul {
+    padding-left: 22px;
+    margin-bottom: 0;
+}
+
+#s13 .windmill .box li {
+    margin-bottom: 8px;
+}
+
+#s13 .windmill .box li:last-child {
+    margin-bottom: 0;
+}
+
+/* Hover 動畫 */
+#s13 .windmill .blade:hover .box {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================
+   中型螢幕：縮小間距，保留風車結構
+   ============================================================ */
+
+@media (min-width: 900px) and (max-width: 1199.98px) {
+
+    #s13 .windmill .blade-01,
+    #s13 .windmill .blade-04 {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    #s13 .windmill .blade-02,
+    #s13 .windmill .blade-03 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #s13 .windmill .box {
+        width: min(290px, calc(100% - 10px));
+        min-height: 235px;
+        padding: 18px;
+    }
+
+    #s13 .windmill .box .h3 {
+        font-size: 1.5rem;
+    }
+
+    #s13 .windmill .box p,
+    #s13 .windmill .box li {
+        font-size: 0.95rem;
+    }
+}
+
+/* ============================================================
+   小螢幕：改成上下排列，讓文字保持可讀性
+   ============================================================ */
+
+@media (max-width: 899.98px) {
+
+    #s13 {
+        padding: 45px 0 60px;
+    }
+
+    #s13 .portfolio-section-title {
+        margin-bottom: 35px;
+    }
+
+    #s13 .windmill {
+        display: flex;
+        flex-direction: column;
+
+        width: min(600px, 100%);
+        gap: 20px;
+        padding: 0 15px;
+        margin: 30px auto;
+    }
+
+    /* 取消風車的格線位置，改成單欄 */
+    #s13 .windmill .blade {
+        width: 100%;
+        height: auto;
+        min-height: 350px;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 25px;
+        border-radius: 8px;
+    }
+
+    #s13 .windmill .box {
+        width: min(420px, 100%);
+        min-height: 250px;
+
+        padding: 25px;
+        margin: 0;
+    }
+
+    #s13 .windmill .box .h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ============================================================
+   尊重使用者減少動畫設定
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    #s13 .windmill .box {
+        transition: none;
+    }
+
+    #s13 .windmill .blade:hover .box {
+        transform: none;
+    }
+}
+
+
+
+
+/* ============================================================
+   Section 14：精選作品
+   ============================================================ */
+
+#s14 {
+    background-color: var(--portfolio-page);
+}
+
+/* ============================================================
+   四個分類按鈕
+   ============================================================ */
+
+#s14 .work-btn {
+    background-color: var(--portfolio-paper);
+    color: var(--portfolio-green);
+    border: 1px solid var(--portfolio-border);
+
+    padding: 14px 12px;
+    font-weight: 600;
+    border-radius: 6px;
+
+    transition: all 0.3s ease;
+}
+
+/* 滑鼠移入 */
+#s14 .work-btn:hover {
+    background-color: var(--portfolio-sage);
+    border-color: var(--portfolio-green-light);
+}
+
+/* 選取中的分類 */
+#s14 .work-btn.active {
+    background-color: var(--portfolio-green);
+    color: #fff;
+    border-color: var(--portfolio-green);
+}
+
+/* ============================================================
+   分類說明
+   ============================================================ */
+
+#s14 .work-info {
+    padding: 24px 30px;
+
+    background-color: var(--portfolio-paper);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 8px;
+
+    color: var(--portfolio-text);
+}
+
+/* 分類名稱 */
+#s14 .work-info h3 {
+    color: var(--portfolio-green);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* 使用技術 */
+#s14 #work-tech {
+    color: var(--portfolio-green-light);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+/* 分類說明 */
+#s14 #work-description {
+    color: var(--portfolio-muted);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   Carousel 主體
+   ============================================================ */
+
+#s14 #workCarousel {
+    position: relative;
+
+    /* 預留底部圓點空間 */
+    padding-bottom: 55px;
+}
+
+/* 圖片容器 */
+#s14 .work-slide {
+    position: relative;
+
+    background-color: var(--portfolio-paper);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+/* 圖片 */
+#s14 .work-slide img {
+    display: block;
+    width: 100%;
+    height: 440px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ============================================================
+   左右切換按鈕
+   ============================================================ */
+
+#s14 .carousel-control-prev,
+#s14 .carousel-control-next {
+    top: 0;
+    bottom: 55px;
+
+    height: auto;
+    width: 9%;
+    opacity: 0.85;
+}
+
+/* 箭頭外觀 */
+#s14 .carousel-control-prev-icon,
+#s14 .carousel-control-next-icon {
+    width: 36px;
+    height: 36px;
+
+    background-color: rgba(45, 81, 68, 0.75);
+    background-size: 55%;
+    border-radius: 50%;
+}
+
+#s14 .carousel-control-prev:hover,
+#s14 .carousel-control-next:hover {
+    opacity: 1;
+}
+
+/* ============================================================
+   底部圓點
+   ============================================================ */
+
+#s14 .carousel-indicators {
+    position: absolute;
+
+    top: auto;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0;
+    padding: 0;
+    z-index: 5;
+}
+
+/* 圓點樣式 */
+#s14 .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 50%;
+
+    background-color: var(--portfolio-green);
+    opacity: 0.3;
+}
+
+/* 目前顯示的圓點 */
+#s14 .carousel-indicators button.active {
+    opacity: 1;
+}
+
+/* ============================================================
+   手機版
+   ============================================================ */
+
+@media (max-width: 767.98px) {
+
+    #s14 .work-btn {
+        padding: 12px 6px;
+        font-size: 0.9rem;
+    }
+
+    #s14 .work-info {
+        padding: 20px 18px;
+    }
+
+    #s14 .work-info h3 {
+        font-size: 1.2rem;
+    }
+
+    #s14 #work-tech,
+    #s14 #work-description {
+        font-size: 0.85rem;
+    }
+
+    #s14 .work-slide img {
+        height: 240px;
+    }
+
+    #s14 .carousel-control-prev-icon,
+    #s14 .carousel-control-next-icon {
+        width: 28px;
+        height: 28px;
+    }
+}

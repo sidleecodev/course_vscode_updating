@@ -766,7 +766,7 @@ body {
     border-color: var(--portfolio-green-light);
 }
 
-/* 選取中的分類 */
+/* 目前選取的分類 */
 #s14 .work-btn.active {
     background-color: var(--portfolio-green);
     color: #fff;
@@ -774,7 +774,7 @@ body {
 }
 
 /* ============================================================
-   分類說明
+   分類資訊
    ============================================================ */
 
 #s14 .work-info {
@@ -785,6 +785,17 @@ body {
     border-radius: 8px;
 
     color: var(--portfolio-text);
+}
+
+/* 標題與連結左右排列 */
+#s14 .work-info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin-bottom: 12px;
 }
 
 /* 分類名稱 */
@@ -799,7 +810,7 @@ body {
 #s14 #work-tech {
     color: var(--portfolio-green-light);
     font-size: 0.95rem;
-    margin-bottom: 8px;
+    margin-bottom: 0;
 }
 
 /* 分類說明 */
@@ -810,21 +821,73 @@ body {
 }
 
 /* ============================================================
+   作品連結
+   ============================================================ */
+
+#s14 .work-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 連結共用樣式 */
+#s14 .work-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 9px 16px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* 原始稿、一般作品 */
+#s14 .work-link-original {
+    background-color: transparent;
+    color: var(--portfolio-green);
+    border: 1px solid var(--portfolio-green);
+}
+
+#s14 .work-link-original:hover {
+    background-color: var(--portfolio-sage);
+    color: var(--portfolio-green);
+}
+
+/* AI 修飾 */
+#s14 .work-link-ai {
+    background-color: var(--portfolio-green);
+    color: #fff;
+    border: 1px solid var(--portfolio-green);
+}
+
+#s14 .work-link-ai:hover {
+    background-color: var(--portfolio-green-light);
+    color: #fff;
+}
+
+/* ============================================================
    Carousel 主體
    ============================================================ */
 
 #s14 #workCarousel {
     position: relative;
 
-    /* 預留底部圓點空間 */
+    /* 底部保留圓點區域 */
     padding-bottom: 55px;
 }
 
-/* 圖片容器 */
+/* 圖片及影片容器 */
 #s14 .work-slide {
     position: relative;
+    height: 440px;
 
-    background-color: var(--portfolio-paper);
+    background-color: var(--portfolio-sage);
     border: 1px solid var(--portfolio-border);
     border-radius: 8px;
 
@@ -835,10 +898,20 @@ body {
 #s14 .work-slide img {
     display: block;
     width: 100%;
-    height: 440px;
+    height: 100%;
 
     object-fit: cover;
     object-position: center;
+}
+
+/* 影片 */
+#s14 .work-slide video {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    background-color: #17231d;
 }
 
 /* ============================================================
@@ -855,7 +928,7 @@ body {
     opacity: 0.85;
 }
 
-/* 箭頭外觀 */
+/* 箭頭 */
 #s14 .carousel-control-prev-icon,
 #s14 .carousel-control-next-icon {
     width: 36px;
@@ -893,7 +966,7 @@ body {
     z-index: 5;
 }
 
-/* 圓點樣式 */
+/* 每一個圓點 */
 #s14 .carousel-indicators button {
     width: 12px;
     height: 12px;
@@ -902,6 +975,7 @@ body {
 
     padding: 0;
     margin: 0;
+
     border: 0;
     border-radius: 50%;
 
@@ -938,13 +1012,34 @@ body {
         font-size: 0.85rem;
     }
 
-    #s14 .work-slide img {
+    #s14 .work-links {
+        width: 100%;
+    }
+
+    #s14 .work-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    #s14 .work-slide {
         height: 240px;
+    }
+
+    #s14 .carousel-control-prev,
+    #s14 .carousel-control-next {
+        width: 12%;
     }
 
     #s14 .carousel-control-prev-icon,
     #s14 .carousel-control-next-icon {
         width: 28px;
         height: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #s14 .work-btn,
+    #s14 .work-link {
+        transition: none;
     }
 }

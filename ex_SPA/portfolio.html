@@ -144,10 +144,6 @@
     </section>
 
 
-
-
-
-
     <!-- Section 14：精選作品 -->
     <section id="s14">
         <div class="container py-5">
@@ -186,21 +182,31 @@
 
             </div>
 
-            <!-- 分類說明：不隨圖片輪播 -->
+            <!-- 分類資訊：不會隨圖片切換 -->
             <div class="work-info mb-4">
 
-                <h3 id="work-title">互動與資料串接</h3>
+                <div class="work-info-top">
 
-                <p id="work-tech"></p>
+                    <!-- 分類名稱、技術 -->
+                    <div>
+                        <h3 id="work-title">互動與資料串接</h3>
+                        <p id="work-tech"></p>
+                    </div>
 
+                    <!-- 作品連結由 JS 產生 -->
+                    <div class="work-links"></div>
+
+                </div>
+
+                <!-- 分類說明 -->
                 <p id="work-description"></p>
 
             </div>
 
-            <!-- 共用 Carousel -->
+            <!-- 共用 Bootstrap Carousel -->
             <div id="workCarousel" class="carousel slide" data-bs-interval="false">
 
-                <!-- 圖片由 JavaScript 產生 -->
+                <!-- 圖片或影片由 JS 產生 -->
                 <div class="carousel-inner"></div>
 
                 <!-- 上一張 -->
@@ -219,16 +225,13 @@
                     <span class="visually-hidden">下一張</span>
                 </button>
 
-                <!-- 圓點由 JavaScript 產生 -->
+                <!-- 底部圓點由 JS 產生 -->
                 <div class="carousel-indicators"></div>
 
             </div>
 
         </div>
     </section>
-
-
-
 
 
     <script src="../js/bootstrap.bundle.min.js"></script>

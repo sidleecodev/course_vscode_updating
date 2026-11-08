@@ -1,0 +1,1751 @@
+/* ============================================================
+   portfolio_newest.css | 正式履歷 index.html（目前頁首專用）
+   來源：portfolio_整合版.css
+   僅保留目前 HTML 使用的 Navbar、Hero Carousel 與必要全站設定。
+   保留圖片相對路徑：css/ -> ../images/
+   Section 12～15 未出現在目前 HTML，因此暫不納入。
+   ============================================================ */
+
+:root {
+    --portfolio-page: #f7f5ee;
+    --portfolio-paper: #fffefa;
+    --portfolio-green: #2d5144;
+    --portfolio-green-light: #436d5c;
+    --portfolio-sage: #dfe9e0;
+    --portfolio-gold: #c5a577;
+    --portfolio-brown: #80664e;
+    --portfolio-text: #303b35;
+    --portfolio-muted: #728078;
+    --portfolio-border: #d8e0d8;
+    --portfolio-navbar-height: 76px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    color: var(--portfolio-text);
+    background-color: var(--portfolio-page);
+
+    /* 幾何線條 + 淡色漸層 */
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            rgba(45, 81, 68, 0.035) 0px,
+            rgba(45, 81, 68, 0.035) 1px,
+            transparent 1px,
+            transparent 90px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(128, 102, 78, 0.025) 0px,
+            rgba(128, 102, 78, 0.025) 1px,
+            transparent 1px,
+            transparent 120px
+        ),
+        linear-gradient(
+            120deg,
+            #f7f5ee,
+            #e5ece5,
+            #f0e7db,
+            #f7f5ee
+        );
+
+    /* 線條固定，漸層慢慢流動 */
+    background-size:
+        auto,
+        auto,
+        220% 220%;
+
+    background-attachment: fixed;
+
+    animation: portfolioBackground 25s ease-in-out infinite alternate;
+}
+
+/* 動態漸層 */
+@keyframes portfolioBackground {
+    0% {
+        background-position:
+            center,
+            center,
+            0% 50%;
+    }
+
+    100% {
+        background-position:
+            center,
+            center,
+            100% 50%;
+    }
+}
+
+/* 主內容不另外覆蓋一張背景圖 */
+#portfolio-main {
+    position: relative;
+    background: transparent;
+}
+
+/* Section 預設透明 */
+#portfolio-main > section {
+    background-color: transparent;
+}
+
+/* 區塊明暗交替：有需要才加在 section 上 */
+.portfolio-tone-light {
+    background-color: rgba(255, 254, 250, 0.12) !important;
+}
+
+.portfolio-tone-deep {
+    background-color: rgba(45, 81, 68, 0.065) !important;
+}
+
+/* 半透明文字面板 */
+.portfolio-glass {
+    background-color: rgba(255, 254, 250, 0.84);
+    border: 1px solid rgba(216, 224, 216, 0.9);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* 減少動態效果 */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--portfolio-navbar-height) + 15px);
+}
+
+/* 為後續新增的首頁 Section 預留錨點避讓，未加入其他 Section 樣式 */
+main section {
+    scroll-margin-top: calc(var(--portfolio-navbar-height) + 15px);
+}
+
+/* ============================================================
+   Navbar：固定導覽列（配合 index.html 的 portfolio-navbar）
+   ============================================================ */
+.portfolio-navbar {
+    min-height: var(--portfolio-navbar-height);
+    background-color: rgba(247, 245, 238, .94);
+    border-bottom: 1px solid rgba(45, 81, 68, .18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 1050;
+}
+.portfolio-navbar .navbar-brand,
+.portfolio-navbar .portfolio-brand {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    color: var(--portfolio-green);
+}
+.portfolio-navbar .navbar-brand:hover,
+.portfolio-navbar .navbar-brand:focus {
+    color: var(--portfolio-green-light);
+}
+.portfolio-navbar .brand-dot {
+    color: var(--portfolio-gold);
+}
+.portfolio-navbar .nav-link {
+    position: relative;
+    margin: 0 3px;
+    padding: 9px 12px;
+    color: var(--portfolio-green);
+    font-size: .94rem;
+    font-weight: 600;
+    transition: color .2s;
+}
+.portfolio-navbar .nav-link:hover,
+.portfolio-navbar .nav-link:focus {
+    color: var(--portfolio-brown);
+}
+.portfolio-navbar .nav-link:not(.portfolio-contact-btn)::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 3px;
+    height: 2px;
+    background-color: var(--portfolio-gold);
+    transform: scaleX(0);
+    transition: transform .2s;
+}
+.portfolio-navbar .nav-link:not(.portfolio-contact-btn):hover::after,
+.portfolio-navbar .nav-link:not(.portfolio-contact-btn):focus::after {
+    transform: scaleX(1);
+}
+.portfolio-navbar .portfolio-contact-btn {
+    margin-left: 13px;
+    padding: 9px 19px;
+    color: var(--portfolio-paper);
+    background-color: var(--portfolio-green);
+    border-radius: 7px;
+}
+.portfolio-navbar .portfolio-contact-btn:hover,
+.portfolio-navbar .portfolio-contact-btn:focus {
+    color: var(--portfolio-paper);
+    background-color: var(--portfolio-green-light);
+}
+.portfolio-navbar .portfolio-toggler {
+    border: 1px solid var(--portfolio-border);
+    padding: 7px 11px;
+}
+.portfolio-navbar .portfolio-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(67, 109, 92, .15);
+}
+.portfolio-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%232d5144' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   Hero：首頁三張幻燈片
+   與 Section 14 的 #workCarousel 獨立，互不影響
+   ============================================================ */
+#home {
+    padding-top: var(--portfolio-navbar-height);
+}
+.portfolio-hero {
+    width: 100%;
+    overflow: hidden;
+}
+.portfolio-hero .hero-slide {
+    position: relative;
+    height: 610px;
+    overflow: hidden;
+}
+.portfolio-hero .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.portfolio-hero .hero-slide-1 .hero-image {
+    background-image: url("../images/carousel-1.avif");
+}
+.portfolio-hero .hero-slide-2 .hero-image {
+    background-image: url("../images/carousel-2.avif");
+}
+.portfolio-hero .hero-slide-3 .hero-image {
+    background-image: url("../images/carousel-3.avif");
+}
+.portfolio-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+.portfolio-hero .hero-slide-1 .hero-overlay {
+    background: linear-gradient(90deg,
+        rgba(247,245,238,.94) 0%,
+        rgba(247,245,238,.78) 32%,
+        rgba(247,245,238,.06) 75%);
+}
+.portfolio-hero .hero-slide-2 .hero-overlay {
+    background: linear-gradient(270deg,
+        rgba(247,245,238,.94) 0%,
+        rgba(247,245,238,.78) 32%,
+        rgba(247,245,238,.06) 75%);
+}
+.portfolio-hero .hero-slide-3 .hero-overlay {
+    background: linear-gradient(180deg,
+        rgba(28,48,40,.87) 0%,
+        rgba(28,48,40,.55) 45%,
+        rgba(28,48,40,.04) 90%);
+}
+.portfolio-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.portfolio-hero .hero-text {
+    width: 100%;
+    max-width: 560px;
+    padding: 30px 15px;
+}
+.portfolio-hero .hero-eyebrow {
+    margin-bottom: 18px;
+    color: var(--portfolio-brown);
+    font-size: .85rem;
+    letter-spacing: .22em;
+    font-weight: 700;
+}
+.portfolio-hero .hero-title {
+    margin-bottom: 22px;
+    color: var(--portfolio-green);
+    font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: .035em;
+    line-height: 1.35;
+}
+.portfolio-hero .hero-description {
+    margin-bottom: 30px;
+    color: var(--portfolio-text);
+    font-size: 1.05rem;
+    line-height: 1.95;
+}
+.portfolio-hero .hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    color: var(--portfolio-paper);
+    background: var(--portfolio-green);
+    border: 1px solid var(--portfolio-green);
+    border-radius: 7px;
+    font-size: .95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .2s, transform .2s;
+}
+.portfolio-hero .hero-button:hover,
+.portfolio-hero .hero-button:focus-visible {
+    background: var(--portfolio-green-light);
+    color: var(--portfolio-paper);
+    transform: translateY(-2px);
+}
+.portfolio-hero .hero-slide-2 .hero-content {
+    justify-content: flex-end;
+}
+.portfolio-hero .hero-slide-3 .hero-content {
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+}
+.portfolio-hero .hero-slide-3 .hero-text {
+    max-width: 800px;
+    padding-top: 65px;
+}
+.portfolio-hero .hero-slide-3 .hero-eyebrow,
+.portfolio-hero .hero-slide-3 .hero-title,
+.portfolio-hero .hero-slide-3 .hero-description {
+    color: var(--portfolio-paper);
+}
+.portfolio-hero .hero-slide-3 .hero-button {
+    background: var(--portfolio-paper);
+    border-color: var(--portfolio-paper);
+    color: var(--portfolio-green);
+}
+.portfolio-hero .hero-slide-3 .hero-button:hover,
+.portfolio-hero .hero-slide-3 .hero-button:focus-visible {
+    background: var(--portfolio-sage);
+    color: var(--portfolio-green);
+}
+/* 修正按鈕被 z-index:2 的文字容器蓋住，導致無法點擊 */
+#heroCarousel .carousel-control-prev,
+#heroCarousel .carousel-control-next {
+    z-index: 4;
+    cursor: pointer;
+}
+.portfolio-hero .hero-control {
+    width: 6%;
+    opacity: 1;
+}
+.portfolio-hero .hero-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    color: var(--portfolio-green);
+    background: rgba(255,254,250,.85);
+    border: 1px solid rgba(45,81,68,.15);
+    border-radius: 50%;
+    transition: background-color .2s;
+}
+.portfolio-hero .hero-control:hover .hero-arrow {
+    background: var(--portfolio-paper);
+}
+.portfolio-hero .hero-indicators {
+    z-index: 5;
+    margin-bottom: 22px;
+}
+.portfolio-hero .hero-indicators button {
+    width: 28px;
+    height: 5px;
+    padding: 0;
+    margin: 0 5px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--portfolio-paper);
+    opacity: .5;
+}
+.portfolio-hero .hero-indicators button.active {
+    background: var(--portfolio-gold);
+    opacity: 1;
+}
+
+/* ============================================================
+   頁首 RWD
+   ============================================================ */
+@media (max-width: 991.98px) {
+    .portfolio-navbar .navbar-collapse { padding: 15px 0; }
+    .portfolio-navbar .nav-link { margin: 2px 0; }
+    .portfolio-navbar .portfolio-contact-btn {
+        display: inline-block;
+        margin: 10px 0 0;
+    }
+    .portfolio-hero .hero-slide { height: 550px; }
+    .portfolio-hero .hero-text { max-width: 480px; }
+}
+@media (max-width: 767.98px) {
+    .portfolio-hero .hero-slide { height: 540px; }
+    .portfolio-hero .hero-content,
+    .portfolio-hero .hero-slide-2 .hero-content,
+    .portfolio-hero .hero-slide-3 .hero-content {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .portfolio-hero .hero-text,
+    .portfolio-hero .hero-slide-3 .hero-text {
+        max-width: 100%;
+        padding: 25px 35px;
+    }
+    .portfolio-hero .hero-title { font-size: 2rem; }
+    .portfolio-hero .hero-description {
+        font-size: .95rem;
+        line-height: 1.8;
+    }
+    .portfolio-hero .hero-slide-1 .hero-overlay,
+    .portfolio-hero .hero-slide-2 .hero-overlay {
+        background: rgba(247,245,238,.86);
+    }
+    .portfolio-hero .hero-slide-3 .hero-overlay {
+        background: rgba(28,48,40,.75);
+    }
+    .portfolio-hero .hero-control { width: 10%; }
+    .portfolio-hero .hero-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: .8rem;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .portfolio-hero .hero-button,
+    .portfolio-navbar .nav-link { transition: none; }
+}
+
+
+
+/* =========================================
+   工作經驗 - 引用s08
+========================================= */
+
+#experience {
+    padding: 90px 0;
+    color: var(--portfolio-text);
+}
+
+/* 標題 */
+#experience .experience-en {
+    color: var(--portfolio-brown, #80664e);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+}
+
+#experience .portfolio-section-title {
+    font-size: 1.75rem;
+    color: var(--portfolio-green);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+#experience .experience-intro {
+    max-width: 620px;
+    margin: 15px auto 0;
+    line-height: 1.8;
+    color: var(--portfolio-text);
+}
+
+/* 左側履歷內容 */
+#experience .experience-content {
+    height: 100%;
+    padding: 35px 38px;
+}
+
+#experience .experience-entry {
+    padding-bottom: 25px;
+}
+
+#experience .experience-entry + .experience-entry {
+    padding-top: 28px;
+    border-top: 1px solid var(--portfolio-border);
+}
+
+#experience .experience-entry:last-child {
+    padding-bottom: 0;
+}
+
+#experience .experience-entry h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--portfolio-green);
+    margin-bottom: 5px;
+}
+
+#experience .experience-period {
+    font-size: 0.9rem;
+    color: var(--portfolio-brown, #80664e);
+    margin-bottom: 20px;
+}
+
+/* dt 與 dd */
+#experience dt {
+    color: var(--portfolio-green-light);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+#experience dd {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 12px;
+}
+
+#experience dd ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+#experience dd li {
+    margin-bottom: 4px;
+}
+
+#experience dd li::marker {
+    color: var(--portfolio-gold);
+}
+
+/* 右側單張圖片 */
+#experience .experience-photo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+
+    background-color: var(--portfolio-sage);
+    border: 1px solid var(--portfolio-border);
+}
+
+#experience .experience-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#experience .experience-photo figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 28px 20px 16px;
+    background: linear-gradient(
+        transparent,
+        rgba(30, 55, 45, 0.78)
+    );
+
+    color: #fffefa;
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    font-weight: 600;
+}
+
+/* 平板、手機 */
+@media (max-width: 991.98px) {
+    #experience {
+        padding: 60px 0;
+    }
+
+    #experience .experience-content {
+        padding: 28px;
+    }
+
+    #experience .experience-photo {
+        height: 320px;
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #experience {
+        padding: 45px 0;
+    }
+
+    #experience .experience-content {
+        padding: 22px 20px;
+    }
+
+    #experience .experience-entry h3 {
+        font-size: 1.12rem;
+    }
+
+    #experience .experience-photo {
+        height: 240px;
+        min-height: 240px;
+    }
+}
+
+
+
+/* =========================================
+   技術能力 - 引用s05
+========================================= */
+
+#skills {
+    padding: 90px 0;
+    color: var(--portfolio-text);
+}
+
+/* 英文副標題 */
+#skills .skills-en {
+    color: var(--portfolio-brown, #80664e);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+}
+
+/* 主標題 */
+#skills .portfolio-section-title {
+    color: var(--portfolio-green);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* 說明文字 */
+#skills .skills-intro {
+    color: var(--portfolio-text);
+    line-height: 1.85;
+    margin: 15px auto 0;
+}
+
+/* 三張卡片 */
+#skills .skills-card {
+    height: 100%;
+    padding: 35px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    background-color: rgba(255, 254, 250, 0.86);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 10px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* 滑鼠移入 */
+#skills .skills-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(45, 81, 68, 0.12);
+    border-color: var(--portfolio-gold);
+}
+
+/* Font Awesome 圖示 */
+#skills .skills-icon {
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--portfolio-sage);
+    border-radius: 50%;
+
+    color: var(--portfolio-green);
+    font-size: 2rem;
+
+    margin-bottom: 24px;
+}
+
+/* 卡片標題 */
+#skills .skills-card h3 {
+    color: var(--portfolio-green);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+/* 內容說明 */
+#skills .skills-description {
+    color: var(--portfolio-text);
+    font-size: 0.95rem;
+    line-height: 1.85;
+
+    margin-bottom: 25px;
+}
+
+/* 技術標籤區 */
+#skills .skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 8px;
+
+    margin-top: auto;
+}
+
+/* 每個技術標籤 */
+#skills .skills-tags span {
+    background-color: var(--portfolio-sage);
+    color: var(--portfolio-green-light);
+
+    border: 1px solid var(--portfolio-border);
+    border-radius: 6px;
+
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* 平板 */
+@media screen and (max-width: 991.98px) {
+    #skills {
+        padding: 65px 0;
+    }
+
+    #skills .skills-card {
+        padding: 28px 18px;
+    }
+
+    #skills .skills-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.7rem;
+    }
+}
+
+/* 手機 */
+@media screen and (max-width: 767.98px) {
+    #skills {
+        padding: 50px 0;
+    }
+
+    #skills .skills-card {
+        padding: 30px 25px;
+    }
+
+    #skills .skills-description {
+        max-width: 350px;
+    }
+}
+
+/* 減少動畫 */
+@media (prefers-reduced-motion: reduce) {
+    #skills .skills-card {
+        transition: none;
+    }
+
+    #skills .skills-card:hover {
+        transform: none;
+    }
+}
+
+
+
+/* ============================================================
+   精選作品 Featured Works - 引用 s14
+   ============================================================ */
+
+#featured_works {
+    padding: 90px 0;
+    color: var(--portfolio-text);
+
+    /* 延續 body 的主背景，不另外鋪設深色背景 */
+    background-color: rgba(255, 254, 250, 0.12);
+}
+
+/* ============================================================
+   區塊標題：與工作經驗、技術能力一致
+   ============================================================ */
+
+/* 英文副標題 */
+#featured_works .featured-en {
+    color: var(--portfolio-brown);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+}
+
+/* 中文主標題 */
+#featured_works .portfolio-section-title {
+    color: var(--portfolio-green);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* 標題下方的介紹文字 */
+#featured_works .featured-intro {
+    max-width: 620px;
+    margin: 15px auto 0;
+
+    color: var(--portfolio-text);
+    line-height: 1.85;
+}
+
+/* ============================================================
+   四個分類按鈕
+   ============================================================ */
+
+#featured_works .work-btn {
+    width: 100%;
+    min-height: 58px;
+    padding: 13px 12px;
+
+    background-color: rgba(255, 254, 250, 0.86);
+    color: var(--portfolio-green);
+
+    border: 1px solid var(--portfolio-border);
+    border-radius: 10px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* 滑鼠移入 */
+#featured_works .work-btn:hover {
+    background-color: var(--portfolio-sage);
+    color: var(--portfolio-green);
+    border-color: var(--portfolio-gold);
+
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(45, 81, 68, 0.10);
+}
+
+/* 目前選取的分類 */
+#featured_works .work-btn.active {
+    background-color: var(--portfolio-green);
+    color: var(--portfolio-paper);
+    border-color: var(--portfolio-green);
+
+    box-shadow: 0 6px 16px rgba(45, 81, 68, 0.15);
+}
+
+/* 選取狀態下的 Hover */
+#featured_works .work-btn.active:hover {
+    background-color: var(--portfolio-green-light);
+    color: var(--portfolio-paper);
+    border-color: var(--portfolio-green-light);
+}
+
+/* 鍵盤操作焦點 */
+#featured_works .work-btn:focus-visible,
+#featured_works .work-link:focus-visible {
+    outline: 3px solid var(--portfolio-gold);
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   分類資訊：與技術能力卡片底色一致
+   ============================================================ */
+
+#featured_works .work-info {
+    padding: 30px 34px;
+
+    background-color: rgba(255, 254, 250, 0.86);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 10px;
+
+    color: var(--portfolio-text);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* 標題與作品連結左右排列 */
+#featured_works .work-info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-bottom: 15px;
+}
+
+/* 分類名稱 */
+#featured_works .work-info h3 {
+    color: var(--portfolio-green);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* 使用技術 */
+#featured_works #work-tech {
+    color: var(--portfolio-green-light);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* 分類說明 */
+#featured_works #work-description {
+    color: var(--portfolio-text);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   作品連結
+   ============================================================ */
+
+#featured_works .work-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 共用連結樣式 */
+#featured_works .work-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 9px 16px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* 一般作品、原始版本 */
+#featured_works .work-link-original {
+    background-color: transparent;
+    color: var(--portfolio-green);
+    border: 1px solid var(--portfolio-green);
+}
+
+#featured_works .work-link-original:hover {
+    background-color: var(--portfolio-sage);
+    color: var(--portfolio-green);
+
+    transform: translateY(-2px);
+}
+
+/* AI 輔助版本 */
+#featured_works .work-link-ai {
+    background-color: var(--portfolio-green);
+    color: var(--portfolio-paper);
+    border: 1px solid var(--portfolio-green);
+}
+
+#featured_works .work-link-ai:hover {
+    background-color: var(--portfolio-green-light);
+    color: var(--portfolio-paper);
+
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   Carousel 主體
+   恢復舊版幻燈片的視覺設定
+   ============================================================ */
+
+#featured_works #workCarousel {
+    position: relative;
+
+    /* 底部預留圓點位置 */
+    padding-bottom: 60px;
+}
+
+/* 圖片與影片共同容器 */
+#featured_works .work-slide {
+    position: relative;
+    height: 440px;
+
+    background-color: var(--portfolio-sage);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+/* 圖片 */
+#featured_works .work-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 影片 */
+#featured_works .work-slide video {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    background-color: #17231D;
+}
+
+/* ============================================================
+   Carousel 左右切換按鈕
+   ============================================================ */
+
+#featured_works .carousel-control-prev,
+#featured_works .carousel-control-next {
+    top: 0;
+    bottom: 60px;
+
+    height: auto;
+    width: 9%;
+    opacity: 0.85;
+
+    transition: opacity 0.3s ease;
+}
+
+#featured_works .carousel-control-prev:hover,
+#featured_works .carousel-control-next:hover {
+    opacity: 1;
+}
+
+/* 箭頭圖示 */
+#featured_works .carousel-control-prev-icon,
+#featured_works .carousel-control-next-icon {
+    width: 36px;
+    height: 36px;
+
+    background-color: rgba(45, 81, 68, 0.85);
+    background-size: 55%;
+
+    border-radius: 50%;
+}
+
+/* ============================================================
+   Carousel 底部圓點
+   提高與背景的對比
+   ============================================================ */
+
+#featured_works .carousel-indicators {
+    position: absolute;
+
+    top: auto;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    margin: 0;
+    padding: 8px 12px;
+
+    z-index: 5;
+}
+
+/* Bootstrap 預設會額外加入半透明與邊框，
+   這裡統一覆蓋，讓圓點更清楚 */
+#featured_works .carousel-indicators button {
+    box-sizing: border-box;
+    flex: 0 0 13px;
+
+    width: 13px;
+    height: 13px;
+    min-width: 13px;
+    min-height: 13px;
+
+    padding: 0;
+    margin: 0;
+
+    border: 2px solid var(--portfolio-green);
+    border-radius: 50%;
+
+    background-color: var(--portfolio-green);
+    background-clip: border-box;
+
+    opacity: 0.55;
+
+    transition:
+        opacity 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* 目前顯示的圓點 */
+#featured_works .carousel-indicators button.active {
+    background-color: var(--portfolio-gold);
+    border-color: var(--portfolio-brown);
+
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+/* 滑鼠移入圓點 */
+#featured_works .carousel-indicators button:hover {
+    opacity: 1;
+}
+
+/* ============================================================
+   RWD：平板
+   ============================================================ */
+
+@media (max-width: 991.98px) {
+
+    #featured_works {
+        padding: 65px 0;
+    }
+
+    #featured_works .work-info {
+        padding: 28px;
+    }
+}
+
+/* ============================================================
+   RWD：手機
+   ============================================================ */
+
+@media (max-width: 767.98px) {
+
+    #featured_works {
+        padding: 50px 0;
+    }
+
+    #featured_works .work-btn {
+        min-height: 54px;
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+
+    #featured_works .work-info {
+        padding: 22px 18px;
+    }
+
+    #featured_works .work-info h3 {
+        font-size: 1.2rem;
+    }
+
+    #featured_works #work-tech,
+    #featured_works #work-description {
+        font-size: 0.88rem;
+    }
+
+    #featured_works .work-links {
+        width: 100%;
+    }
+
+    #featured_works .work-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    #featured_works .work-slide {
+        height: 240px;
+    }
+
+    #featured_works .carousel-control-prev,
+    #featured_works .carousel-control-next {
+        width: 12%;
+    }
+
+    #featured_works .carousel-control-prev-icon,
+    #featured_works .carousel-control-next-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* ============================================================
+   減少動畫偏好
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #featured_works .work-btn,
+    #featured_works .work-link,
+    #featured_works .carousel-control-prev,
+    #featured_works .carousel-control-next,
+    #featured_works .carousel-indicators button {
+        transition: none;
+    }
+
+    #featured_works .work-btn:hover,
+    #featured_works .work-link:hover {
+        transform: none;
+    }
+}
+
+
+
+/* =========================================
+   程式設計學習作品 - 引用s15
+========================================= */
+
+#projects {
+    padding: 90px 0;
+    color: var(--portfolio-text);
+}
+
+/* 英文副標題 */
+#projects .projects-en {
+    color: var(--portfolio-brown, #80664e);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+}
+
+/* 主標題 */
+#projects .portfolio-section-title {
+    color: var(--portfolio-green);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* 區塊介紹 */
+#projects .projects-intro {
+    color: var(--portfolio-text);
+    line-height: 1.85;
+    max-width: 650px;
+    margin: 15px auto 0;
+}
+
+/* =========================================
+   左右面板
+========================================= */
+
+#projects .projects-search-panel,
+#projects .projects-results-panel {
+    padding: 30px;
+    height: 100%;
+
+    background-color: rgba(255, 254, 250, 0.80);
+    border: 1px solid var(--portfolio-border);
+    border-radius: 10px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* 欄位小標題 */
+#projects .projects-label {
+    display: block;
+    color: var(--portfolio-green);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* =========================================
+   關鍵字搜尋
+========================================= */
+
+#projects .projects-input-box {
+    position: relative;
+}
+
+#projects #projects-keyword {
+    width: 100%;
+    padding: 12px 45px 12px 14px;
+
+    background-color: var(--portfolio-paper);
+    color: var(--portfolio-text);
+
+    border: 1px solid var(--portfolio-border);
+    border-radius: 8px;
+}
+
+#projects #projects-keyword:focus {
+    border-color: var(--portfolio-green-light);
+    box-shadow: 0 0 0 3px rgba(67, 109, 92, 0.12);
+}
+
+#projects #projects-keyword::placeholder {
+    color: var(--portfolio-muted);
+}
+
+/* 搜尋圖示 */
+#projects .projects-input-box i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: var(--portfolio-muted);
+    pointer-events: none;
+}
+
+/* =========================================
+   分類按鈕
+========================================= */
+
+#projects .projects-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#projects .projects-filter-btn {
+    padding: 8px 13px;
+
+    background-color: var(--portfolio-paper);
+    color: var(--portfolio-green);
+
+    border: 1px solid var(--portfolio-border);
+    border-radius: 7px;
+
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s,
+        border-color 0.2s;
+}
+
+/* Hover */
+#projects .projects-filter-btn:hover {
+    background-color: var(--portfolio-sage);
+    border-color: var(--portfolio-green-light);
+}
+
+/* 選中狀態 */
+#projects .projects-filter-btn.active {
+    background-color: var(--portfolio-green);
+    border-color: var(--portfolio-green);
+    color: #fffefa;
+}
+
+#projects .projects-filter-btn:focus-visible {
+    outline: 2px solid var(--portfolio-gold);
+    outline-offset: 2px;
+}
+
+/* =========================================
+   搜尋結果
+========================================= */
+
+#projects .projects-result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#projects .projects-count {
+    color: var(--portfolio-muted);
+    font-size: 0.8rem;
+}
+
+/* 右側捲動列表 */
+#projects .projects-result-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    max-height: 420px;
+    overflow-y: auto;
+
+    padding: 3px 8px 3px 3px;
+}
+
+/* 單筆作品卡片 */
+#projects .projects-result-card {
+    padding: 18px;
+
+    background-color: rgba(255, 254, 250, 0.94);
+
+    border: 1px solid var(--portfolio-border);
+    border-radius: 8px;
+
+    transition:
+        border-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+#projects .projects-result-card:hover {
+    border-color: var(--portfolio-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(45, 81, 68, 0.08);
+}
+
+/* 作品名稱 */
+#projects .projects-result-title {
+    color: var(--portfolio-green);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* 作品說明 */
+#projects .projects-result-note {
+    color: var(--portfolio-muted);
+    font-size: 0.85rem;
+    line-height: 1.75;
+    margin-bottom: 12px;
+}
+
+/* 技術標籤容器 */
+#projects .projects-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 技術標籤 */
+#projects .projects-tag {
+    padding: 4px 8px;
+
+    background-color: var(--portfolio-sage);
+    color: var(--portfolio-green-light);
+
+    border-radius: 5px;
+    font-size: 0.75rem;
+}
+
+/* 學習 / 作品標籤 */
+#projects .projects-class {
+    padding: 4px 8px;
+
+    border: 1px solid var(--portfolio-gold);
+    border-radius: 5px;
+
+    color: var(--portfolio-brown, #80664e);
+    font-size: 0.75rem;
+}
+
+/* 查看作品連結 */
+#projects .projects-result-link {
+    display: inline-block;
+    margin-top: 12px;
+
+    color: var(--portfolio-green-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#projects .projects-result-link:hover {
+    color: var(--portfolio-brown, #80664e);
+    text-decoration: underline;
+}
+
+/* 無搜尋結果 */
+#projects .projects-empty {
+    padding: 45px 15px;
+    text-align: center;
+    color: var(--portfolio-muted);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   RWD
+========================================= */
+
+@media (max-width: 991.98px) {
+
+    #projects {
+        padding: 65px 0;
+    }
+
+    #projects .projects-search-panel,
+    #projects .projects-results-panel {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    #projects {
+        padding: 50px 0;
+    }
+
+    #projects .projects-search-panel,
+    #projects .projects-results-panel {
+        padding: 20px;
+    }
+
+    #projects .projects-result-list {
+        max-height: 360px;
+    }
+}
+
+/* 減少動畫 */
+@media (prefers-reduced-motion: reduce) {
+
+    #projects .projects-filter-btn,
+    #projects .projects-result-card {
+        transition: none;
+    }
+
+    #projects .projects-result-card:hover {
+        transform: none;
+    }
+}
+
+
+
+/* =========================================
+   Footer：聯絡資訊與個人連結
+========================================= */
+
+.portfolio-footer {
+    padding: 75px 0 25px;
+
+    background-color: #213c32;
+    color: #f7f5ee;
+
+    border-top: 3px solid var(--portfolio-gold);
+}
+
+/* 每一欄 */
+.portfolio-footer .footer-column {
+    height: 100%;
+}
+
+/* 欄位標題 */
+.portfolio-footer .footer-title {
+    position: relative;
+
+    color: #f7f5ee;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+}
+
+/* 標題下方的金色短線 */
+.portfolio-footer .footer-title::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 36px;
+    height: 2px;
+
+    background-color: var(--portfolio-gold);
+    border-radius: 2px;
+}
+
+/* 連結群組 */
+.portfolio-footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 連結及一般資訊共用外觀 */
+.portfolio-footer .footer-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 15px;
+
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 8px;
+
+    color: #f7f5ee;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    text-decoration: none;
+
+    overflow-wrap: anywhere;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* 圖示 */
+.portfolio-footer .footer-link i {
+    flex-shrink: 0;
+
+    width: 22px;
+    text-align: center;
+
+    font-size: 1.15rem;
+    color: #d6be92;
+}
+
+/* 可點擊連結：Hover */
+.portfolio-footer a.footer-link:hover {
+    color: #ffffff;
+
+    background-color: rgba(255, 255, 255, 0.13);
+    border-color: rgba(197, 165, 119, 0.65);
+
+    transform: translateX(4px);
+}
+
+/* 鍵盤操作焦點 */
+.portfolio-footer a.footer-link:focus-visible {
+    outline: 2px solid #d6be92;
+    outline-offset: 3px;
+}
+
+/* 有連結時顯示小箭頭 */
+.portfolio-footer .footer-link-arrow {
+    margin-left: auto;
+
+    font-size: 0.75rem !important;
+    color: #b9c9bc !important;
+
+    opacity: 0.65;
+    transition: opacity 0.2s ease;
+}
+
+.portfolio-footer a.footer-link:hover
+.footer-link-arrow {
+    opacity: 1;
+}
+
+/* 尚未設定網址的項目 */
+.portfolio-footer .footer-link-static {
+    cursor: default;
+}
+
+/* =========================================
+   Footer 底部
+========================================= */
+
+.portfolio-footer .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 65px;
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.portfolio-footer .footer-bottom p {
+    margin: 0;
+
+    color: #b9c9bc;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+}
+
+.portfolio-footer .footer-bottom span {
+    color: #e8d2a9;
+}
+
+/* =========================================
+   RWD：平板
+========================================= */
+
+@media screen and (max-width: 991.98px) {
+
+    .portfolio-footer {
+        padding: 60px 0 25px;
+    }
+
+    .portfolio-footer .footer-link {
+        padding: 12px;
+        gap: 10px;
+        font-size: 0.82rem;
+    }
+}
+
+/* =========================================
+   RWD：手機
+========================================= */
+
+@media screen and (max-width: 767.98px) {
+
+    .portfolio-footer {
+        padding: 50px 0 25px;
+    }
+
+    .portfolio-footer .footer-column {
+        margin-bottom: 8px;
+    }
+
+    .portfolio-footer .footer-title {
+        margin-bottom: 18px;
+    }
+
+    .portfolio-footer .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+
+        margin-top: 40px;
+        gap: 8px;
+    }
+}
+
+/* 降低動畫 */
+@media (prefers-reduced-motion: reduce) {
+
+    .portfolio-footer .footer-link,
+    .portfolio-footer .footer-link-arrow {
+        transition: none;
+    }
+
+    .portfolio-footer a.footer-link:hover {
+        transform: none;
+    }
+}

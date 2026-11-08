@@ -1,7 +1,7 @@
 /* ============================================================
    個人履歷共用樣式 portfolio.css
    風格：米白 × 森林綠，作品使用金棕色強調
-   共用顏色集中在 :root，Section 專用樣式以 #s12 限定。
+   共用顏色集中在 :root；各區塊使用獨立選擇器避免互相干擾。
    ============================================================ */
 :root {
     --portfolio-page: #f7f5ee;
@@ -18,13 +18,54 @@
     --portfolio-content-border: #e2ddd2;
     --portfolio-month-a: #f1f5ee;
     --portfolio-month-b: #f9f7f0;
+    --portfolio-brown: #80664e;
+    --portfolio-navbar-height: 76px;
+
+    /* Bootstrap 主題變數（Bootstrap 5） */
+    --bs-primary: #2d5144;
+    --bs-primary-rgb: 45, 81, 68;
+    --bs-secondary: #728078;
+    --bs-secondary-rgb: 114, 128, 120;
+    --bs-link-color: #2d5144;
+    --bs-link-hover-color: #436d5c;
+    --bs-link-color-rgb: 45, 81, 68;
+    --bs-link-hover-color-rgb: 67, 109, 92;
 }
 
 body {
+    margin: 0;
+    min-height: 100vh;
     background-color: var(--portfolio-page);
+    background-image: url("../images/main-background.avif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: var(--portfolio-text);
     font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
 }
+
+/* 固定導覽列的錨點避讓 */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--portfolio-navbar-height) + 15px);
+}
+
+main section {
+    scroll-margin-top: calc(var(--portfolio-navbar-height) + 15px);
+}
+
+/* 必要時自行加在 Section 內容容器上的底色工具類 */
+.portfolio-glass {
+    background-color: rgba(255, 254, 250, .82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.portfolio-paper {
+    background-color: var(--portfolio-paper);
+}
+
 
 .imgbox {
     height: 220px;
@@ -77,6 +118,7 @@ body {
 /* 全站共用：標題、說明、連結按鈕 */
 .portfolio-section-title {
     color: var(--portfolio-green);
+    font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: .08em;
 }
@@ -1042,4 +1084,533 @@ body {
     #s14 .work-link {
         transition: none;
     }
+}
+
+
+
+/* ===== Section 15：作品列表 ===== */
+
+#S15 {
+    padding: 70px 0;
+    background-color: var(--portfolio-page, #f7f5ee);
+    color: var(--portfolio-text, #303b35);
+}
+
+#S15 .s15-title {
+    color: var(--portfolio-green, #2d5144);
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+/* 左側搜尋面板 */
+#S15 .s15-search-panel {
+    padding: 10px 20px 10px 0;
+}
+
+/* 小標題 */
+#S15 .s15-label {
+    display: block;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--portfolio-green, #2d5144);
+    margin-bottom: 12px;
+}
+
+/* 搜尋輸入框 */
+#S15 .s15-input-box {
+    position: relative;
+}
+
+#S15 #keyword {
+    background-color: var(--portfolio-paper, #fffefa);
+    border: 1px solid var(--portfolio-border, #d8e0d8);
+    border-radius: 8px;
+    padding: 12px 45px 12px 14px;
+    color: var(--portfolio-text, #303b35);
+}
+
+#S15 #keyword:focus {
+    border-color: var(--portfolio-green-light, #436d5c);
+    box-shadow: 0 0 0 3px rgba(67, 109, 92, 0.12);
+}
+
+/* 輸入框右側放大鏡 */
+#S15 .s15-input-box i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--portfolio-muted, #728078);
+    pointer-events: none;
+}
+
+/* 分類按鈕容器 */
+#S15 .s15-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* 自訂分類按鈕 */
+#S15 .s15-filter-btn {
+    padding: 7px 13px;
+    border: 1px solid var(--portfolio-border, #d8e0d8);
+    border-radius: 7px;
+    background-color: var(--portfolio-paper, #fffefa);
+    color: var(--portfolio-green, #2d5144);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#S15 .s15-filter-btn:hover {
+    background-color: var(--portfolio-sage, #dfe9e0);
+    border-color: var(--portfolio-green-light, #436d5c);
+}
+
+#S15 .s15-filter-btn.active {
+    background-color: var(--portfolio-green, #2d5144);
+    color: #fffefa;
+    border-color: var(--portfolio-green, #2d5144);
+}
+
+/* 右側搜尋結果 */
+#S15 .s15-result-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 3px 10px 3px 3px;
+}
+
+/* 結果卡片 */
+#S15 .s15-result-card {
+    background-color: var(--portfolio-paper, #fffefa);
+    border: 1px solid var(--portfolio-border, #d8e0d8);
+    border-radius: 9px;
+    padding: 16px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+#S15 .s15-result-card:hover {
+    border-color: var(--portfolio-gold, #c5a577);
+    transform: translateY(-2px);
+}
+
+#S15 .s15-result-title {
+    color: var(--portfolio-green, #2d5144);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+#S15 .s15-result-note {
+    color: var(--portfolio-muted, #728078);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* 標籤 */
+#S15 .s15-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+#S15 .s15-tag {
+    background-color: var(--portfolio-sage, #dfe9e0);
+    color: var(--portfolio-green, #2d5144);
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 12px;
+}
+
+#S15 .s15-class {
+    color: var(--portfolio-green, #2d5144);
+    font-size: 12px;
+    border: 1px solid var(--portfolio-gold, #c5a577);
+    border-radius: 5px;
+    padding: 3px 8px;
+}
+
+/* 作品連結 */
+#S15 .s15-result-link {
+    display: inline-block;
+    color: var(--portfolio-green-light, #436d5c);
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+#S15 .s15-result-link:hover {
+    text-decoration: underline;
+}
+
+/* 結果筆數 */
+#S15 .s15-count {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--portfolio-muted, #728078);
+    margin-left: 8px;
+}
+
+/* 空結果與載入狀態 */
+#S15 .s15-empty {
+    text-align: center;
+    padding: 50px 15px;
+    color: var(--portfolio-muted, #728078);
+    font-size: 14px;
+}
+
+/* 手機版 */
+@media screen and (max-width: 767px) {
+    #S15 {
+        padding: 45px 0;
+    }
+
+    #S15 .s15-search-panel {
+        padding: 0;
+    }
+
+    #S15 .s15-result-list {
+        max-height: 420px;
+    }
+}
+
+
+/* ============================================================
+   Bootstrap 色彩覆寫
+   使用 Bootstrap 版型與互動，但避免預設藍色按鈕
+   ============================================================ */
+.btn-primary {
+    --bs-btn-color: #fffefa;
+    --bs-btn-bg: var(--portfolio-green);
+    --bs-btn-border-color: var(--portfolio-green);
+    --bs-btn-hover-color: #fffefa;
+    --bs-btn-hover-bg: var(--portfolio-green-light);
+    --bs-btn-hover-border-color: var(--portfolio-green-light);
+    --bs-btn-active-color: #fffefa;
+    --bs-btn-active-bg: var(--portfolio-green);
+    --bs-btn-active-border-color: var(--portfolio-green);
+    --bs-btn-disabled-color: #fffefa;
+    --bs-btn-disabled-bg: var(--portfolio-muted);
+    --bs-btn-disabled-border-color: var(--portfolio-muted);
+}
+.btn-outline-primary {
+    --bs-btn-color: var(--portfolio-green);
+    --bs-btn-border-color: var(--portfolio-green);
+    --bs-btn-hover-color: #fffefa;
+    --bs-btn-hover-bg: var(--portfolio-green);
+    --bs-btn-hover-border-color: var(--portfolio-green);
+    --bs-btn-active-color: #fffefa;
+    --bs-btn-active-bg: var(--portfolio-green);
+    --bs-btn-active-border-color: var(--portfolio-green);
+}
+
+/* ============================================================
+   Navbar：固定導覽列（配合 index.html 的 portfolio-navbar）
+   ============================================================ */
+.portfolio-navbar {
+    min-height: var(--portfolio-navbar-height);
+    background-color: rgba(247, 245, 238, .94);
+    border-bottom: 1px solid rgba(45, 81, 68, .18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 1050;
+}
+.portfolio-navbar .navbar-brand,
+.portfolio-navbar .portfolio-brand {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    color: var(--portfolio-green);
+}
+.portfolio-navbar .navbar-brand:hover,
+.portfolio-navbar .navbar-brand:focus {
+    color: var(--portfolio-green-light);
+}
+.portfolio-navbar .brand-dot {
+    color: var(--portfolio-gold);
+}
+.portfolio-navbar .nav-link {
+    position: relative;
+    margin: 0 3px;
+    padding: 9px 12px;
+    color: var(--portfolio-green);
+    font-size: .94rem;
+    font-weight: 600;
+    transition: color .2s;
+}
+.portfolio-navbar .nav-link:hover,
+.portfolio-navbar .nav-link:focus {
+    color: var(--portfolio-brown);
+}
+.portfolio-navbar .nav-link:not(.portfolio-contact-btn)::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 3px;
+    height: 2px;
+    background-color: var(--portfolio-gold);
+    transform: scaleX(0);
+    transition: transform .2s;
+}
+.portfolio-navbar .nav-link:not(.portfolio-contact-btn):hover::after,
+.portfolio-navbar .nav-link:not(.portfolio-contact-btn):focus::after {
+    transform: scaleX(1);
+}
+.portfolio-navbar .portfolio-contact-btn {
+    margin-left: 13px;
+    padding: 9px 19px;
+    color: var(--portfolio-paper);
+    background-color: var(--portfolio-green);
+    border-radius: 7px;
+}
+.portfolio-navbar .portfolio-contact-btn:hover,
+.portfolio-navbar .portfolio-contact-btn:focus {
+    color: var(--portfolio-paper);
+    background-color: var(--portfolio-green-light);
+}
+.portfolio-navbar .portfolio-toggler {
+    border: 1px solid var(--portfolio-border);
+    padding: 7px 11px;
+}
+.portfolio-navbar .portfolio-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(67, 109, 92, .15);
+}
+.portfolio-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%232d5144' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   Hero：首頁三張幻燈片
+   與 Section 14 的 #workCarousel 獨立，互不影響
+   ============================================================ */
+#home {
+    padding-top: var(--portfolio-navbar-height);
+}
+.portfolio-hero {
+    width: 100%;
+    overflow: hidden;
+}
+.portfolio-hero .hero-slide {
+    position: relative;
+    height: 610px;
+    overflow: hidden;
+}
+.portfolio-hero .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.portfolio-hero .hero-slide-1 .hero-image {
+    background-image: url("../images/carousel-1.avif");
+}
+.portfolio-hero .hero-slide-2 .hero-image {
+    background-image: url("../images/carousel-2.avif");
+}
+.portfolio-hero .hero-slide-3 .hero-image {
+    background-image: url("../images/carousel-3.avif");
+}
+.portfolio-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+.portfolio-hero .hero-slide-1 .hero-overlay {
+    background: linear-gradient(90deg,
+        rgba(247,245,238,.94) 0%,
+        rgba(247,245,238,.78) 32%,
+        rgba(247,245,238,.06) 75%);
+}
+.portfolio-hero .hero-slide-2 .hero-overlay {
+    background: linear-gradient(270deg,
+        rgba(247,245,238,.94) 0%,
+        rgba(247,245,238,.78) 32%,
+        rgba(247,245,238,.06) 75%);
+}
+.portfolio-hero .hero-slide-3 .hero-overlay {
+    background: linear-gradient(180deg,
+        rgba(28,48,40,.87) 0%,
+        rgba(28,48,40,.55) 45%,
+        rgba(28,48,40,.04) 90%);
+}
+.portfolio-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.portfolio-hero .hero-text {
+    width: 100%;
+    max-width: 560px;
+    padding: 30px 15px;
+}
+.portfolio-hero .hero-eyebrow {
+    margin-bottom: 18px;
+    color: var(--portfolio-brown);
+    font-size: .85rem;
+    letter-spacing: .22em;
+    font-weight: 700;
+}
+.portfolio-hero .hero-title {
+    margin-bottom: 22px;
+    color: var(--portfolio-green);
+    font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: .035em;
+    line-height: 1.35;
+}
+.portfolio-hero .hero-description {
+    margin-bottom: 30px;
+    color: var(--portfolio-text);
+    font-size: 1.05rem;
+    line-height: 1.95;
+}
+.portfolio-hero .hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    color: var(--portfolio-paper);
+    background: var(--portfolio-green);
+    border: 1px solid var(--portfolio-green);
+    border-radius: 7px;
+    font-size: .95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .2s, transform .2s;
+}
+.portfolio-hero .hero-button:hover,
+.portfolio-hero .hero-button:focus-visible {
+    background: var(--portfolio-green-light);
+    color: var(--portfolio-paper);
+    transform: translateY(-2px);
+}
+.portfolio-hero .hero-slide-2 .hero-content {
+    justify-content: flex-end;
+}
+.portfolio-hero .hero-slide-3 .hero-content {
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+}
+.portfolio-hero .hero-slide-3 .hero-text {
+    max-width: 800px;
+    padding-top: 65px;
+}
+.portfolio-hero .hero-slide-3 .hero-eyebrow,
+.portfolio-hero .hero-slide-3 .hero-title,
+.portfolio-hero .hero-slide-3 .hero-description {
+    color: var(--portfolio-paper);
+}
+.portfolio-hero .hero-slide-3 .hero-button {
+    background: var(--portfolio-paper);
+    border-color: var(--portfolio-paper);
+    color: var(--portfolio-green);
+}
+.portfolio-hero .hero-slide-3 .hero-button:hover,
+.portfolio-hero .hero-slide-3 .hero-button:focus-visible {
+    background: var(--portfolio-sage);
+    color: var(--portfolio-green);
+}
+.portfolio-hero .hero-control {
+    width: 6%;
+    opacity: 1;
+}
+.portfolio-hero .hero-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    color: var(--portfolio-green);
+    background: rgba(255,254,250,.85);
+    border: 1px solid rgba(45,81,68,.15);
+    border-radius: 50%;
+    transition: background-color .2s;
+}
+.portfolio-hero .hero-control:hover .hero-arrow {
+    background: var(--portfolio-paper);
+}
+.portfolio-hero .hero-indicators {
+    z-index: 3;
+    margin-bottom: 22px;
+}
+.portfolio-hero .hero-indicators button {
+    width: 28px;
+    height: 5px;
+    padding: 0;
+    margin: 0 5px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--portfolio-paper);
+    opacity: .5;
+}
+.portfolio-hero .hero-indicators button.active {
+    background: var(--portfolio-gold);
+    opacity: 1;
+}
+
+/* ============================================================
+   頁首 RWD
+   ============================================================ */
+@media (max-width: 991.98px) {
+    .portfolio-navbar .navbar-collapse { padding: 15px 0; }
+    .portfolio-navbar .nav-link { margin: 2px 0; }
+    .portfolio-navbar .portfolio-contact-btn {
+        display: inline-block;
+        margin: 10px 0 0;
+    }
+    .portfolio-hero .hero-slide { height: 550px; }
+    .portfolio-hero .hero-text { max-width: 480px; }
+}
+@media (max-width: 767.98px) {
+    .portfolio-hero .hero-slide { height: 540px; }
+    .portfolio-hero .hero-content,
+    .portfolio-hero .hero-slide-2 .hero-content,
+    .portfolio-hero .hero-slide-3 .hero-content {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .portfolio-hero .hero-text,
+    .portfolio-hero .hero-slide-3 .hero-text {
+        max-width: 100%;
+        padding: 25px 35px;
+    }
+    .portfolio-hero .hero-title { font-size: 2rem; }
+    .portfolio-hero .hero-description {
+        font-size: .95rem;
+        line-height: 1.8;
+    }
+    .portfolio-hero .hero-slide-1 .hero-overlay,
+    .portfolio-hero .hero-slide-2 .hero-overlay {
+        background: rgba(247,245,238,.86);
+    }
+    .portfolio-hero .hero-slide-3 .hero-overlay {
+        background: rgba(28,48,40,.75);
+    }
+    .portfolio-hero .hero-control { width: 10%; }
+    .portfolio-hero .hero-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: .8rem;
+    }
+    .portfolio-section-title { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .portfolio-hero .hero-button,
+    .portfolio-navbar .nav-link { transition: none; }
 }

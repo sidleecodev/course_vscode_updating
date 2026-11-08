@@ -149,7 +149,7 @@
         <div class="container py-5">
 
             <!-- 區塊標題 -->
-            <div class="h1 text-center portfolio-section-title mb-4">
+            <div class="text-center portfolio-section-title mb-4">
                 精選作品
             </div>
 
@@ -230,6 +230,78 @@
 
             </div>
 
+        </div>
+    </section>
+
+
+    <!-- Section 15：作品列表 -->
+    <section id="S15">
+        <div class="container">
+            <div class="text-center portfolio-section-title">作品列表</div>
+
+            <div class="row g-4">
+                <!-- 左側：搜尋條件 -->
+                <div class="col-md-6">
+                    <div class="s15-search-panel">
+
+                        <!-- 關鍵字搜尋 -->
+                        <div class="mb-4">
+                            <label for="keyword" class="form-label s15-label">
+                                關鍵字搜尋
+                            </label>
+
+                            <div class="s15-input-box">
+                                <input type="text" class="form-control" id="keyword" placeholder="輸入使用技術或作品名稱">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                        </div>
+
+
+                        <!-- 技術類別 -->
+                        <div class="mb-4">
+                            <div class="s15-label">技術類別</div>
+
+                            <div id="technical" class="s15-filter-group">
+                                <button type="button" class="s15-filter-btn active" data-value="全部">全部</button>
+                                <button type="button" class="s15-filter-btn" data-value="HTML/CSS">HTML/CSS</button>
+                                <button type="button" class="s15-filter-btn"
+                                    data-value="JavaScript/jQuery">JavaScript/jQuery</button>
+                                <button type="button" class="s15-filter-btn" data-value="Bootstrap">Bootstrap</button>
+                                <button type="button" class="s15-filter-btn" data-value="AJAX/JSON">AJAX/JSON</button>
+                                <button type="button" class="s15-filter-btn"
+                                    data-value="PHP/Laravel">PHP/Laravel</button>
+                                <button type="button" class="s15-filter-btn" data-value="Figma">Figma</button>
+                            </div>
+                        </div>
+
+
+                        <!-- 成品類別 -->
+                        <div class="mb-3">
+                            <div class="s15-label">成品類別</div>
+
+                            <div id="product" class="s15-filter-group">
+                                <button type="button" class="s15-filter-btn active" data-value="全部">全部</button>
+                                <button type="button" class="s15-filter-btn" data-value="學習">學習</button>
+                                <button type="button" class="s15-filter-btn" data-value="作品">作品</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 右側：搜尋結果 -->
+                <div class="col-md-6">
+                    <div class="s15-label">
+                        搜尋結果
+                        <span id="result-count" class="s15-count"></span>
+                    </div>
+
+                    <div id="result" class="s15-result-list">
+                        <!-- AJAX 自動產生作品 -->
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -359,6 +431,194 @@
                     .removeClass("d-none");
 
             });
+
+
+            // s15
+
+
+            let projects = [];
+            let selectedTechnical = "全部";
+            let selectedProduct = "全部";
+
+            // 1. AJAX 讀取 JSON 資料
+            $.ajax({
+                url: "../index_content.json",
+                method: "GET",
+                dataType: "json",
+
+                success: function (data) {
+                    projects = data.projects;
+                    renderResults(projects);
+                },
+
+                error: function () {
+                    $("#result").html(
+                        '<div class="s15-empty">資料載入失敗，請檢查 JSON 路徑。</div>'
+                    );
+                }
+            });
+
+            // 2. 將 category 統一轉成陣列
+            function getCategories(item) {
+                if (Array.isArray(item.category)) {
+                    return item.category;
+                }
+
+                if (item.category) {
+                    return [item.category];
+                }
+
+                return [];
+            }
+
+            // 3. 顯示搜尋結果
+            function renderResults(list) {
+
+                $("#result").empty();
+                $("#result-count").text(`共 ${list.length} 筆`);
+
+                if (list.length === 0) {
+                    $("#result").html(
+                        '<div class="s15-empty">找不到符合條件的作品。</div>'
+                    );
+                    return;
+                }
+
+                list.forEach(function (item) {
+
+                    // 建立作品卡片
+                    let card = $('<div class="s15-result-card"></div>');
+
+                    // 作品名稱
+                    let title = $('<div class="s15-result-title"></div>');
+                    title.text(item.title);
+
+                    // 作品說明
+                    let note = $('<div class="s15-result-note"></div>');
+                    note.text(item.note || "尚無說明");
+
+                    // 技術標籤
+                    let tags = $('<div class="s15-tags"></div>');
+
+                    getCategories(item).forEach(function (category) {
+                        let tag = $('<span class="s15-tag"></span>');
+                        tag.text(category);
+                        tags.append(tag);
+                    });
+
+                    // 學習或作品
+                    let productClass = $('<span class="s15-class"></span>');
+                    productClass.text(item.class);
+                    tags.append(productClass);
+
+                    // 加入卡片
+                    card.append(title, note, tags);
+
+                    // 查看作品連結
+                    if (item.url) {
+                        let link = $('<a class="s15-result-link"></a>');
+
+                        link.text("查看作品 ↗");
+                        link.attr("href", "../" + item.url);
+                        link.attr("target", "_blank");
+                        link.attr("rel", "noopener noreferrer");
+
+                        card.append(link);
+                    }
+
+                    $("#result").append(card);
+                });
+            }
+
+            // 4. 篩選資料
+            function filterProjects() {
+
+                let keyword = $("#keyword").val().trim().toLowerCase();
+
+                let filtered = projects.filter(function (item) {
+
+                    let categories = getCategories(item);
+
+                    // 關鍵字搜尋模式
+                    if (keyword !== "") {
+                        let searchText = [
+                            item.title,
+                            item.note,
+                            item.class,
+                            ...categories
+                        ].join(" ").toLowerCase();
+
+                        return searchText.includes(keyword);
+                    }
+
+                    // 分類篩選模式
+                    let matchTechnical =
+                        selectedTechnical === "全部" ||
+                        categories.includes(selectedTechnical);
+
+                    let matchProduct =
+                        selectedProduct === "全部" ||
+                        item.class === selectedProduct;
+
+                    return matchTechnical && matchProduct;
+                });
+
+                renderResults(filtered);
+            }
+
+            // 5. 關鍵字搜尋
+            $("#keyword").on("input", function () {
+
+                // 輸入搜尋時，清除分類條件
+                selectedTechnical = "全部";
+                selectedProduct = "全部";
+
+                // 按鈕恢復全部
+                resetButtons();
+
+                filterProjects();
+            });
+
+            // 6. 技術分類按鈕
+            $("#technical .s15-filter-btn").on("click", function () {
+
+                selectedTechnical = $(this).data("value");
+
+                // 清除關鍵字
+                $("#keyword").val("");
+
+                // 同組只能選一個
+                $("#technical .s15-filter-btn").removeClass("active");
+                $(this).addClass("active");
+
+                filterProjects();
+            });
+
+            // 7. 成品分類按鈕
+            $("#product .s15-filter-btn").on("click", function () {
+
+                selectedProduct = $(this).data("value");
+
+                $("#keyword").val("");
+
+                $("#product .s15-filter-btn").removeClass("active");
+                $(this).addClass("active");
+
+                filterProjects();
+            });
+
+            // 8. 重設分類按鈕
+            function resetButtons() {
+
+                $(".s15-filter-btn").removeClass("active");
+
+                $("#technical .s15-filter-btn")
+                    .first().addClass("active");
+
+                $("#product .s15-filter-btn")
+                    .first().addClass("active");
+            }
+
 
         });
 

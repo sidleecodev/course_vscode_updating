@@ -28,7 +28,7 @@
             position: absolute;
             content: "";
             width: 5px;
-            background-color: rgba(72, 218, 67, 0.5);
+            background-color: rgba(2, 3, 2, 0.5);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -851,13 +851,39 @@
     <!-- section 15  -->
     <section id="S15">
         <div class="container">
-            <div class="h3">作品列表</div>
-            <div class="my-1 form-floating">
-                <input type="text" class="form-control form-control-lg" placeholder="輸入作品名稱或使用技術">
-                <label for="keyword" class="form-label">關鍵字搜尋</label>
+            <div class="h3 text-center">作品列表</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="my-1">
+                        <label for="keyword" class="form-label">關鍵字搜尋</label>
+                        <input type="text" class="form-control" id="keyword" placeholder="輸入使用技術或作品名稱"><i
+                            class="fa-solid fa-magnifying-glass"></i>
+                        <!-- 我想讓icon放到placeholder裡的最右邊，但放進去就出現問題，請幫我解決 -->
+                    </div>
+                    <div class="my-1">
+                        <label for="technical" class="form-label">技術類別</label>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">全部</button>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">HTML/CSS</button>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">JavaScript/jQuery</button>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">Bootstrap</button>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">AJAX/JSON</button>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">PHP/Laravel</button>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">Figma</button>
+                        <!-- 請不要使用bootstrap的顏色，需自訂 -->
+                    </div>
+                    <div class="my-1">
+                        <label for="product" class="form-label">成品類別</label>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">全部</button>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">學習</button>
+                        <button type="button" class="btn btn-outline-primary me-1 mb-1">作品</button>
+                        <!-- 請不要使用bootstrap的顏色，需自訂 -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="result" class="form-label">搜尋結果</label>
 
+                </div>
             </div>
-
         </div>
     </section>
 

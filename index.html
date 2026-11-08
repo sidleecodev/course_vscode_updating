@@ -1,155 +1,798 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="程式學習紀錄與作品展示，包含 HTML、CSS、JavaScript、Bootstrap 等練習與實作。">
-    <title>程式學習與作品集｜Code & Coffee</title>
-    <!-- 保留原始 CSS 路徑；請將 allcss_updated.css 更名為 css/allcss.css 並覆蓋原檔 -->
-    <link rel="stylesheet" href="css/allcss.css">
-</head>
-<body class="coffee-home">
-    <header class="coffee-header">
-        <div class="coffee-container coffee-header-inner">
-            <a class="coffee-brand" href="index.html">☕ Code & Coffee</a>
-            <nav class="coffee-nav" aria-label="主要導覽">
-                <a href="#learning">學習紀錄</a>
-                <a href="#works">作品展示</a>
-            </nav>
-        </div>
-    </header>
 
-    <div class="coffee-hero coffee-container">
-        <p class="coffee-eyebrow">MY CODING JOURNEY</p>
-        <h1>程式學習與作品集</h1>
-        <p>一點一滴累積技術，記錄每一次練習與創作。從前端排版、JavaScript 到實際網頁作品，都收藏在這裡。</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>個人履歷 | Portfolio</title>
+  <meta name="description" content="個人網頁履歷與程式設計作品集，展示技術能力、工作經驗及開發作品。">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="css/portfolio_V1.0.css">
+</head>
+
+<body>
+
+  <!-- ================================
+         Navbar：固定導覽列
+    ================================= -->
+  <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar" aria-label="網站主要導覽">
+
+    <div class="container-fluid px-3 px-lg-5">
+
+      <a class="navbar-brand portfolio-brand" href="#home">
+        個人履歷 － 李冠德<span class="brand-dot">.</span>
+      </a>
+
+      <button class="navbar-toggler portfolio-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="開啟導覽選單">
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMenu">
+
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#about">
+              關於我
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#experience">
+              工作經驗
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">
+              技術能力
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#featured_works">
+              精選作品
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">
+              作品列表
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link portfolio-contact-btn" href="#contact">
+              聯絡我
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ================================
+         Hero：首頁幻燈片
+    ================================= -->
+  <header id="home">
+
+    <div id="heroCarousel" class="carousel slide portfolio-hero" data-bs-ride="false" data-bs-touch="true"
+      aria-label="首頁主視覺">
+
+      <!-- 指示點 -->
+      <div class="carousel-indicators hero-indicators">
+
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="認識我">
+        </button>
+
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="技術能力">
+        </button>
+
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="作品展示">
+        </button>
+
+      </div>
+
+      <div class="carousel-inner">
+
+        <!-- ===== Slide 1：認識我 ===== -->
+        <div class="carousel-item active hero-slide hero-slide-1">
+
+          <div class="hero-image"></div>
+          <div class="hero-overlay"></div>
+
+          <div class="container-fluid hero-content px-4 px-lg-5">
+
+            <div class="hero-text">
+
+              <p class="hero-eyebrow">ABOUT ME</p>
+
+              <h1 class="hero-title">
+                從故事創作，<br>
+                走向網頁開發
+              </h1>
+
+              <p class="hero-description">
+                結合動畫腳本與教學經驗，
+                以內容規劃、創意思考及程式設計，
+                打造更好的使用體驗。
+              </p>
+
+              <a class="hero-button" href="#about">
+                認識我
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ===== Slide 2：技術能力 ===== -->
+        <div class="carousel-item hero-slide hero-slide-2">
+
+          <div class="hero-image"></div>
+          <div class="hero-overlay"></div>
+
+          <div class="container-fluid hero-content px-4 px-lg-5">
+
+            <div class="hero-text">
+
+              <p class="hero-eyebrow">TECHNICAL SKILLS</p>
+
+              <h2 class="hero-title">
+                從畫面設計，<br>
+                到功能實現
+              </h2>
+
+              <p class="hero-description">
+                運用 HTML、CSS、JavaScript 與 Laravel，
+                持續累積前後端開發與資料處理能力。
+              </p>
+
+              <a class="hero-button" href="#skills">
+                查看技術能力
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ===== Slide 3：作品展示 ===== -->
+        <div class="carousel-item hero-slide hero-slide-3">
+
+          <div class="hero-image"></div>
+          <div class="hero-overlay"></div>
+
+          <div class="container-fluid hero-content px-4 px-lg-5">
+
+            <div class="hero-text">
+
+              <p class="hero-eyebrow">SELECTED WORKS</p>
+
+              <h2 class="hero-title">
+                讓想法，成為看得見的成果
+              </h2>
+
+              <p class="hero-description">
+                從網頁排版、互動功能到資料串接，
+                將不同構想轉化為可以實際操作的作品。
+              </p>
+
+              <a class="hero-button" href="#S14">
+                探索作品
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 左側切換 -->
+      <button class="carousel-control-prev hero-control" type="button" data-bs-target="#heroCarousel"
+        data-bs-slide="prev">
+
+        <span class="hero-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-left"></i>
+        </span>
+
+        <span class="visually-hidden">上一張</span>
+      </button>
+
+      <!-- 右側切換 -->
+      <button class="carousel-control-next hero-control" type="button" data-bs-target="#heroCarousel"
+        data-bs-slide="next">
+
+        <span class="hero-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </span>
+
+        <span class="visually-hidden">下一張</span>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="portfolio-main">
+
+    <!-- 工作經驗 - 引用s08 -->
+    <section id="experience" class="portfolio-tone-light">
+
+      <div class="container">
+
+        <div class="text-center mb-5">
+          <p class="experience-en">EXPERIENCE & TRAINING</p>
+          <h2 class="portfolio-section-title">工作經驗</h2>
+          <p class="experience-intro">
+            從內容創作、教學工作到程式設計，
+            持續累積規劃、溝通與實作能力。
+          </p>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+
+          <!-- 左側：文字式履歷 -->
+          <div class="col-lg-7">
+
+            <div class="experience-content portfolio-glass">
+
+              <!-- 動畫腳本 -->
+              <div class="experience-entry">
+                <h3>動畫腳本相關經歷</h3>
+                <p class="experience-period">約 5.5 年</p>
+
+                <dl class="row">
+                  <dt class="col-sm-3">工作領域</dt>
+                  <dd class="col-sm-9">動畫腳本、內容創作</dd>
+
+                  <dt class="col-sm-3">工作內容</dt>
+                  <dd class="col-sm-9">
+                    <ul>
+                      <li>故事構思與劇情發展。</li>
+                      <li>腳本撰寫及角色、情節安排。</li>
+                      <li>敘事結構與畫面內容規劃。</li>
+                    </ul>
+                  </dd>
+
+                  <dt class="col-sm-3">經驗累積</dt>
+                  <dd class="col-sm-9">
+                    內容架構、創意思考與資訊組織。
+                  </dd>
+                </dl>
+              </div>
+
+              <!-- 教學 -->
+              <div class="experience-entry">
+                <h3>教學相關經歷</h3>
+                <p class="experience-period">約 2 年</p>
+
+                <dl class="row">
+                  <dt class="col-sm-3">工作領域</dt>
+                  <dd class="col-sm-9">家教、補習教育</dd>
+
+                  <dt class="col-sm-3">工作內容</dt>
+                  <dd class="col-sm-9">
+                    <ul>
+                      <li>教材整理與課程講解。</li>
+                      <li>依學習者理解情況調整說明方式。</li>
+                      <li>協助釐清問題與觀念。</li>
+                    </ul>
+                  </dd>
+
+                  <dt class="col-sm-3">經驗累積</dt>
+                  <dd class="col-sm-9">
+                    需求理解、溝通表達與問題拆解。
+                  </dd>
+                </dl>
+              </div>
+
+              <!-- 全端職訓 -->
+              <div class="experience-entry">
+                <h3>AI 輔助全端程式設計職訓</h3>
+                <p class="experience-period">轉職培訓</p>
+
+                <dl class="row">
+                  <dt class="col-sm-3">學習領域</dt>
+                  <dd class="col-sm-9">
+                    前端開發、後端系統、資料庫
+                  </dd>
+
+                  <dt class="col-sm-3">培訓內容</dt>
+                  <dd class="col-sm-9">
+                    <ul>
+                      <li>HTML、CSS、Bootstrap 排版。</li>
+                      <li>JavaScript、jQuery、AJAX 資料處理。</li>
+                      <li>PHP、Laravel、MySQL 後端基礎。</li>
+                    </ul>
+                  </dd>
+
+                  <dt class="col-sm-3">實作方向</dt>
+                  <dd class="col-sm-9">
+                    網頁互動、資料串接與後台系統練習。
+                  </dd>
+                </dl>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 右側：只使用一張圖片 -->
+          <div class="col-lg-5">
+
+            <figure class="experience-photo">
+              <img src="images/experience-work.avif" alt="筆電、筆記本與工作規劃情境" loading="lazy">
+
+              <figcaption>
+                EXPERIENCE & GROWTH
+              </figcaption>
+            </figure>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================
+     技術能力 - 引用s05
+==================================== -->
+    <section id="skills" class="portfolio-tone-deep">
+
+      <div class="container">
+
+        <!-- 區塊標題 -->
+        <div class="text-center mb-5">
+          <p class="skills-en">TECHNICAL SKILLS</p>
+          <h2 class="portfolio-section-title">技術能力</h2>
+          <p class="skills-intro">
+            從網頁介面、資料處理到開發工具，
+            持續累積實作經驗。
+          </p>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- 卡片 1：前端 -->
+          <div class="col-md-4">
+            <div class="skills-card">
+
+              <div class="skills-icon">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+
+              <h3>前端</h3>
+
+              <p class="skills-description">
+                使用 HTML、CSS 與 Bootstrap
+                製作網頁排版及 RWD，
+                並透過 JavaScript、jQuery
+                建立互動功能與動態內容。
+              </p>
+
+              <div class="skills-tags">
+                <span>HTML / CSS</span>
+                <span>Bootstrap</span>
+                <span>JavaScript</span>
+                <span>jQuery</span>
+                <span>AJAX</span>
+                <span>JSON</span>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- 卡片 2：後端與資料庫 -->
+          <div class="col-md-4">
+            <div class="skills-card">
+
+              <div class="skills-icon">
+                <i class="fa-solid fa-database"></i>
+              </div>
+
+              <h3>後端／資料庫</h3>
+
+              <p class="skills-description">
+                學習使用 PHP、Laravel
+                建立後台功能，
+                搭配 MySQL 進行資料查詢，
+                並練習路由、登入驗證及資料管理。
+              </p>
+
+              <div class="skills-tags">
+                <span>PHP</span>
+                <span>Laravel</span>
+                <span>MySQL</span>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- 卡片 3：開發工具 -->
+          <div class="col-md-4">
+            <div class="skills-card">
+
+              <div class="skills-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+
+              <h3>開發工具</h3>
+
+              <p class="skills-description">
+                使用 VS Code 編輯程式，
+                Git 與 GitHub 管理版本，
+                Figma 規劃畫面及互動，
+                並接觸 Python 程式設計。
+              </p>
+
+              <div class="skills-tags">
+                <span>VS Code</span>
+                <span>Git / GitHub</span>
+                <span>Figma</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ====================================
+     精選作品 - 引用s14
+==================================== -->
+    <section id="featured_works" class="portfolio-tone-light">
+      <div class="container py-5">
+
+        <!-- 區塊標題 -->
+        <div class="text-center mb-5">
+          <p class="featured-en">FEATURED WORKS</p>
+
+          <h2 class="portfolio-section-title">
+            精選作品
+          </h2>
+
+          <p class="featured-intro">
+            從介面排版、互動功能到資料串接，
+            透過實際作品呈現學習與開發成果。
+          </p>
+        </div>
+
+        <!-- 四個分類按鈕 -->
+        <div class="row g-3 mb-4">
+
+          <div class="col-6 col-lg-3">
+            <button type="button" class="btn work-btn w-100 active" data-category="interactive">
+              互動與資料串接
+            </button>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <button type="button" class="btn work-btn w-100" data-category="layout">
+              網頁設計與排版
+            </button>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <button type="button" class="btn work-btn w-100" data-category="figma">
+              UI / UX 規劃
+            </button>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <button type="button" class="btn work-btn w-100" data-category="backend">
+              後台系統與資料庫
+            </button>
+          </div>
+
+        </div>
+
+        <!-- 分類資訊：不會隨圖片切換 -->
+        <div class="work-info mb-4">
+
+          <div class="work-info-top">
+
+            <!-- 分類名稱、技術 -->
+            <div>
+              <h3 id="work-title">互動與資料串接</h3>
+              <p id="work-tech"></p>
+            </div>
+
+            <!-- 作品連結由 JS 產生 -->
+            <div class="work-links"></div>
+
+          </div>
+
+          <!-- 分類說明 -->
+          <p id="work-description"></p>
+
+        </div>
+
+        <!-- 共用 Bootstrap Carousel -->
+        <div id="workCarousel" class="carousel slide" data-bs-interval="false">
+
+          <!-- 圖片或影片由 JS 產生 -->
+          <div class="carousel-inner"></div>
+
+          <!-- 上一張 -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#workCarousel" data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+            <span class="visually-hidden">上一張</span>
+          </button>
+
+          <!-- 下一張 -->
+          <button class="carousel-control-next" type="button" data-bs-target="#workCarousel" data-bs-slide="next">
+
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+            <span class="visually-hidden">下一張</span>
+          </button>
+
+          <!-- 底部圓點由 JS 產生 -->
+          <div class="carousel-indicators"></div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- ====================================
+     程式設計學習作品 - 引用s15
+==================================== -->
+    <section id="projects" class="portfolio-tone-deep">
+
+      <div class="container">
+
+        <!-- 區塊標題 -->
+        <div class="text-center mb-5">
+
+          <p class="projects-en">LEARNING & PROJECTS</p>
+
+          <h2 class="portfolio-section-title">
+            程式設計學習作品
+          </h2>
+
+          <p class="projects-intro">
+            整理程式設計學習期間的練習與作品，
+            記錄不同技術的實作成果。
+            可透過關鍵字或分類快速查找。
+          </p>
+
+        </div>
+
+        <div class="row g-4">
+
+          <!-- 左側：搜尋條件 -->
+          <div class="col-md-6">
+
+            <div class="projects-search-panel">
+
+              <!-- 關鍵字搜尋 -->
+              <div class="mb-4">
+
+                <label for="projects-keyword" class="projects-label">
+                  關鍵字搜尋
+                </label>
+
+                <div class="projects-input-box">
+
+                  <input type="text" class="form-control" id="projects-keyword" placeholder="輸入技術或作品名稱">
+
+                  <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+
+                </div>
+              </div>
+
+              <!-- 技術類別 -->
+              <div class="mb-4">
+
+                <div class="projects-label" id="projects-technical-label">
+                  技術類別
+                </div>
+
+                <div id="projects-technical" class="projects-filter-group" role="group"
+                  aria-labelledby="projects-technical-label">
+
+                  <button type="button" class="projects-filter-btn active" data-value="全部">全部</button>
+
+                  <button type="button" class="projects-filter-btn" data-value="HTML/CSS">HTML/CSS</button>
+
+                  <button type="button" class="projects-filter-btn" data-value="JavaScript/jQuery">
+                    JavaScript/jQuery
+                  </button>
+
+                  <button type="button" class="projects-filter-btn" data-value="Bootstrap">Bootstrap</button>
+
+                  <button type="button" class="projects-filter-btn" data-value="AJAX/JSON">AJAX/JSON</button>
+
+                  <button type="button" class="projects-filter-btn" data-value="PHP/Laravel">
+                    PHP/Laravel
+                  </button>
+
+                  <button type="button" class="projects-filter-btn" data-value="Figma">Figma</button>
+
+                </div>
+              </div>
+
+              <!-- 成品類別 -->
+              <div class="mb-3">
+
+                <div class="projects-label" id="projects-product-label">
+                  成品類別
+                </div>
+
+                <div id="projects-product" class="projects-filter-group" role="group"
+                  aria-labelledby="projects-product-label">
+
+                  <button type="button" class="projects-filter-btn active" data-value="全部">全部</button>
+
+                  <button type="button" class="projects-filter-btn" data-value="學習">學習</button>
+
+                  <button type="button" class="projects-filter-btn" data-value="作品">作品</button>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 右側：搜尋結果 -->
+          <div class="col-md-6">
+
+            <div class="projects-results-panel">
+
+              <div class="projects-result-header">
+
+                <div class="projects-label mb-0">
+                  搜尋結果
+                </div>
+
+                <span id="projects-result-count" class="projects-count" aria-live="polite"></span>
+
+              </div>
+
+              <div id="projects-result" class="projects-result-list" aria-live="polite">
+
+                <div class="projects-empty">
+                  正在載入作品資料...
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================
+     Footer：聯絡方式與個人連結
+==================================== -->
+  <footer id="contact" class="portfolio-footer">
+
+    <div class="container">
+
+      <div class="row g-4 g-lg-5">
+
+        <!-- 聯絡我 -->
+        <div class="col-md-4">
+
+          <div class="footer-column">
+
+            <h2 class="footer-title">聯絡我</h2>
+
+            <div id="footer-contact" class="footer-links">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 面試邀約 -->
+        <div class="col-md-4">
+
+          <div class="footer-column">
+
+            <h2 class="footer-title">面試邀約</h2>
+
+            <div id="footer-interview" class="footer-links">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 其他個人網頁與作品 -->
+        <div class="col-md-4">
+
+          <div class="footer-column">
+
+            <h2 class="footer-title">
+              其他個人網頁與作品
+            </h2>
+
+            <div id="footer-social" class="footer-links">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer 底部 -->
+      <div class="footer-bottom">
+
+        <p>
+          &copy; 2026 Portfolio.
+          All Rights Reserved.
+        </p>
+
+        <p>
+          Designed & Developed by
+          <span>李冠德</span>
+        </p>
+
+      </div>
+
     </div>
 
-    <main class="coffee-container coffee-main">
-        <section class="coffee-section" id="learning" aria-labelledby="learning-title">
-            <div class="coffee-section-heading">
-                <h2 id="learning-title">01. 學習</h2>
-                <p>LEARNING NOTES <span id="learning-count"></span></p>
-            </div>
-            <div class="coffee-grid" id="learning-list" aria-live="polite"></div>
-        </section>
+  </footer>
 
-        <section class="coffee-section" id="works" aria-labelledby="works-title">
-            <div class="coffee-section-heading">
-                <h2 id="works-title">02. 作品</h2>
-                <p>PROJECTS <span id="works-count"></span></p>
-            </div>
-            <div class="coffee-grid" id="works-list" aria-live="polite"></div>
-        </section>
-    </main>
 
-    <footer class="coffee-footer">
-        <div class="coffee-container"><p>© 2026 · Code & Coffee · 持續學習、持續創作</p></div>
-    </footer>
+  <script src="js/jquery-4.0.0.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/carousel_V1.0.js"></script>
+  <script src="js/projects_V1.0.js"></script>
+  <script src="js/footer_V1.0.js"></script>
+  <script src="js/wow.js"></script>
 
-    <!-- 保留原始 JS 路徑與引用順序 -->
-    <script src="js/jquery-4.0.0.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(function () {
-            // 技術分類對應的簡單封面圖示，沒有縮圖檔案也能呈現一致的排版。
-            const topicIcons = {
-                "HTML+CSS": "✦",
-                "JavaScript": "⌘",
-                "Bootstrap": "▦"
-            };
+  <script>
+    new WOW().init();
+  </script>
 
-            // YYYYMMDD 顯示成 YYYY.MM.DD；資料不合法時顯示原字串。
-            function formatDate(value) {
-                const raw = String(value || "");
-                if (/^\d{8}$/.test(raw)) {
-                    return raw.slice(0, 4) + "." + raw.slice(4, 6) + "." + raw.slice(6, 8);
-                }
-                return raw;
-            }
 
-            // 避免使用者資料或 JSON 字串被當作 HTML 執行，文字一律透過 .text() 填入。
-            function makeCard(item) {
-                const title = String(item.title || "未命名項目");
-                const topic = String(item.category || "其他");
-                const description = String(item.note || "這項紀錄尚未提供簡介。");
-                const status = String(item.status || "");
-                const url = String(item.url || "");
+  <script>
+    $(function () {
 
-                const $card = $("<article>").addClass("coffee-card");
-                const $art = $("<div>").addClass("coffee-card-art").attr("data-topic", topic);
-                $art.append($("<span>").attr("aria-hidden", "true").text(topicIcons[topic] || "✎"));
+      // 手機版點擊連結後，自動收起選單
+      $("#navbarMenu .nav-link").on("click", function () {
 
-                const $content = $("<div>").addClass("coffee-card-content");
-                const $top = $("<div>").addClass("coffee-card-top");
-                $top.append($("<span>").addClass("coffee-tag").attr("data-topic", topic).text(topic));
-                if (status) {
-                    $top.append($("<span>").addClass("coffee-status").text("・" + status));
-                }
+        let menu = document.getElementById("navbarMenu");
 
-                $content.append($top);
-                $content.append($("<h3>").text(title));
-                $content.append($("<p>").addClass("coffee-card-description").text(description));
+        if (menu.classList.contains("show")) {
+          bootstrap.Collapse
+            .getOrCreateInstance(menu)
+            .hide();
+        }
+      });
 
-                const $bottom = $("<div>").addClass("coffee-card-bottom");
-                $bottom.append($("<span>").addClass("coffee-date").text(formatDate(item.date)));
+    });
+  </script>
 
-                // 連結來自自己的 JSON；限制為站內相對路徑，不接受外站與 javascript: URL。
-                if (url && !/^(?:[a-z][a-z0-9+.-]*:|\/\/|\/|#)/i.test(url) && !url.includes("\\")) {
-                    $bottom.append(
-                        $("<a>")
-                            .addClass("coffee-card-link")
-                            .attr({ href: url, target: "_blank", rel: "noopener noreferrer" })
-                            .text("查看成品 ↗")
-                    );
-                }
-                $content.append($bottom);
-                return $card.append($art, $content);
-            }
 
-            function renderItems(items, container, countId) {
-                const $container = $(container).empty();
-                $(countId).text("· " + items.length + " 項");
-                if (items.length === 0) {
-                    $container.append($("<p>").addClass("coffee-message").text("這個分類目前還沒有紀錄。"));
-                    return;
-                }
-                items.forEach(function (item) {
-                    $container.append(makeCard(item));
-                });
-            }
-
-            // 從 JSON 取得資料，依 class 分成「學習」與「作品」，每組日期由新到舊。
-            $.ajax({
-                type: "GET",
-                url: "index_content.json",
-                dataType: "json",
-                cache: false,
-                success: function (data) {
-                    if (!data || !Array.isArray(data.projects)) {
-                        showLoadError();
-                        return;
-                    }
-                    const projects = data.projects.slice();
-                    const newestFirst = function (a, b) {
-                        return String(b.date || "").localeCompare(String(a.date || ""));
-                    };
-                    const learning = projects.filter(item => item.class === "學習").sort(newestFirst);
-                    const works = projects.filter(item => item.class === "作品").sort(newestFirst);
-                    renderItems(learning, "#learning-list", "#learning-count");
-                    renderItems(works, "#works-list", "#works-count");
-                },
-                error: showLoadError
-            });
-
-            function showLoadError() {
-                const message = "資料載入失敗。請確認 index_content.json 與 index.html 放在同一層，並透過 Live Server 或 GitHub Pages 開啟。";
-                $("#learning-list, #works-list").empty().append(
-                    $("<p>").addClass("coffee-message").text(message)
-                );
-                $("#learning-count, #works-count").empty();
-            }
-        });
-    </script>
 </body>
+
 </html>

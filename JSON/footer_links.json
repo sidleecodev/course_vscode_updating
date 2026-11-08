@@ -1,0 +1,44 @@
+
+{
+  "contact": [
+    {
+      "label": "LINE：李冠德",
+      "icon": "fa-brands fa-line",
+      "url": ""
+    },
+    {
+      "label": "電話：0930524117",
+      "icon": "fa-solid fa-mobile-screen-button",
+      "url": "tel:0930524117"
+    },
+    {
+      "label": "電子信箱：sieghart809999@gmail.com",
+      "icon": "fa-solid fa-envelope",
+      "url": "mailto:sieghart809999@gmail.com"
+    }
+  ],
+  "interview": [
+    {
+      "label": "104 人力銀行 - 個人頁面",
+      "icon": "fa-solid fa-handshake",
+      "url": ""
+    },
+    {
+      "label": "1111 人力銀行 - 個人頁面",
+      "icon": "fa-solid fa-handshake",
+      "url": ""
+    }
+  ],
+  "social": [
+    {
+      "label": "GitHub",
+      "icon": "fa-brands fa-github",
+      "url": ""
+    },
+    {
+      "label": "Vocus - 短篇文章",
+      "icon": "fa-solid fa-file-pen",
+      "url": ""
+    }
+  ]
+}

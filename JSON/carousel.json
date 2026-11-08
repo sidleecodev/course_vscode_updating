@@ -1,0 +1,89 @@
+{
+    "interactive": {
+        "title": "互動與資料串接",
+        "tech": "JavaScript / jQuery / AJAX",
+        "description": "展示動態資料處理、表單驗證與前端資料串接成果。",
+        "media": [
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/work01/1200/600"
+            },
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/work02/1200/600"
+            },
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/work03/1200/600"
+            }
+        ],
+        "url": "ex_JS/practice_JSON_travelfood.html",
+        "contrast": "ex_JS/(AI)practice_JSON_travelfood.html"
+    },
+
+    "layout": {
+        "title": "網頁設計與排版",
+        "tech": "HTML / CSS / Bootstrap",
+        "description": "展示響應式排版、網頁布局及 AI 修改前後對照。",
+        "media": [
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/layout01/1200/600"
+            },
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/layout02/1200/600"
+            }
+        ],
+        "url": "ex_BS/ex_ch8(JS).html",
+        "contrast": "ex_BS/ex_ch8(JS)_AI.html"
+    },
+
+    "figma": {
+        "title": "UI / UX 規劃",
+        "tech": "Figma",
+        "description": "展示介面草圖、互動畫廊與元件設計。",
+        "media": [
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/figma01/1200/600"
+            },
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/figma02/1200/600"
+            },
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/figma03/1200/600"
+            },
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/figma04/1200/600"
+            }
+        ],
+        "url": "https://www.figma.com/files/team/1688738696271118050/drafts?fuid=1688738694838095811",
+        "contrast": ""
+    },
+    
+    "backend": {
+        "title": "後台系統與資料庫",
+        "tech": "Laravel / PHP / MySQL",
+        "description": "展示登入驗證、後台管理與資料庫操作成果。",
+        "media": [
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/backend01/1200/600"
+            },
+            {
+                "type": "video",
+                "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            },
+            {
+                "type": "image",
+                "src": "https://picsum.photos/seed/backend03/1200/600"
+            }
+        ],
+        "url": "",
+        "contrast": ""
+    }
+}

@@ -5,7 +5,9 @@
             "url": "ex_HTML CSS JS/practice_HTML+CSS.html",
             "note": "HTML & CSS 基礎練習，class、html排版、",
             "date": "20260923",
-            "category": ["HTML/CSS"],
+            "category": [
+                "HTML/CSS"
+            ],
             "class": "學習",
             "status": "完成",
             "related": "",
@@ -16,7 +18,9 @@
             "url": "ex_HTML CSS JS/quiz01_ai01.html",
             "note": "HTML & CSS 文章頁面排版(含RWD語法)，用ul li製作選單列，有hover、螢幕尺寸RWD設計，使用AI輔助配色",
             "date": "20261005",
-            "category": ["HTML/CSS"],
+            "category": [
+                "HTML/CSS"
+            ],
             "class": "作品",
             "status": "完成"
         },
@@ -25,7 +29,9 @@
             "url": "ex_JS/practice_JavaScript.html",
             "note": "基本JavaScript語法練習，陣列、forEach、jquery",
             "date": "20261005",
-            "category": ["JavaScript/jQuery"],
+            "category": [
+                "JavaScript/jQuery"
+            ],
             "class": "學習",
             "status": "完成"
         },
@@ -34,7 +40,9 @@
             "url": "ex_JS/practice_JSON_travelfood.html",
             "note": "搭配開放資料，製作文章頁面",
             "date": "20261005",
-            "category": ["JavaScript/jQuery"],
+            "category": [
+                "JavaScript/jQuery"
+            ],
             "class": "作品",
             "status": "完成"
         },
@@ -43,7 +51,10 @@
             "url": "ex_BS/practice_Bootstrap.html",
             "note": "到Bootstrap官網引用一些語法來練習，有Navbar、Grid cards、Navs & tabs等等",
             "date": "20261005",
-            "category": ["JavaScript/jQuery", "Bootstrap"],
+            "category": [
+                "JavaScript/jQuery",
+                "Bootstrap"
+            ],
             "class": "學習",
             "status": "完成"
         },
@@ -52,7 +63,9 @@
             "url": "ex_BS/practice_Bootstrap_row(ch6).html",
             "note": "row & col的練習",
             "date": "20261008",
-            "category": ["Bootstrap"],
+            "category": [
+                "Bootstrap"
+            ],
             "class": "學習",
             "status": "完成"
         },
@@ -61,7 +74,11 @@
             "url": "ex_BS/ex_ch6_02.html",
             "note": "使用row排版，並使用jquery外接opendata travelfood，但需要先在終端機透過 npm 啟動 JSON Server",
             "date": "20261008",
-            "category": ["Bootstrap", "JavaScript/jQuery", "AJAX/JSON"],
+            "category": [
+                "Bootstrap",
+                "JavaScript/jQuery",
+                "AJAX/JSON"
+            ],
             "class": "作品",
             "status": "完成"
         },
@@ -70,7 +87,9 @@
             "url": "ex_BS/practice_Bootstrap_flex(ch7).html",
             "note": "將區塊橫豎排列、翻轉，以及指定對齊方式",
             "date": "20261013",
-            "category": ["Bootstrap"],
+            "category": [
+                "Bootstrap"
+            ],
             "class": "學習",
             "status": "完成"
         },
@@ -79,7 +98,9 @@
             "url": "ex_BS/ex_ch7_flex_timeline.html",
             "note": "利用::before在左邊拉出時間線，再改變位置",
             "date": "20261013",
-            "category": ["Bootstrap"],
+            "category": [
+                "Bootstrap"
+            ],
             "class": "作品",
             "status": "完成"
         },
@@ -88,7 +109,9 @@
             "url": "ex_BS/ex_ch7_roller.html",
             "note": "hover時，物件會有滑動進入的效果，利用了postion、transform與transition來達到這個效果",
             "date": "20261013",
-            "category": ["Bootstrap"],
+            "category": [
+                "Bootstrap"
+            ],
             "class": "作品",
             "status": "完成"
         },
@@ -97,7 +120,11 @@
             "url": "ex_BS/ex_ch8(JS).html",
             "note": "包含輸入框、選單、拉桿，並用監聽方式確認內容是否送出；另外使用js控制class要加入什麼，此處是控制is-valid跟is-invalid",
             "date": "20261027",
-            "category": ["Bootstrap", "JavaScript/jQuery", "AJAX/JSON"],
+            "category": [
+                "Bootstrap",
+                "JavaScript/jQuery",
+                "AJAX/JSON"
+            ],
             "class": "學習",
             "status": "完成"
         },
@@ -106,7 +133,35 @@
             "url": "ex_BS/ex_ch8(JS)_AI.html",
             "note": "將原始表單作品使用AI製作類成品",
             "date": "20261027",
-            "category": ["Bootstrap", "JavaScript/jQuery", "AJAX/JSON"],
+            "category": [
+                "Bootstrap",
+                "JavaScript/jQuery",
+                "AJAX/JSON"
+            ],
+            "class": "作品",
+            "status": "完成"
+        },
+        {
+            "title": "一頁式SPA的練習",
+            "url": "ex_SPA/practice_SPA",
+            "note": "利用多個section來製作一頁式網頁，中間使用幻燈片(carousel)、動畫(animate)",
+            "date": "20261103",
+            "category": [
+                "Bootstrap"
+            ],
+            "class": "學習",
+            "status": "完成"
+        },
+        {
+            "title": "一頁式SPA的練習 - 使用AI",
+            "url": "ex_SPA/portfolio",
+            "note": "利用AI美化原始一頁式網頁，內含15個section",
+            "date": "20261109",
+            "category": [
+                "Bootstrap",
+                "JavaScript/jQuery",
+                "AJAX/JSON"
+            ],
             "class": "作品",
             "status": "完成"
         }

@@ -965,6 +965,75 @@
                 font-size: 0.75rem;
             }
         }
+
+
+        /* ==============================
+   Section 11 Footer
+============================== */
+
+        #s11 {
+            --british-green: #203d35;
+            --british-gold: #b79760;
+            --british-cream: #f5f0e6;
+
+            background-color: var(--british-green);
+            border-top: 3px solid var(--british-gold);
+            padding: 20px 0;
+        }
+
+        /* 導覽列 */
+        #s11 .nav {
+            gap: 8px;
+        }
+
+        /* 所有文字連結 */
+        #s11 .nav-link {
+            color: var(--british-cream);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        /* 圖示 */
+        #s11 .nav-link i {
+            color: var(--british-gold);
+        }
+
+        /* 連結 Hover */
+        #s11 a.nav-link:hover {
+            color: var(--british-gold);
+            transform: translateY(-2px);
+        }
+
+        /* 版權文字 */
+        #s11 .s11-copyright {
+            color: #c1c9c1;
+            font-family: Georgia, serif;
+            font-size: 0.85rem;
+        }
+
+        /* 手機版 */
+        @media (max-width: 767.98px) {
+
+            #s11 {
+                padding: 20px 0;
+            }
+
+            #s11 .nav {
+                gap: 5px;
+            }
+
+            #s11 .nav-link {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+
+            /* 版權文字獨占一列 */
+            #s11 .nav-item:first-child {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -1157,8 +1226,8 @@
             <div class="carousel-inner">
                 <!-- 第一張：文字靠左 -->
                 <div class="carousel-item bg-img active"
-                    style="background-image: url(../image/photo-1788963799172-5d5a5e06912f.avif); height: 85vh;">
-                    <div class="carousel-caption rounded-1">
+                    style="background-image: url(../image/practice/photo-1788963799172-5d5a5e06912f.avif); height: 85vh;">
+                    <div class="carousel-caption rounded-1 wow animate__zoomIn" data-wow-duration="1.5s" data-wow-delay="0s" data-wow-iteration="1">
                         <div class="caption-eyebrow">01 / ABOUT ME</div>
                         <h3>個人介紹</h3>
                         <div class="caption-rule"></div>
@@ -1168,7 +1237,7 @@
                 </div>
                 <!-- 第二張：文字靠右 -->
                 <div class="carousel-item bg-img caption-right"
-                    style="background-image: url(../image/photo-church.avif); height: 85vh;">
+                    style="background-image: url(../image/practice/photo-church.avif); height: 85vh;">
                     <div class="carousel-caption rounded-1">
                         <div class="caption-eyebrow">02 / MY JOURNEY</div>
                         <h3>工作經驗</h3>
@@ -1179,7 +1248,7 @@
                 </div>
                 <!-- 第三張：文字靠左 -->
                 <div class="carousel-item bg-img"
-                    style="background-image: url(../image/photo-mountain.avif); height: 85vh;">
+                    style="background-image: url(../image/practice/photo-mountain.avif); height: 85vh;">
                     <div class="carousel-caption rounded-1">
                         <div class="caption-eyebrow">03 / WHAT I DO</div>
                         <h3>專長技術</h3>
@@ -1212,7 +1281,7 @@
 
                 <!-- 左側建築圖片 -->
                 <div class="col-md-5 bg-img achievements-image"
-                    style="background-image: url(../image/photo-church.avif);">
+                    style="background-image: url(../image/practice/photo-church.avif);">
                 </div>
 
                 <!-- 右側介紹內容 -->
@@ -1343,7 +1412,7 @@
     <section id="s06" style="position: relative;">
         <div class="row my-3">
             <div class="col-md-5 bg-img"
-                style="background-image: url(../image/premium_photo-1792118353041-9ad95cc3f9c9.avif); height: 730px; position: absolute; top: 0; bottom: 0;">
+                style="background-image: url(../image/practice/premium_photo-1792118353041-9ad95cc3f9c9.avif); height: 730px; position: absolute; top: 0; bottom: 0;">
             </div>
         </div>
 
@@ -1617,7 +1686,7 @@
         <!-- 右側建築圖片，保留原本定位方式 -->
         <div class="row justify-content-end">
             <div class="col-md-5 bg-img d-none d-md-block" style="position: absolute;
-                   background-image: url(../image/photo-1793117069225-2f4cd90fa44a.avif);
+                   background-image: url(../image/practice/photo-1793117069225-2f4cd90fa44a.avif);
                    top: 0;
                    bottom: 0;">
             </div>
@@ -1697,7 +1766,7 @@
 
             <!-- 左側：未來願景 -->
             <div class="col-md-6 bg-img p-5 s10-panel"
-                style="background-image: url(../image/photo-left-space.avif);">
+                style="background-image: url(../image/practice/photo-left-space.avif);">
 
                 <div class="col-8 p-3 shadow-sm s10-content">
 
@@ -1742,7 +1811,7 @@
 
             <!-- 右側：職涯發展 -->
             <div class="col-md-6 bg-img p-5 s10-panel"
-                style="background-image: url(../image/photo-left-space.avif);">
+                style="background-image: url(../image/practice/photo-left-space.avif);">
 
                 <div class="col-8 p-3 shadow-sm s10-content">
 
@@ -1788,7 +1857,56 @@
     </section>
 
 
+    <!-- section 11 Footer -->
+    <!-- footer可以到Navs and tabs複製 -->
+
+    <section id="s11" class="text-center">
+        <div class="container">
+            <ul class="nav justify-content-center align-items-center">
+
+                <!-- 版權宣告 -->
+                <li class="nav-item">
+                    <span class="nav-link s11-copyright">
+                        &copy; 2026 Creative Portfolio.
+                        All Rights Reserved.
+                    </span>
+                </li>
+
+                <!-- GitHub -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github me-1"></i>
+                        GitHub
+                    </a>
+                </li>
+
+                <!-- 作品集 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#s07">
+                        <i class="fa-solid fa-folder-open me-1"></i>
+                        精選作品
+                    </a>
+                </li>
+
+                <!-- 聯絡方式 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#s09">
+                        <i class="fa-solid fa-envelope me-1"></i>
+                        聯絡我
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/carousel.js"></script>
+    <script src="../js/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 
     <!-- 此處搭配section04 -->
     <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script>

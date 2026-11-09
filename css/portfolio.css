@@ -1614,3 +1614,8 @@ main section {
     .portfolio-hero .hero-button,
     .portfolio-navbar .nav-link { transition: none; }
 }
+
+#s06 {
+    position: relative;
+    min-height: 730px;
+}

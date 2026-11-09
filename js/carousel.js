@@ -7,7 +7,7 @@ $(function () {
 
     // 如果頁面是 ex_SPA/portfolio.html，使用 "../"
     // 如果頁面是根目錄 index.html，改成 "./"
-    const rootPath = "../";
+    const rootPath = "../JSON/";
 
     const jsonPath = rootPath + "carousel.json";
 

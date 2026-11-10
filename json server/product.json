@@ -1,0 +1,69 @@
+{
+  "product": [
+    {
+      "id": "1",
+      "name": "汽水",
+      "category": "飲料",
+      "price": 100,
+      "num": 10,
+      "remark": "需冷藏"
+    },
+    {
+      "id": "3",
+      "name": "洋芋片",
+      "category": "零食",
+      "price": 45,
+      "num": 30,
+      "remark": "避免陽光直射"
+    },
+    {
+      "id": "4",
+      "name": "巧克力",
+      "category": "零食",
+      "price": 80,
+      "num": 20,
+      "remark": "請置於陰涼處"
+    },
+    {
+      "id": "5",
+      "name": "鮮奶",
+      "category": "乳製品",
+      "price": 95,
+      "num": 15,
+      "remark": "需冷藏，開封後盡速飲用"
+    },
+    {
+      "id": "6",
+      "name": "吐司",
+      "category": "烘焙食品",
+      "price": 60,
+      "num": 12,
+      "remark": "保存期限較短"
+    },
+    {
+      "name": "炸豆干",
+      "category": "零食",
+      "price": 90,
+      "num": 10,
+      "remark": "常溫保存",
+      "id": "VFY-s7LL_wI"
+    },
+    {
+      "name": "軟糖",
+      "category": "零食",
+      "price": 25,
+      "num": 10,
+      "remark": "常溫保存",
+      "id": "E4r0er3Opp0"
+    },
+    {
+      "name": "可樂",
+      "category": "飲料",
+      "price": "40",
+      "num": "20",
+      "remark": "XXXXX",
+      "id": "fVN_uvnKd6s"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

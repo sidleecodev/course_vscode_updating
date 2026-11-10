@@ -1,0 +1,124 @@
+{
+    "travelfood": [
+        {
+            "ID": "01_001",
+            "Name": "臺中國家歌劇院",
+            "Address": "臺中市西屯區惠來路二段101號",
+            "Tel": "04-2251-1777",
+            "HostWords": "臺中國家歌劇院是臺中的代表性建築地標，由伊東豊雄設計，以曲牆、洞窟般的空間造型聞名，是臺中重要的藝文與觀光景點。建築外觀極具現代感，夜間燈光與周邊景觀也相當適合拍照。",
+            "City": "台中市",
+            "Town": "西屯區",
+            "PicURL": "https://unsplash.com/photos/a-building-with-a-glass-front-RcGQ1VItZ_E",
+            "Latitude": "24.162018",
+            "Longitude": "120.640872"
+        },
+        {
+            "ID": "01_002",
+            "Name": "高美濕地",
+            "Address": "臺中市清水區美堤街",
+            "Tel": "04-2611-0305",
+            "HostWords": "高美濕地是臺中著名的自然生態景觀，擁有大片潮間帶、木棧道與風力發電設施。夕陽時分天空與海面倒影交織，是臺中最具代表性的夕陽景點之一，也適合觀察候鳥及潮間帶生態。",
+            "City": "台中市",
+            "Town": "清水區",
+            "PicURL": "https://unsplash.com/photos/a-wooden-walkway-leading-to-a-body-of-water-fOFUdWcu6f8",
+            "Latitude": "24.311998",
+            "Longitude": "120.549967"
+        },
+        {
+            "ID": "01_003",
+            "Name": "彩虹眷村",
+            "Address": "臺中市南屯區春安路56巷25號",
+            "Tel": "04-2380-2351",
+            "HostWords": "彩虹眷村以鮮豔多彩的彩繪牆面聞名，原為眷村聚落，經彩繪藝術保存後成為臺中知名觀光景點。園區充滿童趣與繽紛色彩，是熱門的拍照與文化旅遊景點。",
+            "City": "台中市",
+            "Town": "南屯區",
+            "PicURL": "https://unsplash.com/photos/red-and-white-wall-with-graffiti-V2v9Y7N1980",
+            "Latitude": "24.133650",
+            "Longitude": "120.610535"
+        },
+        {
+            "ID": "01_004",
+            "Name": "臺中公園",
+            "Address": "臺中市北區雙十路一段65號",
+            "Tel": "04-2228-9111",
+            "HostWords": "臺中公園是臺中市區歷史悠久的城市公園，以湖心亭與湖畔景觀聞名。園區綠意盎然，湖心亭倒映於湖面，是臺中市極具代表性的歷史地標與休閒景點。",
+            "City": "台中市",
+            "Town": "北區",
+            "PicURL": "https://unsplash.com/photos/a-beautiful-pavilion-reflected-in-still-water-at-night-M8EScS2AgvU",
+            "Latitude": "24.143654",
+            "Longitude": "120.684546"
+        },
+        {
+            "ID": "01_005",
+            "Name": "宮原武熊宅邸（宮原眼科）",
+            "Address": "臺中市中區中山路72號",
+            "Tel": "04-2227-1927",
+            "HostWords": "宮原眼科是臺中著名的歷史建築與伴手禮景點，建築前身為日治時期眼科診所，經整修後成為結合歷史建築、甜點與伴手禮的熱門景點。紅磚建築與復古風格深受遊客喜愛。",
+            "City": "台中市",
+            "Town": "中區",
+            "PicURL": "https://unsplash.com/photos/hand-holds-a-large-ice-cream-sundae-outside-Wuu1BNbrAK8",
+            "Latitude": "24.141903",
+            "Longitude": "120.682665"
+        },
+        {
+            "ID": "01_006",
+            "Name": "草悟道",
+            "Address": "臺中市西區公益路至英才路一帶",
+            "Tel": "04-2228-9111",
+            "HostWords": "草悟道是臺中市中心重要的綠色休閒廊道，串聯國立自然科學博物館、勤美誠品綠園道與市民廣場等熱門區域。沿途擁有大片綠地、藝術裝置、商店與餐廳，是臺中市區散步與休閒的重要景點。",
+            "City": "台中市",
+            "Town": "西區",
+            "PicURL": "https://unsplash.com/s/photos/taichung-city",
+            "Latitude": "24.151780",
+            "Longitude": "120.663900"
+        },
+        {
+            "ID": "01_007",
+            "Name": "審計新村",
+            "Address": "臺中市西區民生路368巷4弄8號",
+            "Tel": "04-2302-3138",
+            "HostWords": "審計新村原為臺灣省政府審計處宿舍群，經活化後成為結合文創、市集、餐飲與設計品牌的熱門景點。老屋、巷弄與特色店家形成獨特的文創聚落，是臺中熱門的城市旅遊景點。",
+            "City": "台中市",
+            "Town": "西區",
+            "PicURL": "https://unsplash.com/s/photos/taichung",
+            "Latitude": "24.145564",
+            "Longitude": "120.663142"
+        },
+        {
+            "ID": "01_008",
+            "Name": "大坑風景區",
+            "Address": "臺中市北屯區東山路一段383巷",
+            "Tel": "04-2239-9000",
+            "HostWords": "大坑風景區位於臺中市北屯區，是臺中著名的登山與自然休閒區域。山區擁有多條登山步道，可欣賞臺中市區景觀及自然生態，假日吸引許多登山健行與親近自然的遊客。",
+            "City": "台中市",
+            "Town": "北屯區",
+            "PicURL": "https://unsplash.com/s/photos/taichung-city",
+            "Latitude": "24.181900",
+            "Longitude": "120.758700"
+        },
+        {
+            "ID": "01_009",
+            "Name": "臺中驛鐵道文化園區",
+            "Address": "臺中市中區臺灣大道一段1號",
+            "Tel": "04-3505-9988",
+            "HostWords": "臺中驛鐵道文化園區以舊臺中車站及周邊鐵道文化為核心，結合歷史建築、鐵道展示、商業空間與文化活動。園區保存臺中重要的鐵道歷史，是認識臺中城市發展的重要景點。",
+            "City": "台中市",
+            "Town": "中區",
+            "PicURL": "https://unsplash.com/photos/modern-train-at-a-station-platform-TtqTscKuJHs",
+            "Latitude": "24.136829",
+            "Longitude": "120.685231"
+        },
+        {
+            "ID": "01_010",
+            "Name": "秋紅谷景觀生態公園",
+            "Address": "臺中市西屯區朝富路30號",
+            "Tel": "04-2228-9111",
+            "HostWords": "秋紅谷景觀生態公園位於臺中市西屯區，是市區著名的都市景觀公園。園區以大型生態池、綠地及環形步道為特色，周邊高樓與自然景觀形成特殊的城市景觀，是臺中熱門的休閒與拍照地點。",
+            "City": "台中市",
+            "Town": "西屯區",
+            "PicURL": "https://unsplash.com/s/photos/taichung",
+            "Latitude": "24.166890",
+            "Longitude": "120.641890"
+        }
+    ]
+}

@@ -1,11 +1,3 @@
-/* ============================================================
-   portfolio_newest.css | 正式履歷 index.html（目前頁首專用）
-   來源：portfolio_整合版.css
-   僅保留目前 HTML 使用的 Navbar、Hero Carousel 與必要全站設定。
-   保留圖片相對路徑：css/ -> ../images/
-   Section 12～15 未出現在目前 HTML，因此暫不納入。
-   ============================================================ */
-
 :root {
     --portfolio-page: #f7f5ee;
     --portfolio-paper: #fffefa;
@@ -226,13 +218,13 @@ main section {
     background-repeat: no-repeat;
 }
 .portfolio-hero .hero-slide-1 .hero-image {
-    background-image: url("../images/carousel-1.avif");
+    background-image: url("../image/carousel-1.avif");
 }
 .portfolio-hero .hero-slide-2 .hero-image {
-    background-image: url("../images/carousel-2.avif");
+    background-image: url("../image/carousel-2.avif");
 }
 .portfolio-hero .hero-slide-3 .hero-image {
-    background-image: url("../images/carousel-3.avif");
+    background-image: url("../image/carousel-3.avif");
 }
 .portfolio-hero .hero-overlay {
     position: absolute;

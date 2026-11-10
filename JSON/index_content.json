@@ -2,7 +2,7 @@
     "projects": [
         {
             "title": "HTML+CSS排版練習",
-            "url": "ex_HTML CSS JS/practice_HTML+CSS.html",
+            "url": "ex_HTML CSS/practice_HTML+CSS.html",
             "note": "HTML & CSS 基礎練習，class、html排版、",
             "date": "20260923",
             "category": [
@@ -15,7 +15,7 @@
         },
         {
             "title": "HTML+CSS文章頁面排版練習",
-            "url": "ex_HTML CSS JS/quiz01_ai01.html",
+            "url": "ex_HTML CSS/quiz01_ai01.html",
             "note": "HTML & CSS 文章頁面排版(含RWD語法)，用ul li製作選單列，有hover、螢幕尺寸RWD設計，使用AI輔助配色",
             "date": "20261005",
             "category": [
@@ -96,23 +96,12 @@
         {
             "title": "製作時間線",
             "url": "ex_BS/ex_ch7_flex_timeline.html",
-            "note": "利用::before在左邊拉出時間線，再改變位置",
+            "note": "利用::before在左邊拉出時間線，再改變位置；另外也有roller效果，hover時，物件會有滑動進入的效果（利用postion、transform與transition來達成）",
             "date": "20261013",
             "category": [
                 "Bootstrap"
             ],
-            "class": "作品",
-            "status": "完成"
-        },
-        {
-            "title": "製作roller",
-            "url": "ex_BS/ex_ch7_roller.html",
-            "note": "hover時，物件會有滑動進入的效果，利用了postion、transform與transition來達到這個效果",
-            "date": "20261013",
-            "category": [
-                "Bootstrap"
-            ],
-            "class": "作品",
+            "class": "學習",
             "status": "完成"
         },
         {
@@ -143,7 +132,7 @@
         },
         {
             "title": "一頁式SPA的練習",
-            "url": "ex_SPA/practice_SPA",
+            "url": "ex_SPA/practice_SPA.html",
             "note": "利用多個section來製作一頁式網頁，中間使用幻燈片(carousel)、動畫(animate)",
             "date": "20261103",
             "category": [
@@ -154,7 +143,7 @@
         },
         {
             "title": "一頁式SPA的練習 - 使用AI",
-            "url": "ex_SPA/portfolio",
+            "url": "ex_SPA/portfolio.html",
             "note": "利用AI美化原始一頁式網頁，內含15個section",
             "date": "20261109",
             "category": [

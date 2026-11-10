@@ -1,0 +1,20 @@
+寫好的api，用postman測試（自行下載）
+我們可以帶入自己建造的json進去測試
+
+
+
+---新增create---
+<<post>>
+
+---查詢read---
+<<get>>
+
+---更新update---
+<<put>> 全部更新，會全部覆蓋，如果有欄位沒填到，那覆蓋掉欄位也會跟著不見
+上面網站會是http://localhost:3000/product/(id)
+id可以到get那邊查詢
+
+<<patch>>針對某個欄位更新，其他欄位會保留
+
+---刪除delete---
+<<delete>>

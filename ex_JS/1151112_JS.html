@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 重點整理</title>
+</head>
+
+<body>
+    <script src="..js/jquery-4.0.0.js"></script>
+    <script src="..js/TravelFood.js"></script>
+    <script>
+        // 1. map() 將資料轉換成我們想要的格式
+        const shops = [
+            {
+                name: "好吃  小吃店",
+                city: "臺北市",
+                tel: "02-12345678",
+                address: "中山區南京東路100號",
+                rating: 4.5
+            },
+            {
+                name: "小林小吃店",
+                city: "臺中市",
+                tel: "04-12345678         ",
+                address: "西屯區台灣大道200號",
+                rating: 4.2
+            },
+            {
+                name: "老陳  小吃店",
+                city: "臺南市",
+                tel: null,
+                address: "中西區民生路30號",
+                rating: null
+            },
+            {
+                name: "   阿 明牛肉麵   ",
+                city: "高雄市",
+                tel: "07-23456789",
+                address: "三民區  建國路88號",
+                rating: 4.7
+            },
+            {
+                name: "幸福早餐店",
+                city: "新北市  ",
+                tel: "  02-87654321",
+                address: "",
+                rating: 4.3
+            },
+            {
+                name: "大福滷肉飯",
+                city: "桃園市",
+                tel: undefined,
+                address: "桃園區中正路56號",
+                rating: 4.1
+            },
+            {
+                name: "老王水餃館",
+                city: "  臺中市    ",
+                tel: "04-23456789",
+                address: "北區進化路120號",
+                rating: null
+            },
+            {
+                name: "小美甜品屋",
+                city: " 新竹市 ",
+                tel: "03-56781234",
+                address: null,
+                rating: 4.8
+            }
+        ]
+
+        const names = shops.map(function (item) {
+            return item.name;
+        });
+        console.log("原始資料", shops);
+        console.log("轉換後的資料", names);
+
+        // 使用map()並且產生新的結構，回傳會是一個陣列
+        // return{新欄位名稱: item.原始欄位名稱}
+        const simpleData = shops.map(function (item) {
+            return {
+                title: item.name,
+                location: item.city
+            }
+        });
+        console.log("使用map()並且產生新的結構", simpleData);
+
+        // 練習travelfood.js map()
+        const simpleTravelData = Food.map(function (item, index) {
+            return {
+                Id: index + 1,
+                Name: item.Name,
+                Location: item.Address,
+                Phone: item.Tel
+            }
+        });
+        console.log("練習map() - travelfood", simpleTravelData);
+
+
+
+        // 2. 資料清洗
+        // 底下註解的語法因為資料有null跟undefined，會出錯，所以需要資料清洗(空字串""不會出錯)
+        // shops.forEach(function(item){
+        //     console.log(item.tel.length);
+        // });
+        const cleanshops = shops.map(function (item) {
+            return {
+                // ??的意思：如果左邊是null或undefined，就改為右邊的空字串""
+                // trim: 去除字串前後的空白
+                name: (item.name ?? "").trim(),
+                city: (item.city ?? "").trim(),
+                tel: (item.tel ?? "").trim(),
+                address: (item.address ?? "").trim(),
+                // 注意rating資料型態是number
+                rating: Number(item.rating ?? 0)
+                // 更完整一點(例如rating: abc的情況)可以用以下語法
+                // rating: Number.isNaN(Number(item.rating)) ? 0 : Number(item.rating)
+            }
+        });
+        console.log("原始資料: ", shops);
+        console.log("清洗後的資料: ", cleanshops);
+
+        // 通常會定義一個函式，透過呼叫來清洗
+        function normalize(data) {
+            return data.map(function (item) {
+                return {
+                    name: (item.name ?? "未提供").trim(),
+                    city: (item.city ?? "未提供").trim(),
+                    tel: (item.tel ?? "未提供").trim(),
+                    address: (item.address ?? "未提供").trim(),
+                    rating: (item.rating ?? "未提供")
+                }
+            });
+        }
+        console.log("使用自訂函式執行資料清洗: ", normalize(shops));
+
+
+
+        // 3. 搜尋 filter
+        const result = shops.filter(function (item) {
+            return item.city === "臺中市"
+        });
+        console.log("用原本的資料搜尋結果: ", result);
+
+        // 先將原始資料shops清洗->normalize(shops)
+        // 再過濾(要定義函式)->normalize(shops).filter(function(){})
+        const resultCleanData = normalize(shops).filter(function (item) {
+            // return item.city === "臺中市"
+            return item.name.includes("小") && item.city === "臺北市"
+        });
+        console.log("清洗後的資料搜尋結果: ", resultCleanData);
+
+        // 練習travelfood.js 資料清洗，篩選出臺南市有介紹(FoodFeature)"美食"的店家
+        function foodNormalize(data){
+            return data.map(function (item){
+                return {
+                    name: (item.Name ?? "未提供").trim(),
+                    address: (item.Address ?? "未提供").trim(),
+                    city: (item.City ?? "未提供").trim(),
+                    town: (item.Town ?? "未提供").trim(),
+                    feature: (item.FoodFeature ?? "未提供").trim()
+                }
+            });
+        }
+        const resultFilterFood = foodNormalize(Food).filter(function(item){
+            return item.feature.includes("美食") && item.city === "臺南市"
+        });
+        console.log("清洗後地方美食的資料搜尋結果: ", resultFilterFood);
+
+
+
+        // 4. 分頁
+        // 將分頁的思考邏輯轉換成演算法再寫成程式碼
+        // 現在shops有八筆資料，編碼是0~7
+        const pageSize = 3; //一頁有幾筆
+        const page = 1; //初始頁碼
+        const start = (page -1) * pageSize; //該頁的第一筆資料編碼
+        const end = start + pageSize; //該頁的最後一筆資料編碼
+
+        // slice(資料的起始編碼, 結束編碼): 取出某段區間的資料
+        const pageData = shops.slice(start, end);
+        console.log("原始資料: ", shops);
+        console.log("分頁資料, ", pageData);
+
+        // 練習travelfood.js 分頁
+        // 我先找台中市的店家，再來分頁(一頁4筆)
+        const resultFilterFoodCity = foodNormalize(Food).filter(function(item){
+            return item.city === "臺中市"
+        });
+        console.log(resultFilterFoodCity);
+        
+        const pageSizeFood = 4;
+        const pageFood = 1;
+        const startFood = (pageFood - 1) * pageSizeFood;
+        const endFood = startFood + pageSizeFood;
+        const pageDataFood = resultFilterFoodCity.slice(startFood, endFood);
+        console.log("分頁練習: ", pageDataFood);
+    </script>
+</body>
+
+</html>

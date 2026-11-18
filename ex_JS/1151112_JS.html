@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <script src="..js/jquery-4.0.0.js"></script>
-    <script src="..js/TravelFood.js"></script>
+    <script src="../js/jquery-4.0.0.js"></script>
+    <script src="../js/TravelFood.js"></script>
     <script>
         // 1. map() 將資料轉換成我們想要的格式
         const shops = [
@@ -175,11 +175,11 @@
         // 將分頁的思考邏輯轉換成演算法再寫成程式碼
         // 現在shops有八筆資料，編碼是0~7
         const pageSize = 3; //一頁有幾筆
-        const page = 1; //初始頁碼
+        const page = 1; //目前頁碼
         const start = (page -1) * pageSize; //該頁的第一筆資料編碼
         const end = start + pageSize; //該頁的最後一筆資料編碼
 
-        // slice(資料的起始編碼, 結束編碼): 取出某段區間的資料
+        // slice(資料的起始編碼, 結束編碼): 取出某段區間的資料，但不包含結束編碼
         const pageData = shops.slice(start, end);
         console.log("原始資料: ", shops);
         console.log("分頁資料, ", pageData);
@@ -192,11 +192,25 @@
         console.log(resultFilterFoodCity);
         
         const pageSizeFood = 4;
-        const pageFood = 1;
+        const pageFood = 3;
         const startFood = (pageFood - 1) * pageSizeFood;
         const endFood = startFood + pageSizeFood;
         const pageDataFood = resultFilterFoodCity.slice(startFood, endFood);
         console.log("分頁練習: ", pageDataFood);
+
+        // 將分頁整理成副程式
+        function pagination(data, pageSize, page){
+            const start = (page -1) * pageSize;
+            const end = start + pageSize;
+            return data.slice(start, end);
+        }
+
+        const pageSizeFood01 = 4;
+        const pageFood01 = 3;
+        const pageDataFood01 = pagination(resultFilterFoodCity, pageSizeFood01, pageFood01)
+        console.log("分頁練習(副函式): ", pageDataFood01);
+
+
     </script>
 </body>
 

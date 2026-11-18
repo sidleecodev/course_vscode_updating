@@ -1,0 +1,97 @@
+<!-- 
+    1.資料轉換map()，取出所需要的欄位
+    2.資料清洗null、undefined，多餘空白
+    3.過濾，台中市房價低於3800元的旅館
+    4.分頁，每頁20筆，可以指定頁碼
+-->
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅館資料opendata清洗</title>
+</head>
+
+<body>
+    <script src="../js/jquery-4.0.0.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "../js/json/HotelList.json",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    console.log("資料讀取失敗");
+                }
+            });
+        });
+
+        function showdata(data) {
+            function normalize(data) {
+                return data.Hotels.map(function (item, index) {
+                    return {
+                        id: index + 1,
+                        name: (item.HotelName ?? "未提供").trim(),
+                        city: (item.PostalAddress?.City ?? "未提供").trim(),
+                        tel: (item.Telephones?.[0]?.Tel ?? "未提供").trim(),
+                        roomInfo: (item.RoomInfo ?? "未提供").trim(),
+                        parkingInfo: (item.ParkingInfo ?? "未提供").trim(),
+                        lowestPrice: item.LowestPrice ?? "未提供"
+                    }
+                })
+            };
+            const hotelData = normalize(data);
+            console.log("全部有", hotelData.length, "筆")
+
+            function pagination(data, pageSize, page) {
+                const start = (page - 1) * pageSize;
+                const end = start + pageSize;
+                return data.slice(start, end);
+            }
+            const pageSize = 20
+            const page = 11
+
+            // 找臺中市的旅館
+            const result00 = normalize(data).filter(function (item) {
+                return item.city === "臺中市"
+            });
+            console.log("臺中市的旅館有", result00.length, "筆")
+            const pageResult00 = pagination(result00, pageSize, page)
+            console.log("現在是第", page, "頁")
+            console.log(pageResult00);
+
+            // 找臺中市價格低於3800的旅館
+            const result = normalize(data).filter(function (item) {
+                return item.city === "臺中市" && item.lowestPrice < 3800
+            });
+            console.log("臺中市旅館的價格低於3800元的有", result.length, "筆")
+            const pageResult = pagination(result, pageSize, page)
+            console.log("現在是第", page, "頁")
+            console.log(pageResult);
+
+            // 找台中市最低房價介於2000~4000元的旅館
+            const result01 = normalize(data).filter(function (item) {
+                return item.city === "臺中市" && item.lowestPrice > 2000 && item.lowestPrice < 4000
+            });
+            console.log("臺中市旅館的價格介於2000~4000元的有", result01.length, "筆")
+            const pageResult01 = pagination(result01, pageSize, page)
+            console.log("現在是第", page, "頁")
+            console.log(pageResult01);
+
+            // 排除沒有電話、沒有房價的旅館
+            const result02 = normalize(data).filter(function (item) {
+                return item.city === "臺中市" && item.tel !== "未提供" && item.lowestPrice !== "未提供"
+            });
+            console.log("臺中市旅館有電話、有房價的有", result02.length, "筆")
+            const pageResult02 = pagination(result02, pageSize, page)
+            console.log("現在是第", page, "頁")
+            console.log(pageResult02);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -86,11 +86,12 @@
                         <table class="table table-bordered table-rwd">
                             <thead class="table-dark">
                                 <tr>
-                                    <th width="20%">產品名稱</th>
-                                    <th width="20%">產品價格</th>
-                                    <th width="20%">產品數量</th>
-                                    <th width="20%">產品分類</th>
-                                    <th width="20%">產品備註</th>
+                                    <th width="15%">產品名稱</th>
+                                    <th width="15%">產品價格</th>
+                                    <th width="15%">產品數量</th>
+                                    <th width="15%">產品分類</th>
+                                    <th width="15%">產品備註</th>
+                                    <th width="15%">#</th>
                                 </tr>
                             </thead>
                             <tbody id="mytbody">
@@ -100,10 +101,84 @@
                                     <td data-th="產品數量"><span></span></td>
                                     <td data-th="產品分類"><span></span></td>
                                     <td data-th="產品備註"><span></span></td>
+                                    <td data-th="功能">
+                                        <button class="btn btn-warning" data-bs-toggle="modal"
+                                            data-bs-target="#updateModal">更新</button>
+                                        <button class="btn btn-danger">刪除</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <!-- 頁碼 -->
+                        <!-- 到bootstrap抓範例的程式碼 -->
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center" id="pageList">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- updateModal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-bg-warning">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">產品更新</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control form-control-lg" placeholder="" id="product-name"
+                            disabled>
+                        <label for="product-name" class="form-label">產品名稱</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price" class="form-label">價格(1~100)</label>
+                        <input type="number" class="form-control form-control-lg" id="price" min="1" max="100"
+                            value="50">
+                        <div class="valid-feedback">符合規定</div>
+                        <div class="invalid-feedback">不符合規定</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="num" class="form-label">數量: <span class="h3 text-danger "
+                                id="num-text">50</span>個</label>
+                        <input type="range" class="form-range" min="1" max="100" step="1" value="50" id="num">
+                        <div class="d-flex justify-content-between mt-0">
+                            <span class="fw500">1</span>
+                            <span class="fw500">100</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <select name="" id="category" class="form-select form-select-lg">
+                            <option value="" class="text-center" disabled selected>---產品分類---</option>
+                            <option value="零食" disabled>零食</option>
+                            <option value="飲料" disabled>飲料</option>
+                            <option value="乳製品" disabled>乳製品</option>
+                            <option value="烘焙食品" disabled>烘焙食品</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="remark" class="form-label">備註</label>
+                        <textarea disabled id="remark" class="form-control">XXX</textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="updateModal-btn-update">確認更新</button>
                 </div>
             </div>
         </div>
@@ -114,6 +189,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
+        const pageSize = 5;
+        let page = 1;
+        let productData = []; //用來儲存API取得的所有資料
+
+        let flag_price = true;
+        let uid = "";
+
         $(function () {
             $.ajax({
                 type: "GET",
@@ -128,11 +210,185 @@
                     });
                 }
             });
+
+            // 監聽點擊頁碼
+            $("#pageList").on("click", ".page-link", function () {
+                // 指定頁碼page是當前點擊的頁碼編號
+                page = Number($(this).data("page"));
+
+                // 重新顯示畫面
+                showdata(productData);
+            });
+
+            // 監聽更新按鈕
+            // 因為資料渲染時會有多筆資料，如果在strHTML用id=""話，會有多筆重複的id，不符合id獨一無二的特性，因此改用監聽class="btn-update"（這是自己創的一個新的class）
+            // 先監聽一個一開始就存在的 #mytbody，之後如果裡面的 .update-btn 被點擊，再處理
+            $("#mytbody").on("click", ".btn-update", function () {
+                console.log($(this).data("id"));
+
+                const id = $(this).data("id");
+                uid = id;
+                // 傳遞至後端API取得資料
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:3000/product/" + id,
+                    dataType: "json",
+                    success: showUpdateData,
+                    error: function () {
+                        Swal.fire({
+                            title: "讀取失敗",
+                            text: "無法連接後端API",
+                            icon: "error"
+                        });
+                    }
+                });
+            });
+
+            // 監聽產品數量range
+            $("#num").on("input", function () {
+                $("#num-text").text($(this).val());
+            });
+
+            // 監聽價格price
+            $("#price").on("change", function () {
+                const price = Number($(this).val());
+                if (price >= 1 && price <= 100) {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_price = true;
+                } else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_price = false;
+                }
+            });
+
+            // 監聽確認更新按鈕 updateModal-btn-update
+            $("#updateModal-btn-update").on("click", function () {
+                if (!flag_price) {
+                    Swal.fire({
+                        title: "更新失敗",
+                        text: "價格欄位錯誤",
+                        icon: "error"
+                    });
+                    // return: 中止這段程式
+                    return;
+                }
+                // 取得表單資料
+                const price = Number($("#price").val());
+                const num = Number($("#num").val());
+
+                // 轉換成json格式傳遞至後端，執行更新步驟
+                // 先創立物件(jsonData)，再用JSON.stringify(jsonData)轉成json
+                const jsonData = {
+                    price: price,
+                    num: num
+                }
+                console.log(JSON.stringify(jsonData))
+                // contentType: "application/json"： 告訴後端，這包資料請用 JSON 的方式解析，通常put、patch會用到
+                $.ajax({
+                    type: "PATCH",
+                    url: "http://localhost:3000/product/" + uid,
+                    dataType: "json",
+                    data: JSON.stringify(jsonData),
+                    contentType: "application/json",
+                    success: function (data) {
+                        console.log("更新成功: ", data);
+                        // 關閉modal，可以參考官網指令
+                        bootstrap.Modal.getInstance(document.getElementById("updateModal")).hide();
+                        Swal.fire({
+                            title: "更新成功",
+                            text: "產品資料已更新",
+                            icon: "success"
+                        });
+
+                        // 重新取得產品列表
+                        $.ajax({
+                            type: "GET",
+                            url: "http://localhost:3000/product",
+                            dataType: "json",
+                            success: showdata
+                        });
+                    },
+                    error: function () {
+                        Swal.fire({
+                            title: "更新失敗",
+                            text: "無法更新產品資料",
+                            icon: "error"
+                        });
+                    }
+                });
+            });
+
+            // 監聽刪除按鈕 btn-delete
+            $("#mytbody").on("click", ".btn-delete", function () {
+                // 刪除用的id, delete id
+                const did = $(this).data("id");
+
+                // 詢問確認是否刪除
+                Swal.fire({
+                    title: "確認刪除嗎？",
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: "確認",
+                    denyButtonText: `取消`,
+                    icon: "question"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // 傳送did至後端API執行刪除
+                        $.ajax({
+                            type: "DELETE",
+                            url: "http://localhost:3000/product/" + did,
+                            dataType: "json",
+                            success: function () {
+                                Swal.fire({
+                                    title: "刪除成功",
+                                    text: "產品資料已刪除",
+                                    icon: "success"
+                                });
+
+                                // 重新取得產品列表
+                                $.ajax({
+                                    type: "GET",
+                                    url: "http://localhost:3000/product",
+                                    dataType: "json",
+                                    success: function(data){
+                                        // 當資料刪除後，該頁沒有資料，要避免頁碼錯誤（例如第5頁刪到沒資料，應該要跑到第4頁）
+                                        // 重新計算一次總頁數，如果當前頁碼比總頁數大，就出現錯誤
+                                        const totalPage = Math.ceil(data.length / pageSize)
+                                        // Math.max(a, b): a、b 兩者取最大值
+                                        // 這是因為如果刪到完全沒資料，不能顯示第0頁，起碼要是第一頁，所以這樣寫可以防止頁碼變成第0頁
+                                        if (page > totalPage){
+                                            page = Math.max(1, totalPage);
+                                        }
+                                        showdata(data);
+                                    }
+                                });
+                            },
+                            error: function () {
+                                Swal.fire({
+                                    title: "刪除失敗",
+                                    text: "無法刪除產品資料",
+                                    icon: "error"
+                                });
+                            }
+                        });
+                    }
+                    else if (result.isDenied) Swal.fire("放棄刪除", "", "info");
+                });
+            });
         });
 
         function showdata(data) {
+            productData = data;
+
+            // 取得當前頁碼資料
+            const pageData = pagination(data, pageSize, page)
+
             $("#mytbody").empty();
-            data.forEach(function (item) {
+
+            // 當中使用btn-update的原因參考上面"監聽更新按鈕"
+            pageData.forEach(function (item) {
                 const strHTML = `
                     <tr>
                         <td data-th="產品名稱"><span>${item.name}</span></td>
@@ -140,10 +396,59 @@
                         <td data-th="產品數量"><span>${item.num}</span></td>
                         <td data-th="產品分類"><span>${item.category}</span></td>
                         <td data-th="產品備註"><span>${item.remark}</span></td>
+                        <td data-th="功能">
+                            <button class="btn btn-warning btn-update" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="${item.id}">更新</button>
+                            <button class="btn btn-danger btn-delete" data-id="${item.id}">刪除</button>
+                        </td>
                     </tr>
                 `;
                 $("#mytbody").append(strHTML);
             });
+
+            // 產生頁碼
+            const totalPage = Math.ceil(data.length / pageSize);
+            $("#pageList").empty();
+
+            if (page > 1) {
+                $("#pageList").append(`<li class="page-item"><a class="page-link" href="#" data-page="${page - 1}">上一頁</a></li>`)
+            }
+
+            for (let i = 1; i <= totalPage; i++) {
+                // if (i === page) {
+                //     active = "active"
+                // } else {
+                //     active = ""
+                // }
+                // ↓三元運算子，邏輯等同於上面寫法
+                let active = (i === page) ? "active" : "";
+
+                // data-page 在 HTML 元素上，額外藏一些「這個元素自己的資料」
+                let strHTML = `<li class="page-item ${active}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+                $("#pageList").append(strHTML);
+            }
+
+            if (page < totalPage) {
+                $("#pageList").append(`<li class="page-item"><a class="page-link" href="#" data-page="${page + 1}">下一頁</a></li>`)
+            }
+
+        }
+
+        // 將資料放到updateModal
+        function showUpdateData(data) {
+            console.log(data);
+
+            $("#product-name").val(data.name);
+            $("#price").val(data.price);
+            $("#num").val(data.num);
+            $("#num-text").text(data.num);
+            $("#category").val(data.category);
+            $("#remark").val(data.remark);
+        }
+
+        function pagination(data, pageSize, page) {
+            const start = (page - 1) * pageSize;
+            const end = start + pageSize;
+            return data.slice(start, end);
         }
 
     </script>

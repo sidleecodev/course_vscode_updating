@@ -1,0 +1,173 @@
+{
+  "vice_market": [
+    {
+      "id": "1",
+      "name": "霓虹墨鏡",
+      "category": "街頭服飾",
+      "price": 45,
+      "num": 32,
+      "remark": "夜城限定款"
+    },
+    {
+      "id": "2",
+      "name": "海灘襯衫",
+      "category": "街頭服飾",
+      "price": 55,
+      "num": 18,
+      "remark": "熱帶印花"
+    },
+    {
+      "id": "3",
+      "name": "街頭帽T",
+      "category": "街頭服飾",
+      "price": 80,
+      "num": 7,
+      "remark": "限量配色"
+    },
+    {
+      "id": "4",
+      "name": "復古球鞋",
+      "category": "街頭服飾",
+      "price": 95,
+      "num": 24,
+      "remark": "復古系列"
+    },
+    {
+      "id": "5",
+      "name": "棒球帽",
+      "category": "街頭服飾",
+      "price": 30,
+      "num": 48,
+      "remark": "可調節帽圍"
+    },
+    {
+      "id": "6",
+      "name": "霓虹車燈",
+      "category": "車輛配件",
+      "price": 85,
+      "num": 12,
+      "remark": "多色燈效"
+    },
+    {
+      "id": "7",
+      "name": "賽車貼紙",
+      "category": "車輛配件",
+      "price": 25,
+      "num": 65,
+      "remark": "車身裝飾"
+    },
+    {
+      "id": "8",
+      "name": "合金輪圈",
+      "category": "車輛配件",
+      "price": 100,
+      "num": 6,
+      "remark": "運動款式"
+    },
+    {
+      "id": "9",
+      "name": "方向盤套",
+      "category": "車輛配件",
+      "price": 45,
+      "num": 21,
+      "remark": "防滑材質"
+    },
+    {
+      "id": "10",
+      "name": "車用香氛",
+      "category": "車輛配件",
+      "price": 20,
+      "num": 38,
+      "remark": "海洋香氣"
+    },
+    {
+      "id": "11",
+      "name": "能量飲料",
+      "category": "日常補給",
+      "price": 15,
+      "num": 85,
+      "remark": "冰鎮風味"
+    },
+    {
+      "id": "12",
+      "name": "海灘飲品",
+      "category": "日常補給",
+      "price": 12,
+      "num": 60,
+      "remark": "熱帶口味"
+    },
+    {
+      "id": "13",
+      "name": "速食漢堡",
+      "category": "日常補給",
+      "price": 25,
+      "num": 42,
+      "remark": "即食補給"
+    },
+    {
+      "id": "14",
+      "name": "旅行水壺",
+      "category": "日常補給",
+      "price": 35,
+      "num": 9,
+      "remark": "可重複使用"
+    },
+    {
+      "id": "15",
+      "name": "運動飲料",
+      "category": "日常補給",
+      "price": 18,
+      "num": 75,
+      "remark": "運動補給"
+    },
+    {
+      "id": "16",
+      "name": "智慧手機",
+      "category": "電子裝備",
+      "price": 100,
+      "num": 15,
+      "remark": "基礎機型"
+    },
+    {
+      "id": "17",
+      "name": "無線耳機",
+      "category": "電子裝備",
+      "price": 75,
+      "num": 8,
+      "remark": "降噪款式"
+    },
+    {
+      "id": "18",
+      "name": "行動電源",
+      "category": "電子裝備",
+      "price": 45,
+      "num": 30,
+      "remark": "外出充電"
+    },
+    {
+      "id": "19",
+      "name": "運動相機",
+      "category": "電子裝備",
+      "price": 90,
+      "num": 4,
+      "remark": "戶外攝影"
+    },
+    {
+      "id": "20",
+      "name": "車載音響",
+      "category": "電子裝備",
+      "price": 95,
+      "num": 16,
+      "remark": "重低音款"
+    },
+    {
+      "name": "電動鑽頭",
+      "category": "電子裝備",
+      "price": "60",
+      "num": "31",
+      "remark": "沒有",
+      "id": "c00XoWBafvk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

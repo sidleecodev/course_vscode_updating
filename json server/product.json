@@ -57,12 +57,36 @@
       "id": "E4r0er3Opp0"
     },
     {
-      "name": "可樂",
-      "category": "飲料",
-      "price": "40",
-      "num": "20",
+      "name": "麵包",
+      "category": "烘焙食品",
+      "price": "30",
+      "num": "77",
+      "remark": "需乾燥保存",
+      "id": "ieT2RvczM6s"
+    },
+    {
+      "name": "蛋糕",
+      "category": "烘焙食品",
+      "price": "79",
+      "num": "21",
+      "remark": "XXXX",
+      "id": "A3M9mMbKfwY"
+    },
+    {
+      "name": "綠豆糕",
+      "category": "烘焙食品",
+      "price": "70",
+      "num": "31",
       "remark": "XXXXX",
-      "id": "fVN_uvnKd6s"
+      "id": "hH23CfitW00"
+    },
+    {
+      "name": "大罐可樂",
+      "category": "飲料",
+      "price": 90,
+      "num": 70,
+      "remark": "不可大力搖晃",
+      "id": "7GeDHyZa5Po"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
